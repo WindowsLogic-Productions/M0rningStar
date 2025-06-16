@@ -374,7 +374,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemClipBoardC
 			this->ToggleHitJudgeToolStripMenuItem->Name = L"ToggleHitJudgeToolStripMenuItem";
 			this->ToggleHitJudgeToolStripMenuItem->ShortcutKeys = System::Windows::Forms::Keys::F1;
 			this->ToggleHitJudgeToolStripMenuItem->Size = System::Drawing::Size(310, 22);
-			this->ToggleHitJudgeToolStripMenuItem->Text = L"当たり判定の表示切替(&H)";
+			this->ToggleHitJudgeToolStripMenuItem->Text = L"Switch Player List View";
 			this->ToggleHitJudgeToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ToggleHitJudgeToolStripMenuItem_Click);
 			this->toolStripSeparator11->Name = L"toolStripSeparator11";
 			this->toolStripSeparator11->Size = System::Drawing::Size(307, 6);
@@ -1441,21 +1441,21 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemClipBoardC
 
 		void WriteCommandList(){
 			WriteMessage(
-				"/help ： コマンド一覧の表示\n"
-				"/clear ： ログの削除\n"
-				"/log ： RTF形式でログの保存\n"
-				"/debug ： デバッグモードの切り替え\n"
-				"/vs ： ランダムに対戦を挑む\n"
-				"/game ： ゲームの起動\n"
-				"/replay ： リプレイファイルの再生\n"
-				"/quit ： 起動中のゲームを終了\n"
-				"/reload ： メンバーリストの更新\n"
-				"/restart ： フリープレイから新規に回線接続\n"
-				"/rest ： 休憩状態の切り替え\n"
-				"/seek ： 対戦募集状態の切り替え\n"
-				"/list ： リストの表示を切り替え\n"
-				"/leave ： 退室＆フリープレイに移行\n"
-				"/exit ： プログラムの終了\n", SystemMessageColor);
+				L"/help:    Displays a full list of available commands.\n"
+				L"/clear:   Clears the chat log.\n"
+				L"/log:     Saves the log to an RTF file.\n"
+				L"/debug:   Toggles debug mode.\n"
+				L"/vs:      Challenge a random opponent!\n"
+				L"/game:    Starts the game.\n"
+				L"/replay:  Opens a replay file.\n"
+				L"/quit:    Closes the game during battle.\n"
+				L"/reload:  Reloads player list.\n"
+				L"/restart: Reconnects to the last known server.\n"
+				L"/rest:    Toggles rest mode.\n"
+				L"/seek:    Toggles seek mode.\n"
+				L"/list:    Displays the player list.\n"
+				L"/leave:   Exits the server and enters Free Play mode.\n"
+				L"/exit:    Exits the program.\n", SystemMessageColor);
 		}
 
 		void RandomVersus(){
@@ -1822,7 +1822,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemClipBoardC
 			}
 			catch(Exception^ e) {
 				Global_address = 0;
-				WriteMessage("IPアドレス情報の抽出に失敗しました。\nLilithPortのバージョンが古い可能性があります。\n", ErrorMessageColor);
+				WriteMessage("ERROR: Failed to extract IP address information. This version of LilithPort may be outdated.\n", ErrorMessageColor);
 
 				if(MTINFO.DEBUG){
 					WriteMessage(e->ToString() + "\n", DebugMessageColor);

@@ -544,7 +544,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->labelKeywordSound->Name = L"labelKeywordSound";
 			this->labelKeywordSound->Size = System::Drawing::Size(141, 12);
 			this->labelKeywordSound->TabIndex = 1;
-			this->labelKeywordSound->Text = L"コンマ( , )で複数登録が可能";
+			this->labelKeywordSound->Text = L"Separate multiple words with commas (,)";
 			// 
 			// textBoxKeyword
 			// 
@@ -1267,7 +1267,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->checkBoxHitJudge->Name = L"checkBoxHitJudge";
 			this->checkBoxHitJudge->Size = System::Drawing::Size(111, 16);
 			this->checkBoxHitJudge->TabIndex = 1;
-			this->checkBoxHitJudge->Text = L"当たり判定の表示";
+			this->checkBoxHitJudge->Text = L"Show Hitboxes";
 			this->checkBoxHitJudge->UseVisualStyleBackColor = true;
 			this->checkBoxHitJudge->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1950,7 +1950,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->checkBoxShowGameOption->Name = L"checkBoxShowGameOption";
 			this->checkBoxShowGameOption->Size = System::Drawing::Size(199, 16);
 			this->checkBoxShowGameOption->TabIndex = 3;
-			this->checkBoxShowGameOption->Text = L"ゲーム起動時に対戦設定を表示する";
+			this->checkBoxShowGameOption->Text = L"Show Match settings on game start.";
 			this->checkBoxShowGameOption->UseVisualStyleBackColor = true;
 			this->checkBoxShowGameOption->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 

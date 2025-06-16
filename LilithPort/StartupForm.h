@@ -169,8 +169,7 @@ namespace LilithPort {
 			this->labelServerName->Size = System::Drawing::Size(49, 12);
 			this->labelServerName->TabIndex = 0;
 			this->labelServerName->Text = L"サーバ名:";
-			this->toolTipStartupForm->SetToolTip(this->labelServerName, L"あなたのサーバ名です。\r\nタイトルバーやブックマークに表示されます。\r\n『@』を先頭につけるとチャット禁止モードで起動します。\r\n『#』を先頭につけると匿名モード" 
-				L"(チャット禁止・ランダム対戦のみ)で起動します。");
+			this->toolTipStartupForm->SetToolTip(this->labelServerName, L"The name your server will have.\nThis is not the address.");
 			this->labelServerName->MouseLeave += gcnew System::EventHandler(this, &StartupForm::label_MouseLeave);
 			this->labelServerName->MouseEnter += gcnew System::EventHandler(this, &StartupForm::label_MouseEnter);
 			// 
@@ -245,7 +244,7 @@ namespace LilithPort {
 			this->labelComment->Size = System::Drawing::Size(40, 12);
 			this->labelComment->TabIndex = 4;
 			this->labelComment->Text = L"コメント:";
-			this->toolTipStartupForm->SetToolTip(this->labelComment, L"入室時に表示されます。\r\n匿名モードのサーバでは表示されません。");
+			this->toolTipStartupForm->SetToolTip(this->labelComment, L"You will automatically say this message when you join.");
 			this->labelComment->MouseLeave += gcnew System::EventHandler(this, &StartupForm::label_MouseLeave);
 			this->labelComment->MouseEnter += gcnew System::EventHandler(this, &StartupForm::label_MouseEnter);
 			// 
@@ -265,7 +264,7 @@ namespace LilithPort {
 			this->labelName->Size = System::Drawing::Size(61, 12);
 			this->labelName->TabIndex = 0;
 			this->labelName->Text = L"ニックネーム:";
-			this->toolTipStartupForm->SetToolTip(this->labelName, L"あなたの表示名です。\r\nリプレイファイル名でも使われます。\r\n匿名モードのサーバでは表示されません。");
+			this->toolTipStartupForm->SetToolTip(this->labelName, L"Your username. Don't use special characters.");
 			this->labelName->MouseLeave += gcnew System::EventHandler(this, &StartupForm::label_MouseLeave);
 			this->labelName->MouseEnter += gcnew System::EventHandler(this, &StartupForm::label_MouseEnter);
 			// 
@@ -295,10 +294,8 @@ namespace LilithPort {
 			this->labelButtonUPnP->Name = L"labelButtonUPnP";
 			this->labelButtonUPnP->Size = System::Drawing::Size(59, 24);
 			this->labelButtonUPnP->TabIndex = 8;
-			this->labelButtonUPnP->Text = L"UPnP\r\nポート開閉:";
-			this->toolTipStartupForm->SetToolTip(this->labelButtonUPnP, L"UPnP機能を使ってポートを開放できます。\r\nルータ設定・ファイアウォール設定でUPnPが有効になっている必要があります。\r\n環境によっては、正常に動作しないこと" 
-				L"があります。\r\n（二重ルータ・ファイアウォール設定・セキュリティソフト設定等）\r\n※注意：ポート開放はセキュリティリスクを伴います。ご理解の上、自己責任でご使用" 
-				L"ください。");
+			this->labelButtonUPnP->Text = L"UPnP\nToggle:";
+			this->toolTipStartupForm->SetToolTip(this->labelButtonUPnP, L"Defines if you want to use UPnP mode.");
 			this->labelButtonUPnP->MouseLeave += gcnew System::EventHandler(this, &StartupForm::label_MouseLeave);
 			this->labelButtonUPnP->MouseEnter += gcnew System::EventHandler(this, &StartupForm::label_MouseEnter);
 			// 
@@ -366,7 +363,7 @@ namespace LilithPort {
 			this->groupBoxWelcome->TabIndex = 11;
 			this->groupBoxWelcome->TabStop = false;
 			this->groupBoxWelcome->Text = L"サーバ告知";
-			this->toolTipStartupForm->SetToolTip(this->groupBoxWelcome, L"入室時に表示されるWelcomeメッセージです。");
+			this->toolTipStartupForm->SetToolTip(this->groupBoxWelcome, L"This Welcome message will be shown when players join your server.");
 			// 
 			// textBoxWelcome
 			// 

@@ -811,8 +811,8 @@ void UPnP_PortOpenClose(bool s, bool auto_close){ /* open:close, auto:manual */
 
 	BSTR proto = L"UDP";
 	BSTR desc = L"LilithPort UDP";
-	String^ mestitle = L"UPnPポート開閉";
-	String^ errmes_tmp = L"\nUPnPを使用できない環境の可能性があります。\nルータのUPnP有効設定・ファイアウォール設定を確認してみてください。";
+	String^ mestitle = L"UPnP Toggle";
+	String^ errmes_tmp = L"\nYou may be in an environment where UPnP cannot be used. \nPlease check the router's UPnP enable settings and firewall settings.";
 	BSTR buf= L"";
 	//BSTR exip;
 
@@ -854,7 +854,7 @@ void UPnP_PortOpenClose(bool s, bool auto_close){ /* open:close, auto:manual */
 			}
 			else if(gcnew String(buf) != gcnew String(desc)){	// 閉鎖: LilithPort外での設定なので警告
 				if(auto_close){return;}	// 自動はやめとく
-				if(MessageBox::Show(String::Format("LilithPort以外のUPnP設定を閉鎖します。\n別の通信で使用している可能性があります。\n閉鎖してもよろしいですか？\nポート説明: {0}", gcnew String(buf)), mestitle, MessageBoxButtons::YesNo, MessageBoxIcon::Question)
+				if(MessageBox::Show(String::Format("Close UPnP settings other than LilithPort? \nIt may be being used for another program. \nAre you sure you want to close it? \nPort: {0}", gcnew String(buf)), mestitle, MessageBoxButtons::YesNo, MessageBoxIcon::Question)
 					!= ::DialogResult::Yes){
 					return;
 				}
@@ -876,7 +876,7 @@ void UPnP_PortOpenClose(bool s, bool auto_close){ /* open:close, auto:manual */
 				if(MTINFO.DEBUG){Debug::WriteLine("UPnP > UDPポート開放失敗");}
 				return;
 			}
-			MessageBox::Show(String::Format("ポート開放に成功しました。\nポート番号: {0}\n\n※このメッセージが表示されても、\n環境によって通信できない場合もあります。", port), mestitle, MessageBoxButtons::OK, MessageBoxIcon::Information);
+			MessageBox::Show(String::Format("UPnP Enabled on the Port: {0}\n\nゝhis will allow certain types of online play. This port can temporarily only be used by LilithPort.", port), mestitle, MessageBoxButtons::OK, MessageBoxIcon::Information);
 			if(MTINFO.DEBUG){
 				Debug::WriteLine(String::Format("UPnP > UDPポート開放成功 > ポート番号: {0}", port));
 			}

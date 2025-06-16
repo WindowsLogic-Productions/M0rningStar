@@ -295,16 +295,16 @@ void MainForm::Begin()
 						MTINFO.VERSION_CHECKED = false;
 					}
 					if(MTINFO.VERSION_CHECKED) {
-						WriteMessage(String::Format("サーバのバージョン : v{0}\n", ServerVersion), SystemMessageColor);
+						WriteMessage(String::Format("Server Version : v{0}\n", ServerVersion), SystemMessageColor);
 						if(LP_VERSION > ServerVersion){
-							WriteMessage("サーバのバージョンが古いため、一部機能の互換性が取れない場合があります。\n", ErrorMessageColor);
+							WriteMessage("WARNING: Server's Version is out of date.", ErrorMessageColor);
 						}
 						else if(LP_VERSION < ServerVersion) {
-							WriteMessage("LilithPortのバージョンがサーバより低いため、一部機能の互換性が取れない場合があります。\n最新バージョンを確認してください。\n", ErrorMessageColor);
+							WriteMessage("WARNING: Your client is older than the server.", ErrorMessageColor);
 						}
 					}
 					else{
-						WriteMessage("MTSP, または古いバージョンのLilithPortサーバです。一部機能の互換性が取れない場合があります。\n", ErrorMessageColor);
+						WriteMessage("WARNING: MTSP Server Joined", ErrorMessageColor);
 					}
 
 					// 蔵受信開始
@@ -356,32 +356,32 @@ void MainForm::Begin()
 			catch(SocketException^ e){
 				Leave(false);
 
-				if(e->ErrorCode == 0){
-					if(me->ID == 0xFFFF){
-						WriteMessage(String::Format("{0}は満室です。\n", ServerName), ErrorMessageColor);
+				if (e->ErrorCode == 0) {
+					if (me->ID == 0xFFFF) {
+						WriteMessage(String::Format(L"ERROR: {0} is full!\n", ServerName), ErrorMessageColor);
 					}
-					else if(me->ID == 0xFFFE){
-						WriteMessage("本体のバージョンが違います。\n", ErrorMessageColor);
+					else if (me->ID == 0xFFFE) {
+						WriteMessage(L"ERROR: Program version is different.\n", ErrorMessageColor);
 					}
-					else if(me->ID > MAX_ID){
-						WriteMessage(String::Format("{0}はこれ以上IDを発行できません。\n", ServerName), ErrorMessageColor);
+					else if (me->ID > MAX_ID) {
+						WriteMessage(String::Format(L"ERROR: {0} could not issue any more player IDs.\n", ServerName), ErrorMessageColor);
 					}
-					else if(address != 0){
-						WriteMessage("サーバに接続できませんでした。\n回線が混雑している可能性があります。\n", ErrorMessageColor);
+					else if (address != 0) {
+						WriteMessage(L"ERROR: Could not connect to the server.\nThe connection may be busy.\n", ErrorMessageColor);
 					}
 				}
-				else{
-					if(e->ErrorCode == WSAECONNRESET){
-						WriteMessage("サーバのポートが開いていません。\n", ErrorMessageColor);
+				else {
+					if (e->ErrorCode == WSAECONNRESET) {
+						WriteMessage(L"ERROR: The connection was reset. \n", ErrorMessageColor);
 					}
-					else if(e->ErrorCode == WSAETIMEDOUT){
-						WriteMessage("サーバからの応答がありませんでした。\nサーバが稼働していないか、アドレスが間違っている可能性があります。\n", ErrorMessageColor);
+					else if (e->ErrorCode == WSAETIMEDOUT) {
+						WriteMessage(L"ERROR: The connection timed out.\nThis could be due to many reasons: the server is not running, or the address may be incorrect.\n", ErrorMessageColor);
 					}
-					else if(e->ErrorCode != WSAHOST_NOT_FOUND){
-						WriteMessage(String::Format("ソケットエラー > {0}\n", e->ErrorCode), ErrorMessageColor);
+					else if (e->ErrorCode != WSAHOST_NOT_FOUND) {
+						WriteMessage(String::Format(L"Unknown socket error: {0}\n", e->ErrorCode), ErrorMessageColor);
 					}
-					if(MTINFO.DEBUG){
-						WriteMessage(e->ToString() + "\n", DebugMessageColor);
+					if (MTINFO.DEBUG) {
+						WriteMessage(e->ToString() + L"\n", DebugMessageColor);
 					}
 				}
 			}
@@ -1010,9 +1010,9 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 								form->WriteMessage(String::Format(MemberList[i]->NAME + " > state:{0}\n", rcv[3]), DebugMessageColor);
 							}
 							form->WriteTime(0, SystemMessageColor);
-							form->WriteMessage(MemberList[i]->NAME + "の状態を更新しました。\n", SystemMessageColor);
+							form->WriteMessage(MemberList[i]->NAME + " updated state.", SystemMessageColor);
 							if(MTOPTION.CONNECTION_TYPE != CT_SERVER && MemberList[i]->ID == 0){
-								form->WriteMessage("サーバとの通信が途切れた可能性があります。再接続をしてみてください。\n", ErrorMessageColor);
+								form->WriteMessage("Connection to the server may have been lost. Please try to reconnect.\n", ErrorMessageColor);
 							}
 							MemberList[i]->STATE = rcv[3];
 							form->listBoxMember->Refresh();
@@ -1201,7 +1201,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 					if(ListView != LV_BLIND){
 						form->WriteTime(0, SystemMessageColor);
 						form->WriteMessage(MemberList[i]->NAME, NameColor[MemberList[i]->TYPE]);
-						form->WriteMessage("から対戦の申し込みです。\n", SystemMessageColor);
+						form->WriteMessage("A new challenger!\n", SystemMessageColor);
 					}
 				}
 				finally{
@@ -1830,7 +1830,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 			}
 		}
 		else{
-			form->WriteMessage(String::Format("ソケットエラー({0})\n", e->ErrorCode), ErrorMessageColor);
+			form->WriteMessage(String::Format("SOCKET ERROR: ({0})\n", e->ErrorCode), ErrorMessageColor);
 			if(MTINFO.DEBUG){
 				form->WriteMessage(e->ToString() + "\n", DebugMessageColor);
 			}
@@ -1957,7 +1957,7 @@ void MainForm::RunSonar()
 			}
 			else{
 				if((timeGetTime() - MemberList[1]->RESPONSE) > 100*1000){
-					WriteMessage("サーバとの通信が途絶えました。\n", ErrorMessageColor);
+					WriteMessage("Connection with the server timed out.\n", ErrorMessageColor);
 					leave   = true;
 					Ranging = false;
 				}
@@ -1967,7 +1967,7 @@ void MainForm::RunSonar()
 			}
 		}
 		catch(Exception^){
-			WriteMessage("ソナースレッドでエラーが発生しました。\n", ErrorMessageColor);
+			WriteMessage("An exception was thrown in the sonar thread.\n", ErrorMessageColor);
 		}
 		finally{
 			Monitor::Exit(MemberList);
@@ -1990,7 +1990,7 @@ void MainForm::RunGame(Object^ obj)
 	if(run_type == RT_VS){
 		if(NetVS == nullptr){
 			// 同時凸対策
-			WriteMessage("エラーが発生しました。同時に対戦要求を送った可能性があります。\n", ErrorMessageColor);
+			WriteMessage("An error occurred. This may be caused by you and your opponent having sent a match request at the same time.\n", ErrorMessageColor);
 			return;
 		}
 
