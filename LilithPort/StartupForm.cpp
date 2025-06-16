@@ -69,7 +69,7 @@ bool StartupForm::CheckValidate() {
 		textBoxName->Text = gcnew String(MTOPTION.NAME);
 
 		if(textBoxName->Text->Length == 0){
-			textBoxName->Text = gcnew String("–¼–³‚µ‚³‚ñ");
+			textBoxName->Text = gcnew String("");
 		}
 	}
 

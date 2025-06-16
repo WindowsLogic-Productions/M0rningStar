@@ -152,8 +152,7 @@ namespace LilithPort {
 			this->radioButtonServer->Size = System::Drawing::Size(62, 18);
 			this->radioButtonServer->TabIndex = 4;
 			this->radioButtonServer->Text = L"Server";
-			this->toolTipStartupForm->SetToolTip(this->radioButtonServer, L"ƒT[ƒo‚ðŒš‚Ä‚Ä‘¼‚ÌÚ‘±ŽÒ‚ð‘Ò‚¿Žó‚¯‚Ü‚·B\r\nŽw’è‚µ‚½‘ÒŽóƒ|[ƒg(UDP)‚ðŠJ•ú‚·‚é•K—v‚ª" 
-				L"‚ ‚è‚Ü‚·B");
+			this->toolTipStartupForm->SetToolTip(this->radioButtonServer, L"Set up a server and wait for other connections.\r\nThe specified listening port (UDP) must be open.");
 			this->radioButtonServer->UseVisualStyleBackColor = true;
 			this->radioButtonServer->CheckedChanged += gcnew System::EventHandler(this, &StartupForm::radioButtonServer_CheckedChanged);
 			// 
@@ -166,8 +165,7 @@ namespace LilithPort {
 			this->radioButtonHost->Size = System::Drawing::Size(53, 18);
 			this->radioButtonHost->TabIndex = 5;
 			this->radioButtonHost->Text = L"Host";
-			this->toolTipStartupForm->SetToolTip(this->radioButtonHost, L"ƒT[ƒo‚ÉÚ‘±‚µ‚Ü‚·B\r\nŽw’è‚µ‚½‘ÒŽóƒ|[ƒg(UDP)‚ð’ÊM‚ÉŽg—p‚µ‚Ü‚·B\r\n(ƒ|[ƒg‚ðŠJ•ú‚" 
-				L"·‚é‚Æ“®ì‚ªˆÀ’è‚µ‚Ü‚·B)");
+			this->toolTipStartupForm->SetToolTip(this->radioButtonHost, L"Connect to the server. \r\nThe specified listening port (UDP) will be used for communication. \r\n(Opening the port will ensure stable operation.)");
 			this->radioButtonHost->UseVisualStyleBackColor = true;
 			this->radioButtonHost->CheckedChanged += gcnew System::EventHandler(this, &StartupForm::radioButtonHost_CheckedChanged);
 			// 
@@ -180,8 +178,7 @@ namespace LilithPort {
 			this->radioButtonClient->Size = System::Drawing::Size(57, 18);
 			this->radioButtonClient->TabIndex = 6;
 			this->radioButtonClient->Text = L"Client";
-			this->toolTipStartupForm->SetToolTip(this->radioButtonClient, L"ƒT[ƒo‚ÉÚ‘±‚µ‚Ü‚·B\r\nƒ|[ƒg‚ÍŽ©“®“I‚ÉŠ„‚è“–‚Ä‚ç‚ê‚Ü‚·B\r\n(ƒ|[ƒg‚ðŠJ•ú‚µ‚È‚­‚Ä‚à" 
-				L"Ú‘±‚Å‚«‚Ü‚·‚ªA“®ì‚ª‚â‚â•sˆÀ’è‚Å‚·B)");
+			this->toolTipStartupForm->SetToolTip(this->radioButtonClient, L"Connect to the server. \r\nThe port will be assigned automatically. \r\n(You can connect without opening the port, but the operation will be slightly unstable.)");
 			this->radioButtonClient->UseVisualStyleBackColor = true;
 			this->radioButtonClient->CheckedChanged += gcnew System::EventHandler(this, &StartupForm::radioButtonClient_CheckedChanged);
 			// 
@@ -235,7 +232,7 @@ namespace LilithPort {
 			this->buttonOK->Size = System::Drawing::Size(80, 26);
 			this->buttonOK->TabIndex = 12;
 			this->buttonOK->Text = L"OK";
-			this->toolTipStartupForm->SetToolTip(this->buttonOK, L"ƒT[ƒo‘Ò‚¿Žó‚¯‚ðŠJŽn‚µ‚Ü‚·B");
+			this->toolTipStartupForm->SetToolTip(this->buttonOK, L"Server listening will start.");
 			this->buttonOK->UseVisualStyleBackColor = true;
 			this->buttonOK->Click += gcnew System::EventHandler(this, &StartupForm::buttonOK_Click);
 			// 
@@ -247,7 +244,7 @@ namespace LilithPort {
 			this->buttonCancel->Size = System::Drawing::Size(80, 26);
 			this->buttonCancel->TabIndex = 14;
 			this->buttonCancel->Text = L"Cancel";
-			this->toolTipStartupForm->SetToolTip(this->buttonCancel, L"ƒIƒtƒ‰ƒCƒ“‚ÅƒtƒŠ[ƒvƒŒƒCƒ‚[ƒh‚ÉˆÚs‚µ‚Ü‚·B");
+			this->toolTipStartupForm->SetToolTip(this->buttonCancel, L"Switch to offline free play mode.");
 			this->buttonCancel->UseVisualStyleBackColor = true;
 			this->buttonCancel->Click += gcnew System::EventHandler(this, &StartupForm::buttonCancel_Click);
 			// 
@@ -286,8 +283,7 @@ namespace LilithPort {
 			this->buttonClosePortUPnP->Size = System::Drawing::Size(52, 26);
 			this->buttonClosePortUPnP->TabIndex = 10;
 			this->buttonClosePortUPnP->Text = L"Disable";
-			this->toolTipStartupForm->SetToolTip(this->buttonClosePortUPnP, L"‘ÒŽóƒ|[ƒg”Ô†‚ÌUDPƒ|[ƒg‚ð•Â½‚µ‚Ü‚·B\r\nLilithPort‚ÅŠJ•ú‚µ‚½ƒ|[ƒg‚Ì‚Ý•Â½‚Å‚«‚Ü" 
-				L"‚·B");
+			this->toolTipStartupForm->SetToolTip(this->buttonClosePortUPnP, L"Close your UPnP Port.");
 			this->buttonClosePortUPnP->UseVisualStyleBackColor = true;
 			this->buttonClosePortUPnP->Click += gcnew System::EventHandler(this, &StartupForm::buttonClosePortUPnP_Click);
 			// 
@@ -298,8 +294,7 @@ namespace LilithPort {
 			this->buttonOpenPortUPnP->Size = System::Drawing::Size(52, 26);
 			this->buttonOpenPortUPnP->TabIndex = 9;
 			this->buttonOpenPortUPnP->Text = L"Enable";
-			this->toolTipStartupForm->SetToolTip(this->buttonOpenPortUPnP, L"‘ÒŽóƒ|[ƒg”Ô†‚ÌUDPƒ|[ƒg‚ðŠJ•ú‚µ‚Ü‚·B\r\nŽg—pŒã‚ÍŽè“®‚Å‚Ìƒ|[ƒg•Â½‚ð„§‚µ‚Ü‚·B" 
-				L"");
+			this->toolTipStartupForm->SetToolTip(this->buttonOpenPortUPnP, L"Open your UPnP Port.");
 			this->buttonOpenPortUPnP->UseVisualStyleBackColor = true;
 			this->buttonOpenPortUPnP->Click += gcnew System::EventHandler(this, &StartupForm::buttonOpenPortUPnP_Click);
 			// 
@@ -321,9 +316,8 @@ namespace LilithPort {
 			this->groupBoxConnection->TabIndex = 9;
 			this->groupBoxConnection->TabStop = false;
 			this->groupBoxConnection->Text = L"Client";
-			this->toolTipStartupForm->SetToolTip(this->groupBoxConnection, L"IPƒAƒhƒŒƒX, ƒzƒXƒg–¼, •ÏŠ·ƒAƒhƒŒƒX‚Ì‚¢‚¸‚ê‚©‚ð“ü—Í‚µ‚Ü‚·B\r\nw:x‚ÉŒq‚°‚Äƒ|[ƒg”Ô" 
-				L"†‚ðŽw’è‚µ‚Ü‚·B\r\nƒ|[ƒg”Ô†‚ðÈ—ª‚µ‚½ê‡A7500ƒ|[ƒg‚ÉÚ‘±‚µ‚Ü‚·B\r\n(—á:[ lili" 
-				L"th.port.xx:7500 ], [ 123.456.xxx.xxx ])");
+			this->toolTipStartupForm->SetToolTip(this->groupBoxConnection, L"Enter an IP address, host name, or translation address.\r\nSpecify the port number by connecting it with a colon (:).\r\nIf the port number is omitted, it will connect to port 7500." 
+				L"\r\n(Example:[ lilith.port.xx:7500 ], [ 123.456.xxx.xxx ])");
 			// 
 			// label1
 			// 
@@ -372,7 +366,7 @@ namespace LilithPort {
 			this->buttonConnect->Size = System::Drawing::Size(80, 26);
 			this->buttonConnect->TabIndex = 13;
 			this->buttonConnect->Text = L"Connect";
-			this->toolTipStartupForm->SetToolTip(this->buttonConnect, L"ƒIƒ“ƒ‰ƒCƒ“Ú‘±‚ðŠJŽn‚µ‚Ü‚·B");
+			this->toolTipStartupForm->SetToolTip(this->buttonConnect, L"Start an online connection.");
 			this->buttonConnect->UseVisualStyleBackColor = true;
 			this->buttonConnect->Click += gcnew System::EventHandler(this, &StartupForm::buttonOK_Click);
 			// 
