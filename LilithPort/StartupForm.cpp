@@ -14,7 +14,7 @@ bool StartupForm::CheckValidate() {
 
 		// サーバ名チェック
 		if(textBoxServerName->Text->Length == 0){
-			MessageBox::Show("Please enter the server name.\n\nTo start in Server mode, you must enter a server name.", "Server Mode Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+			MessageBox::Show("サーバ名を入力してください。\n\nSERVERモードで起動するには、\nサーバ名を入力する必要があります。", "SERVERモードエラー", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			return false;
 		}
 		mp = Runtime::InteropServices::Marshal::StringToHGlobalAuto(textBoxServerName->Text);
@@ -22,7 +22,7 @@ bool StartupForm::CheckValidate() {
 		Runtime::InteropServices::Marshal::FreeHGlobal(mp);
 		p2 = _tcschr(p1, _T(','));
 		if (p2 != NULL){
-			MessageBox::Show("The server name contains an invalid character (,).\nPlease check the server name.", "Server Mode Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+			MessageBox::Show("サーバ名に使用できない文字(,)があります。\nサーバ名を確認してください。", "SERVERモードエラー", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			return false;
 		}
 	}
@@ -46,14 +46,14 @@ bool StartupForm::CheckValidate() {
 	// アドレス入力チェック
 	if(MTOPTION.CONNECTION_TYPE == CT_HOST || MTOPTION.CONNECTION_TYPE == CT_CLIENT) {
 		if(textBoxIP->Text->Length == 0){
-			MessageBox::Show("Please enter the destination address. \n\nTo start in HOST, CLIENT mode,\n you must enter the destination address.", "HOST, CLIENT mode error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+			MessageBox::Show("接続先アドレスを入力してください。\n\nHOST, CLIENTモードで起動するには、\n接続先のアドレスを入力する必要があります。", "HOST, CLIENTモードエラー", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			return false;
 		}
 		mp = Runtime::InteropServices::Marshal::StringToHGlobalAuto(textBoxIP->Text);
 		_tcscpy_s(p1, static_cast<PTCHAR>(mp.ToPointer()));
 		p2 = _tcschr(p1, _T(','));
 		if (p2 != NULL){
-			MessageBox::Show("The destination address contains an invalid character (,). \nPlease check the destination address.", "HOST, CLIENT mode error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+			MessageBox::Show("接続先アドレスに使用できない文字(,)があります。\n接続先アドレスを確認してください。", "HOST, CLIENTモードエラー", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			return false;
 		}
 
