@@ -12,11 +12,11 @@ using namespace System::Security::Permissions;
 // これらの属性値を変更してください。
 //
 [assembly:AssemblyTitleAttribute("LilithPort")];
-[assembly:AssemblyDescriptionAttribute("")];
+[assembly:AssemblyDescriptionAttribute("FM95/FM2K netplay client.")];
 [assembly:AssemblyConfigurationAttribute("")];
 [assembly:AssemblyCompanyAttribute("")];
 [assembly:AssemblyProductAttribute("LilithPort")];
-[assembly:AssemblyCopyrightAttribute("Copyright (c)  2014")];
+[assembly:AssemblyCopyrightAttribute("Copyright ｩ 2025 WindowsLogic Productions & BattleCapacity")];
 [assembly:AssemblyTrademarkAttribute("")];
 [assembly:AssemblyCultureAttribute("")];
 
@@ -31,7 +31,7 @@ using namespace System::Security::Permissions;
 // すべての値を指定するか、下のように '*' を使ってリビジョンおよびビルド番号を
 // 既定値にすることができます:
 
-[assembly:AssemblyVersionAttribute("1.0.0.0")];
+[assembly:AssemblyVersionAttribute("1.0.8.1")];
 
 [assembly:ComVisible(false)];
 

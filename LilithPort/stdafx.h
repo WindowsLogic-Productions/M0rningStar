@@ -324,6 +324,7 @@ typedef struct _MT_SP_OPTION
 	bool  LOG_FORMAT_RTF;
 	bool  NAME_FLASH;
 	bool  TALK_FLASH;
+	bool  REST_CONNECT;
 	bool  AFTER_REST;
 	bool  AUTO_REST;
 	UINT  AUTO_REST_TIME;

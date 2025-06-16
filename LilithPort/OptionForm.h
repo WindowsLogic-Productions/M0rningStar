@@ -130,13 +130,13 @@ namespace LilithPort {
 	private: System::Windows::Forms::NumericUpDown^  numericUpDownTimer;
 
 	private: System::Windows::Forms::TabPage^  tabPageVolume;
-	private: System::Windows::Forms::GroupBox^  groupBoxSE;
+
 	private: System::Windows::Forms::Label^  labelSE;
 	private: System::Windows::Forms::TrackBar^  trackBarSE;
 	private: System::Windows::Forms::GroupBox^  groupBoxBGM;
 	private: System::Windows::Forms::Label^  labelBGM;
 	private: System::Windows::Forms::TrackBar^  trackBarBGM;
-	private: System::Windows::Forms::GroupBox^  groupBoxMidi;
+
 	private: System::Windows::Forms::Label^  labelMidi;
 	private: System::Windows::Forms::TrackBar^  trackBarMidi;
 private: System::Windows::Forms::TabPage^  tabPageIP;
@@ -211,6 +211,13 @@ private: System::Windows::Forms::GroupBox^  groupBoxLog;
 private: System::Windows::Forms::RadioButton^  radioButtonLogRTF;
 private: System::Windows::Forms::RadioButton^  radioButtonLogTXT;
 private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
+private: System::Windows::Forms::ToolTip^  toolTip1;
+private: System::Windows::Forms::Label^  backgroundMusicLabel;
+private: System::Windows::Forms::Label^  label2;
+private: System::Windows::Forms::Label^  label1;
+private: System::Windows::Forms::GroupBox^  groupBoxMidi;
+
+private: System::ComponentModel::IContainer^  components;
 
 
 
@@ -223,7 +230,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 		/// <summary>
 		/// 必要なデザイナ変数です。
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -232,6 +239,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(OptionForm::typeid));
 			this->buttonOK = (gcnew System::Windows::Forms::Button());
 			this->buttonApply = (gcnew System::Windows::Forms::Button());
@@ -346,26 +354,24 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->buttonHostName = (gcnew System::Windows::Forms::Button());
 			this->buttonServerName = (gcnew System::Windows::Forms::Button());
 			this->tabPageVolume = (gcnew System::Windows::Forms::TabPage());
-			this->groupBoxMidi = (gcnew System::Windows::Forms::GroupBox());
 			this->labelMidi = (gcnew System::Windows::Forms::Label());
 			this->trackBarMidi = (gcnew System::Windows::Forms::TrackBar());
-			this->groupBoxSE = (gcnew System::Windows::Forms::GroupBox());
 			this->labelSE = (gcnew System::Windows::Forms::Label());
 			this->trackBarSE = (gcnew System::Windows::Forms::TrackBar());
 			this->groupBoxBGM = (gcnew System::Windows::Forms::GroupBox());
 			this->labelBGM = (gcnew System::Windows::Forms::Label());
 			this->trackBarBGM = (gcnew System::Windows::Forms::TrackBar());
 			this->tabPageIP = (gcnew System::Windows::Forms::TabPage());
+			this->IPgroupBox = (gcnew System::Windows::Forms::GroupBox());
 			this->AddPortbutton = (gcnew System::Windows::Forms::Button());
-			this->discriptionlabel = (gcnew System::Windows::Forms::Label());
 			this->Convertbutton = (gcnew System::Windows::Forms::Button());
+			this->IPtextBox = (gcnew System::Windows::Forms::TextBox());
+			this->discriptionlabel = (gcnew System::Windows::Forms::Label());
 			this->Base64groupBox = (gcnew System::Windows::Forms::GroupBox());
 			this->labelAddrMT = (gcnew System::Windows::Forms::Label());
 			this->textBoxMTAddr = (gcnew System::Windows::Forms::TextBox());
 			this->labelAddrBase64 = (gcnew System::Windows::Forms::Label());
 			this->Base64textBox = (gcnew System::Windows::Forms::TextBox());
-			this->IPgroupBox = (gcnew System::Windows::Forms::GroupBox());
-			this->IPtextBox = (gcnew System::Windows::Forms::TextBox());
 			this->tabPageDetails = (gcnew System::Windows::Forms::TabPage());
 			this->groupBoxLog = (gcnew System::Windows::Forms::GroupBox());
 			this->radioButtonLogTXT = (gcnew System::Windows::Forms::RadioButton());
@@ -376,6 +382,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->checkBoxNameFlash = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBoxGetIP = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBoxTalkFlash = (gcnew System::Windows::Forms::CheckBox());
+			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
+			this->backgroundMusicLabel = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->groupBoxMidi = (gcnew System::Windows::Forms::GroupBox());
 			this->tabPageSound->SuspendLayout();
 			this->groupBoxKeywordSound->SuspendLayout();
 			this->groupBoxSeekSound->SuspendLayout();
@@ -409,23 +420,22 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->groupBoxStateColor->SuspendLayout();
 			this->groupBoxNameColor->SuspendLayout();
 			this->tabPageVolume->SuspendLayout();
-			this->groupBoxMidi->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBarMidi))->BeginInit();
-			this->groupBoxSE->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBarSE))->BeginInit();
 			this->groupBoxBGM->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBarBGM))->BeginInit();
 			this->tabPageIP->SuspendLayout();
-			this->Base64groupBox->SuspendLayout();
 			this->IPgroupBox->SuspendLayout();
+			this->Base64groupBox->SuspendLayout();
 			this->tabPageDetails->SuspendLayout();
 			this->groupBoxLog->SuspendLayout();
 			this->groupBoxDetails->SuspendLayout();
+			this->groupBoxMidi->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// buttonOK
 			// 
-			this->buttonOK->Location = System::Drawing::Point(325, 370);
+			this->buttonOK->Location = System::Drawing::Point(325, 407);
 			this->buttonOK->Name = L"buttonOK";
 			this->buttonOK->Size = System::Drawing::Size(80, 22);
 			this->buttonOK->TabIndex = 7;
@@ -435,7 +445,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// 
 			// buttonApply
 			// 
-			this->buttonApply->Location = System::Drawing::Point(497, 370);
+			this->buttonApply->Location = System::Drawing::Point(497, 407);
 			this->buttonApply->Name = L"buttonApply";
 			this->buttonApply->Size = System::Drawing::Size(80, 22);
 			this->buttonApply->TabIndex = 8;
@@ -445,7 +455,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// 
 			// buttonCancel
 			// 
-			this->buttonCancel->Location = System::Drawing::Point(411, 370);
+			this->buttonCancel->Location = System::Drawing::Point(411, 407);
 			this->buttonCancel->Name = L"buttonCancel";
 			this->buttonCancel->Size = System::Drawing::Size(80, 22);
 			this->buttonCancel->TabIndex = 9;
@@ -475,7 +485,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->tabPageSound->Location = System::Drawing::Point(4, 22);
 			this->tabPageSound->Name = L"tabPageSound";
 			this->tabPageSound->Padding = System::Windows::Forms::Padding(3);
-			this->tabPageSound->Size = System::Drawing::Size(557, 326);
+			this->tabPageSound->Size = System::Drawing::Size(557, 363);
 			this->tabPageSound->TabIndex = 3;
 			this->tabPageSound->Text = L"Sounds";
 			this->tabPageSound->UseVisualStyleBackColor = true;
@@ -895,7 +905,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->tabPagePath->Location = System::Drawing::Point(4, 22);
 			this->tabPagePath->Name = L"tabPagePath";
 			this->tabPagePath->Padding = System::Windows::Forms::Padding(3);
-			this->tabPagePath->Size = System::Drawing::Size(557, 326);
+			this->tabPagePath->Size = System::Drawing::Size(557, 363);
 			this->tabPagePath->TabIndex = 0;
 			this->tabPagePath->Text = L"General";
 			this->tabPagePath->UseVisualStyleBackColor = true;
@@ -911,7 +921,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->groupBoxProfile->Controls->Add(this->comboBoxProfile);
 			this->groupBoxProfile->Location = System::Drawing::Point(6, 6);
 			this->groupBoxProfile->Name = L"groupBoxProfile";
-			this->groupBoxProfile->Size = System::Drawing::Size(528, 92);
+			this->groupBoxProfile->Size = System::Drawing::Size(545, 92);
 			this->groupBoxProfile->TabIndex = 4;
 			this->groupBoxProfile->TabStop = false;
 			this->groupBoxProfile->Text = L"Profile";
@@ -993,10 +1003,10 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->groupBoxReplayFolder->Controls->Add(this->checkBoxDivide);
 			this->groupBoxReplayFolder->Location = System::Drawing::Point(8, 170);
 			this->groupBoxReplayFolder->Name = L"groupBoxReplayFolder";
-			this->groupBoxReplayFolder->Size = System::Drawing::Size(526, 87);
+			this->groupBoxReplayFolder->Size = System::Drawing::Size(543, 52);
 			this->groupBoxReplayFolder->TabIndex = 2;
 			this->groupBoxReplayFolder->TabStop = false;
-			this->groupBoxReplayFolder->Text = L"リプレイ保存フォルダ";
+			this->groupBoxReplayFolder->Text = L"Replay Folder";
 			// 
 			// textBoxReplayFolder
 			// 
@@ -1022,11 +1032,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// checkBoxDivide
 			// 
 			this->checkBoxDivide->AutoSize = true;
-			this->checkBoxDivide->Location = System::Drawing::Point(12, 55);
+			this->checkBoxDivide->Location = System::Drawing::Point(367, 26);
 			this->checkBoxDivide->Name = L"checkBoxDivide";
-			this->checkBoxDivide->Size = System::Drawing::Size(202, 17);
+			this->checkBoxDivide->Size = System::Drawing::Size(170, 17);
 			this->checkBoxDivide->TabIndex = 3;
-			this->checkBoxDivide->Text = L"リプレイファイルの自動振り分け";
+			this->checkBoxDivide->Text = L"Name replay files automatically";
 			this->checkBoxDivide->UseVisualStyleBackColor = true;
 			this->checkBoxDivide->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1036,25 +1046,26 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->groupBoxNet->Controls->Add(this->numericUpDownMaxConnection);
 			this->groupBoxNet->Controls->Add(this->textBoxComment);
 			this->groupBoxNet->Controls->Add(this->label5);
-			this->groupBoxNet->Location = System::Drawing::Point(8, 263);
+			this->groupBoxNet->Location = System::Drawing::Point(8, 228);
 			this->groupBoxNet->Name = L"groupBoxNet";
-			this->groupBoxNet->Size = System::Drawing::Size(378, 87);
+			this->groupBoxNet->Size = System::Drawing::Size(543, 87);
 			this->groupBoxNet->TabIndex = 3;
 			this->groupBoxNet->TabStop = false;
-			this->groupBoxNet->Text = L"回線設定";
+			this->groupBoxNet->Text = L"Other";
+			this->groupBoxNet->Enter += gcnew System::EventHandler(this, &OptionForm::groupBoxNet_Enter);
 			// 
 			// labelComment
 			// 
 			this->labelComment->AutoSize = true;
-			this->labelComment->Location = System::Drawing::Point(10, 55);
+			this->labelComment->Location = System::Drawing::Point(6, 58);
 			this->labelComment->Name = L"labelComment";
-			this->labelComment->Size = System::Drawing::Size(49, 13);
+			this->labelComment->Size = System::Drawing::Size(54, 13);
 			this->labelComment->TabIndex = 0;
-			this->labelComment->Text = L"コメント";
+			this->labelComment->Text = L"Comment:";
 			// 
 			// numericUpDownMaxConnection
 			// 
-			this->numericUpDownMaxConnection->Location = System::Drawing::Point(81, 22);
+			this->numericUpDownMaxConnection->Location = System::Drawing::Point(106, 24);
 			this->numericUpDownMaxConnection->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) {1, 0, 0, 0});
 			this->numericUpDownMaxConnection->Name = L"numericUpDownMaxConnection";
 			this->numericUpDownMaxConnection->Size = System::Drawing::Size(40, 20);
@@ -1064,7 +1075,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// 
 			// textBoxComment
 			// 
-			this->textBoxComment->Location = System::Drawing::Point(81, 52);
+			this->textBoxComment->Location = System::Drawing::Point(66, 55);
 			this->textBoxComment->Name = L"textBoxComment";
 			this->textBoxComment->Size = System::Drawing::Size(206, 20);
 			this->textBoxComment->TabIndex = 2;
@@ -1073,11 +1084,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(10, 24);
+			this->label5->Location = System::Drawing::Point(6, 26);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(44, 13);
+			this->label5->Size = System::Drawing::Size(94, 13);
 			this->label5->TabIndex = 0;
-			this->label5->Text = L"最大接続数";
+			this->label5->Text = L"Max. connections:";
 			// 
 			// groupBoxGameExe
 			// 
@@ -1085,17 +1096,17 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->groupBoxGameExe->Controls->Add(this->buttonGameExe);
 			this->groupBoxGameExe->Location = System::Drawing::Point(6, 104);
 			this->groupBoxGameExe->Name = L"groupBoxGameExe";
-			this->groupBoxGameExe->Size = System::Drawing::Size(528, 57);
+			this->groupBoxGameExe->Size = System::Drawing::Size(545, 57);
 			this->groupBoxGameExe->TabIndex = 1;
 			this->groupBoxGameExe->TabStop = false;
-			this->groupBoxGameExe->Text = L"実行ファイルのパス";
+			this->groupBoxGameExe->Text = L"Game Executable Path";
 			// 
 			// textBoxGameExe
 			// 
 			this->textBoxGameExe->AllowDrop = true;
 			this->textBoxGameExe->Location = System::Drawing::Point(12, 21);
 			this->textBoxGameExe->Name = L"textBoxGameExe";
-			this->textBoxGameExe->Size = System::Drawing::Size(289, 20);
+			this->textBoxGameExe->Size = System::Drawing::Size(456, 20);
 			this->textBoxGameExe->TabIndex = 1;
 			this->textBoxGameExe->TextChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			this->textBoxGameExe->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &OptionForm::textBoxGameExe_DragDrop);
@@ -1103,7 +1114,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// 
 			// buttonGameExe
 			// 
-			this->buttonGameExe->Location = System::Drawing::Point(307, 20);
+			this->buttonGameExe->Location = System::Drawing::Point(474, 19);
 			this->buttonGameExe->Name = L"buttonGameExe";
 			this->buttonGameExe->Size = System::Drawing::Size(65, 22);
 			this->buttonGameExe->TabIndex = 2;
@@ -1115,22 +1126,23 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// 
 			this->groupBoxSave->Controls->Add(this->radioButtonReplayVersion1);
 			this->groupBoxSave->Controls->Add(this->radioButtonReplayVersion2);
-			this->groupBoxSave->Location = System::Drawing::Point(195, 216);
+			this->groupBoxSave->Location = System::Drawing::Point(8, 271);
 			this->groupBoxSave->Name = L"groupBoxSave";
-			this->groupBoxSave->Size = System::Drawing::Size(154, 46);
+			this->groupBoxSave->Size = System::Drawing::Size(130, 46);
 			this->groupBoxSave->TabIndex = 4;
 			this->groupBoxSave->TabStop = false;
-			this->groupBoxSave->Text = L"リプレイファイル";
+			this->groupBoxSave->Text = L"Replay Compression";
+			this->toolTip1->SetToolTip(this->groupBoxSave, L"Replay compression compresses your replay files so they take up less disk space.");
 			// 
 			// radioButtonReplayVersion1
 			// 
 			this->radioButtonReplayVersion1->AutoSize = true;
-			this->radioButtonReplayVersion1->Location = System::Drawing::Point(88, 18);
+			this->radioButtonReplayVersion1->Location = System::Drawing::Point(61, 18);
 			this->radioButtonReplayVersion1->Name = L"radioButtonReplayVersion1";
-			this->radioButtonReplayVersion1->Size = System::Drawing::Size(46, 17);
+			this->radioButtonReplayVersion1->Size = System::Drawing::Size(39, 17);
 			this->radioButtonReplayVersion1->TabIndex = 2;
 			this->radioButtonReplayVersion1->TabStop = true;
-			this->radioButtonReplayVersion1->Text = L"無圧縮";
+			this->radioButtonReplayVersion1->Text = L"Off";
 			this->radioButtonReplayVersion1->UseVisualStyleBackColor = true;
 			this->radioButtonReplayVersion1->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1139,10 +1151,10 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->radioButtonReplayVersion2->AutoSize = true;
 			this->radioButtonReplayVersion2->Location = System::Drawing::Point(16, 18);
 			this->radioButtonReplayVersion2->Name = L"radioButtonReplayVersion2";
-			this->radioButtonReplayVersion2->Size = System::Drawing::Size(53, 17);
+			this->radioButtonReplayVersion2->Size = System::Drawing::Size(39, 17);
 			this->radioButtonReplayVersion2->TabIndex = 2;
 			this->radioButtonReplayVersion2->TabStop = true;
-			this->radioButtonReplayVersion2->Text = L"圧縮する";
+			this->radioButtonReplayVersion2->Text = L"On";
 			this->radioButtonReplayVersion2->UseVisualStyleBackColor = true;
 			this->radioButtonReplayVersion2->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1158,7 +1170,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->tabControlOption->Location = System::Drawing::Point(12, 12);
 			this->tabControlOption->Name = L"tabControlOption";
 			this->tabControlOption->SelectedIndex = 0;
-			this->tabControlOption->Size = System::Drawing::Size(565, 352);
+			this->tabControlOption->Size = System::Drawing::Size(565, 389);
 			this->tabControlOption->TabIndex = 0;
 			// 
 			// tabPageGame
@@ -1173,7 +1185,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->tabPageGame->Location = System::Drawing::Point(4, 22);
 			this->tabPageGame->Name = L"tabPageGame";
 			this->tabPageGame->Padding = System::Windows::Forms::Padding(3);
-			this->tabPageGame->Size = System::Drawing::Size(557, 326);
+			this->tabPageGame->Size = System::Drawing::Size(557, 363);
 			this->tabPageGame->TabIndex = 4;
 			this->tabPageGame->Text = L"Game";
 			this->tabPageGame->UseVisualStyleBackColor = true;
@@ -1182,30 +1194,30 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// 
 			this->groupBoxTeamOption->Controls->Add(this->labelTeamRoundHP);
 			this->groupBoxTeamOption->Controls->Add(this->checkBoxTeamRoundHP);
-			this->groupBoxTeamOption->Location = System::Drawing::Point(9, 243);
+			this->groupBoxTeamOption->Location = System::Drawing::Point(8, 191);
 			this->groupBoxTeamOption->Name = L"groupBoxTeamOption";
-			this->groupBoxTeamOption->Size = System::Drawing::Size(167, 74);
+			this->groupBoxTeamOption->Size = System::Drawing::Size(543, 74);
 			this->groupBoxTeamOption->TabIndex = 6;
 			this->groupBoxTeamOption->TabStop = false;
-			this->groupBoxTeamOption->Text = L"チームプレイ設定";
+			this->groupBoxTeamOption->Text = L"Team Play Settings";
 			// 
 			// labelTeamRoundHP
 			// 
 			this->labelTeamRoundHP->AutoSize = true;
 			this->labelTeamRoundHP->Location = System::Drawing::Point(13, 46);
 			this->labelTeamRoundHP->Name = L"labelTeamRoundHP";
-			this->labelTeamRoundHP->Size = System::Drawing::Size(127, 13);
+			this->labelTeamRoundHP->Size = System::Drawing::Size(166, 13);
 			this->labelTeamRoundHP->TabIndex = 1;
-			this->labelTeamRoundHP->Text = L"※1vs1ではオフにしてください";
+			this->labelTeamRoundHP->Text = L"* You need to turn off 1v1 versus!";
 			// 
 			// checkBoxTeamRoundHP
 			// 
 			this->checkBoxTeamRoundHP->AutoSize = true;
 			this->checkBoxTeamRoundHP->Location = System::Drawing::Point(15, 23);
 			this->checkBoxTeamRoundHP->Name = L"checkBoxTeamRoundHP";
-			this->checkBoxTeamRoundHP->Size = System::Drawing::Size(165, 17);
+			this->checkBoxTeamRoundHP->Size = System::Drawing::Size(185, 17);
 			this->checkBoxTeamRoundHP->TabIndex = 0;
-			this->checkBoxTeamRoundHP->Text = L"ラウンド間でHPを持ち越す";
+			this->checkBoxTeamRoundHP->Text = L"Carry over health between rounds";
 			this->checkBoxTeamRoundHP->UseVisualStyleBackColor = true;
 			this->checkBoxTeamRoundHP->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1213,19 +1225,21 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// 
 			this->groupBoxSimulate->Controls->Add(this->numericUpDownSimDelay);
 			this->groupBoxSimulate->Controls->Add(this->labelSimDelay);
-			this->groupBoxSimulate->Location = System::Drawing::Point(195, 161);
+			this->groupBoxSimulate->Location = System::Drawing::Point(144, 269);
 			this->groupBoxSimulate->Name = L"groupBoxSimulate";
-			this->groupBoxSimulate->Size = System::Drawing::Size(154, 48);
+			this->groupBoxSimulate->Size = System::Drawing::Size(407, 48);
 			this->groupBoxSimulate->TabIndex = 5;
 			this->groupBoxSimulate->TabStop = false;
-			this->groupBoxSimulate->Text = L"シミュレート";
+			this->groupBoxSimulate->Text = L"Delay Simulation (Single Player)";
 			// 
 			// numericUpDownSimDelay
 			// 
-			this->numericUpDownSimDelay->Location = System::Drawing::Point(88, 20);
+			this->numericUpDownSimDelay->Location = System::Drawing::Point(59, 20);
 			this->numericUpDownSimDelay->Name = L"numericUpDownSimDelay";
 			this->numericUpDownSimDelay->Size = System::Drawing::Size(40, 20);
 			this->numericUpDownSimDelay->TabIndex = 1;
+			this->toolTip1->SetToolTip(this->numericUpDownSimDelay, L"This option allows you to create a simulated delay as if you\'re online while you\'" 
+				L"re in a single player game.");
 			this->numericUpDownSimDelay->ValueChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
 			// labelSimDelay
@@ -1233,29 +1247,32 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->labelSimDelay->AutoSize = true;
 			this->labelSimDelay->Location = System::Drawing::Point(16, 22);
 			this->labelSimDelay->Name = L"labelSimDelay";
-			this->labelSimDelay->Size = System::Drawing::Size(59, 13);
+			this->labelSimDelay->Size = System::Drawing::Size(37, 13);
 			this->labelSimDelay->TabIndex = 0;
-			this->labelSimDelay->Text = L"ディレイ";
+			this->labelSimDelay->Text = L"Delay:";
+			this->toolTip1->SetToolTip(this->labelSimDelay, L"This option allows you to create a simulated delay as if you\'re online while you\'" 
+				L"re in a single player game.");
 			// 
 			// groupBoxRun
 			// 
 			this->groupBoxRun->Controls->Add(this->checkBoxWindowSize);
 			this->groupBoxRun->Controls->Add(this->checkBoxHitJudge);
-			this->groupBoxRun->Location = System::Drawing::Point(8, 161);
+			this->groupBoxRun->Location = System::Drawing::Point(8, 138);
 			this->groupBoxRun->Name = L"groupBoxRun";
-			this->groupBoxRun->Size = System::Drawing::Size(168, 74);
+			this->groupBoxRun->Size = System::Drawing::Size(543, 47);
 			this->groupBoxRun->TabIndex = 3;
 			this->groupBoxRun->TabStop = false;
-			this->groupBoxRun->Text = L"格ツク";
+			this->groupBoxRun->Text = L"Debugging Settings";
 			// 
 			// checkBoxWindowSize
 			// 
 			this->checkBoxWindowSize->AutoSize = true;
-			this->checkBoxWindowSize->Location = System::Drawing::Point(16, 48);
+			this->checkBoxWindowSize->Location = System::Drawing::Point(114, 22);
 			this->checkBoxWindowSize->Name = L"checkBoxWindowSize";
-			this->checkBoxWindowSize->Size = System::Drawing::Size(112, 17);
+			this->checkBoxWindowSize->Size = System::Drawing::Size(142, 17);
 			this->checkBoxWindowSize->TabIndex = 2;
-			this->checkBoxWindowSize->Text = L"640 x 480 で起動";
+			this->checkBoxWindowSize->Text = L"Start in 640 x 480 (480p)";
+			this->toolTip1->SetToolTip(this->checkBoxWindowSize, L"This option will start the game in 480p regardless of your external settings.");
 			this->checkBoxWindowSize->UseVisualStyleBackColor = true;
 			this->checkBoxWindowSize->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1264,9 +1281,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->checkBoxHitJudge->AutoSize = true;
 			this->checkBoxHitJudge->Location = System::Drawing::Point(16, 22);
 			this->checkBoxHitJudge->Name = L"checkBoxHitJudge";
-			this->checkBoxHitJudge->Size = System::Drawing::Size(97, 17);
+			this->checkBoxHitJudge->Size = System::Drawing::Size(92, 17);
 			this->checkBoxHitJudge->TabIndex = 1;
-			this->checkBoxHitJudge->Text = L"Show Hitboxes";
+			this->checkBoxHitJudge->Text = L"Enable debug";
+			this->toolTip1->SetToolTip(this->checkBoxHitJudge, L"This option will enable visible hitboxes and script line being used, perfect for " 
+				L"debugging.");
 			this->checkBoxHitJudge->UseVisualStyleBackColor = true;
 			this->checkBoxHitJudge->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1277,65 +1296,71 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->groupBoxView->Controls->Add(this->checkBoxName);
 			this->groupBoxView->Controls->Add(this->checkBoxFramerate);
 			this->groupBoxView->Controls->Add(this->checkBoxRand);
-			this->groupBoxView->Location = System::Drawing::Point(195, 9);
+			this->groupBoxView->Location = System::Drawing::Point(8, 67);
 			this->groupBoxView->Name = L"groupBoxView";
-			this->groupBoxView->Size = System::Drawing::Size(154, 145);
+			this->groupBoxView->Size = System::Drawing::Size(543, 65);
 			this->groupBoxView->TabIndex = 4;
 			this->groupBoxView->TabStop = false;
-			this->groupBoxView->Text = L"タイトルバー";
+			this->groupBoxView->Text = L"Title Bar Settings";
 			// 
 			// checkBoxShowResult
 			// 
 			this->checkBoxShowResult->AutoSize = true;
-			this->checkBoxShowResult->Location = System::Drawing::Point(16, 69);
+			this->checkBoxShowResult->Location = System::Drawing::Point(254, 22);
 			this->checkBoxShowResult->Name = L"checkBoxShowResult";
-			this->checkBoxShowResult->Size = System::Drawing::Size(52, 17);
+			this->checkBoxShowResult->Size = System::Drawing::Size(126, 17);
 			this->checkBoxShowResult->TabIndex = 5;
-			this->checkBoxShowResult->Text = L"対戦勝敗";
+			this->checkBoxShowResult->Text = L"Enable fight outcome";
+			this->toolTip1->SetToolTip(this->checkBoxShowResult, L"This option will enable fight outcomes (eg. 1 - 0) on the title bar during a figh" 
+				L"t.");
 			this->checkBoxShowResult->UseVisualStyleBackColor = true;
 			this->checkBoxShowResult->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
 			// checkBoxVersus
 			// 
 			this->checkBoxVersus->AutoSize = true;
-			this->checkBoxVersus->Location = System::Drawing::Point(16, 46);
+			this->checkBoxVersus->Location = System::Drawing::Point(136, 22);
 			this->checkBoxVersus->Name = L"checkBoxVersus";
-			this->checkBoxVersus->Size = System::Drawing::Size(40, 17);
+			this->checkBoxVersus->Size = System::Drawing::Size(112, 17);
 			this->checkBoxVersus->TabIndex = 2;
-			this->checkBoxVersus->Text = L"対戦数";
+			this->checkBoxVersus->Text = L"Enable fight count";
+			this->toolTip1->SetToolTip(this->checkBoxVersus, L"This option will enable fight count on the title bar during a fight.");
 			this->checkBoxVersus->UseVisualStyleBackColor = true;
 			this->checkBoxVersus->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
 			// checkBoxName
 			// 
 			this->checkBoxName->AutoSize = true;
-			this->checkBoxName->Location = System::Drawing::Point(16, 22);
+			this->checkBoxName->Location = System::Drawing::Point(6, 22);
 			this->checkBoxName->Name = L"checkBoxName";
-			this->checkBoxName->Size = System::Drawing::Size(83, 17);
+			this->checkBoxName->Size = System::Drawing::Size(124, 17);
 			this->checkBoxName->TabIndex = 1;
-			this->checkBoxName->Text = L"ニックネーム";
+			this->checkBoxName->Text = L"Enable player names";
+			this->toolTip1->SetToolTip(this->checkBoxName, L"This option will enable usernames on the title bar during a fight.");
 			this->checkBoxName->UseVisualStyleBackColor = true;
 			this->checkBoxName->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
 			// checkBoxFramerate
 			// 
 			this->checkBoxFramerate->AutoSize = true;
-			this->checkBoxFramerate->Location = System::Drawing::Point(16, 93);
+			this->checkBoxFramerate->Location = System::Drawing::Point(386, 22);
 			this->checkBoxFramerate->Name = L"checkBoxFramerate";
-			this->checkBoxFramerate->Size = System::Drawing::Size(99, 17);
+			this->checkBoxFramerate->Size = System::Drawing::Size(135, 17);
 			this->checkBoxFramerate->TabIndex = 3;
-			this->checkBoxFramerate->Text = L"フレームレート";
+			this->checkBoxFramerate->Text = L"Enable framerate (FPS)";
+			this->toolTip1->SetToolTip(this->checkBoxFramerate, L"This option will enable FPS on the title bar during a fight.");
 			this->checkBoxFramerate->UseVisualStyleBackColor = true;
 			this->checkBoxFramerate->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
 			// checkBoxRand
 			// 
 			this->checkBoxRand->AutoSize = true;
-			this->checkBoxRand->Location = System::Drawing::Point(16, 117);
+			this->checkBoxRand->Location = System::Drawing::Point(6, 45);
 			this->checkBoxRand->Name = L"checkBoxRand";
-			this->checkBoxRand->Size = System::Drawing::Size(88, 17);
+			this->checkBoxRand->Size = System::Drawing::Size(135, 17);
 			this->checkBoxRand->TabIndex = 4;
-			this->checkBoxRand->Text = L"乱数の使用回数";
+			this->checkBoxRand->Text = L"Enable random number";
+			this->toolTip1->SetToolTip(this->checkBoxRand, L"This option will display a random number on the title bar during a fight.");
 			this->checkBoxRand->UseVisualStyleBackColor = true;
 			this->checkBoxRand->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1351,83 +1376,94 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->groupBoxSetting->Controls->Add(this->numericUpDownStageSelect);
 			this->groupBoxSetting->Location = System::Drawing::Point(8, 9);
 			this->groupBoxSetting->Name = L"groupBoxSetting";
-			this->groupBoxSetting->Size = System::Drawing::Size(168, 145);
+			this->groupBoxSetting->Size = System::Drawing::Size(543, 52);
 			this->groupBoxSetting->TabIndex = 1;
 			this->groupBoxSetting->TabStop = false;
-			this->groupBoxSetting->Text = L"対戦設定";
+			this->groupBoxSetting->Text = L"Fighter Maker Settings";
 			// 
 			// numericUpDownRound
 			// 
-			this->numericUpDownRound->Location = System::Drawing::Point(112, 78);
+			this->numericUpDownRound->Location = System::Drawing::Point(303, 20);
 			this->numericUpDownRound->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) {9, 0, 0, 0});
 			this->numericUpDownRound->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) {1, 0, 0, 0});
 			this->numericUpDownRound->Name = L"numericUpDownRound";
 			this->numericUpDownRound->Size = System::Drawing::Size(40, 20);
 			this->numericUpDownRound->TabIndex = 3;
+			this->toolTip1->SetToolTip(this->numericUpDownRound, L"Number of rounds a fight will have.");
 			this->numericUpDownRound->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) {1, 0, 0, 0});
 			this->numericUpDownRound->ValueChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
 			// labelRound
 			// 
 			this->labelRound->AutoSize = true;
-			this->labelRound->Location = System::Drawing::Point(16, 82);
+			this->labelRound->Location = System::Drawing::Point(250, 22);
 			this->labelRound->Name = L"labelRound";
-			this->labelRound->Size = System::Drawing::Size(63, 13);
+			this->labelRound->Size = System::Drawing::Size(47, 13);
 			this->labelRound->TabIndex = 0;
-			this->labelRound->Text = L"ラウンド数";
+			this->labelRound->Text = L"Rounds:";
+			this->toolTip1->SetToolTip(this->labelRound, L"Number of rounds a fight will have.");
 			// 
 			// labelTimer
 			// 
 			this->labelTimer->AutoSize = true;
-			this->labelTimer->Location = System::Drawing::Point(16, 113);
+			this->labelTimer->Location = System::Drawing::Point(349, 22);
 			this->labelTimer->Name = L"labelTimer";
-			this->labelTimer->Size = System::Drawing::Size(74, 13);
+			this->labelTimer->Size = System::Drawing::Size(36, 13);
 			this->labelTimer->TabIndex = 0;
-			this->labelTimer->Text = L"ゲームタイマー";
+			this->labelTimer->Text = L"Timer:";
 			// 
 			// numericUpDownTimer
 			// 
-			this->numericUpDownTimer->Location = System::Drawing::Point(112, 108);
+			this->numericUpDownTimer->Location = System::Drawing::Point(391, 20);
 			this->numericUpDownTimer->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) {99, 0, 0, 0});
 			this->numericUpDownTimer->Name = L"numericUpDownTimer";
 			this->numericUpDownTimer->Size = System::Drawing::Size(40, 20);
 			this->numericUpDownTimer->TabIndex = 4;
+			this->toolTip1->SetToolTip(this->numericUpDownTimer, L"How long a fight will take place for.");
 			this->numericUpDownTimer->ValueChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
 			// numericUpDownMaxStage
 			// 
-			this->numericUpDownMaxStage->Location = System::Drawing::Point(112, 17);
+			this->numericUpDownMaxStage->Location = System::Drawing::Point(73, 20);
 			this->numericUpDownMaxStage->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) {1, 0, 0, 0});
 			this->numericUpDownMaxStage->Name = L"numericUpDownMaxStage";
 			this->numericUpDownMaxStage->Size = System::Drawing::Size(40, 20);
 			this->numericUpDownMaxStage->TabIndex = 1;
+			this->toolTip1->SetToolTip(this->numericUpDownMaxStage, L"This option allows you to set the maximum stages\r\nthe selected game has, or choos" 
+				L"e a start stage.");
 			this->numericUpDownMaxStage->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) {1, 0, 0, 0});
 			this->numericUpDownMaxStage->ValueChanged += gcnew System::EventHandler(this, &OptionForm::numericUpDownStage_ValueChanged);
 			// 
 			// labelMaxStage
 			// 
 			this->labelMaxStage->AutoSize = true;
-			this->labelMaxStage->Location = System::Drawing::Point(16, 22);
+			this->labelMaxStage->Location = System::Drawing::Point(6, 22);
 			this->labelMaxStage->Name = L"labelMaxStage";
-			this->labelMaxStage->Size = System::Drawing::Size(72, 13);
+			this->labelMaxStage->Size = System::Drawing::Size(61, 13);
 			this->labelMaxStage->TabIndex = 0;
-			this->labelMaxStage->Text = L"最大ステージ数";
+			this->labelMaxStage->Text = L"Start stage:";
+			this->toolTip1->SetToolTip(this->labelMaxStage, L"This option allows you to set the maximum stages\r\nthe selected game has, or choos" 
+				L"e a start stage.");
 			// 
 			// labelStageSelect
 			// 
 			this->labelStageSelect->AutoSize = true;
-			this->labelStageSelect->Location = System::Drawing::Point(16, 52);
+			this->labelStageSelect->Location = System::Drawing::Point(119, 22);
 			this->labelStageSelect->Name = L"labelStageSelect";
-			this->labelStageSelect->Size = System::Drawing::Size(62, 13);
+			this->labelStageSelect->Size = System::Drawing::Size(79, 13);
 			this->labelStageSelect->TabIndex = 0;
-			this->labelStageSelect->Text = L"対戦ステージ";
+			this->labelStageSelect->Text = L"Random stage:";
+			this->toolTip1->SetToolTip(this->labelStageSelect, L"This option allows you to choose a specific stage,\r\nrandomise out of the maximum " 
+				L"stages you\'ve specified,\r\nor choose an end stage.");
 			// 
 			// numericUpDownStageSelect
 			// 
-			this->numericUpDownStageSelect->Location = System::Drawing::Point(112, 48);
+			this->numericUpDownStageSelect->Location = System::Drawing::Point(204, 20);
 			this->numericUpDownStageSelect->Name = L"numericUpDownStageSelect";
 			this->numericUpDownStageSelect->Size = System::Drawing::Size(40, 20);
 			this->numericUpDownStageSelect->TabIndex = 2;
+			this->toolTip1->SetToolTip(this->numericUpDownStageSelect, L"This option allows you to choose a specific stage,\r\nrandomise out of the maximum " 
+				L"stages you\'ve specified,\r\nor choose an end stage.");
 			this->numericUpDownStageSelect->ValueChanged += gcnew System::EventHandler(this, &OptionForm::numericUpDownStage_ValueChanged);
 			// 
 			// tabPageColor
@@ -1439,7 +1475,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->tabPageColor->Location = System::Drawing::Point(4, 22);
 			this->tabPageColor->Name = L"tabPageColor";
 			this->tabPageColor->Padding = System::Windows::Forms::Padding(3);
-			this->tabPageColor->Size = System::Drawing::Size(409, 338);
+			this->tabPageColor->Size = System::Drawing::Size(557, 363);
 			this->tabPageColor->TabIndex = 5;
 			this->tabPageColor->Text = L"Colours";
 			this->tabPageColor->UseVisualStyleBackColor = true;
@@ -1449,21 +1485,21 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->groupBoxMessageColor->Controls->Add(this->buttonDebugMessage);
 			this->groupBoxMessageColor->Controls->Add(this->buttonErrorMessage);
 			this->groupBoxMessageColor->Controls->Add(this->buttonSystemMessage);
-			this->groupBoxMessageColor->Location = System::Drawing::Point(192, 9);
+			this->groupBoxMessageColor->Location = System::Drawing::Point(8, 70);
 			this->groupBoxMessageColor->Name = L"groupBoxMessageColor";
-			this->groupBoxMessageColor->Size = System::Drawing::Size(168, 117);
+			this->groupBoxMessageColor->Size = System::Drawing::Size(543, 55);
 			this->groupBoxMessageColor->TabIndex = 3;
 			this->groupBoxMessageColor->TabStop = false;
-			this->groupBoxMessageColor->Text = L"メッセージ";
+			this->groupBoxMessageColor->Text = L"Message Colour Settings";
 			// 
 			// buttonDebugMessage
 			// 
 			this->buttonDebugMessage->BackColor = System::Drawing::SystemColors::Window;
-			this->buttonDebugMessage->Location = System::Drawing::Point(16, 82);
+			this->buttonDebugMessage->Location = System::Drawing::Point(301, 22);
 			this->buttonDebugMessage->Name = L"buttonDebugMessage";
 			this->buttonDebugMessage->Size = System::Drawing::Size(136, 22);
 			this->buttonDebugMessage->TabIndex = 3;
-			this->buttonDebugMessage->Text = L"デバッグ";
+			this->buttonDebugMessage->Text = L"Debug";
 			this->buttonDebugMessage->UseVisualStyleBackColor = false;
 			this->buttonDebugMessage->Click += gcnew System::EventHandler(this, &OptionForm::buttonDebugMessage_Click);
 			this->buttonDebugMessage->ForeColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
@@ -1471,11 +1507,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// buttonErrorMessage
 			// 
 			this->buttonErrorMessage->BackColor = System::Drawing::SystemColors::Window;
-			this->buttonErrorMessage->Location = System::Drawing::Point(16, 52);
+			this->buttonErrorMessage->Location = System::Drawing::Point(158, 22);
 			this->buttonErrorMessage->Name = L"buttonErrorMessage";
 			this->buttonErrorMessage->Size = System::Drawing::Size(136, 22);
 			this->buttonErrorMessage->TabIndex = 2;
-			this->buttonErrorMessage->Text = L"エラー";
+			this->buttonErrorMessage->Text = L"Error";
 			this->buttonErrorMessage->UseVisualStyleBackColor = false;
 			this->buttonErrorMessage->Click += gcnew System::EventHandler(this, &OptionForm::buttonErrorMessage_Click);
 			this->buttonErrorMessage->ForeColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
@@ -1487,7 +1523,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->buttonSystemMessage->Name = L"buttonSystemMessage";
 			this->buttonSystemMessage->Size = System::Drawing::Size(136, 22);
 			this->buttonSystemMessage->TabIndex = 1;
-			this->buttonSystemMessage->Text = L"システム";
+			this->buttonSystemMessage->Text = L"System";
 			this->buttonSystemMessage->UseVisualStyleBackColor = false;
 			this->buttonSystemMessage->Click += gcnew System::EventHandler(this, &OptionForm::buttonSystemMessage_Click);
 			this->buttonSystemMessage->ForeColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
@@ -1497,21 +1533,21 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->groupBoxOthersColor->Controls->Add(this->buttonSecret);
 			this->groupBoxOthersColor->Controls->Add(this->buttonCommentBack);
 			this->groupBoxOthersColor->Controls->Add(this->buttonNoticeBack);
-			this->groupBoxOthersColor->Location = System::Drawing::Point(192, 139);
+			this->groupBoxOthersColor->Location = System::Drawing::Point(8, 221);
 			this->groupBoxOthersColor->Name = L"groupBoxOthersColor";
-			this->groupBoxOthersColor->Size = System::Drawing::Size(168, 117);
+			this->groupBoxOthersColor->Size = System::Drawing::Size(543, 52);
 			this->groupBoxOthersColor->TabIndex = 4;
 			this->groupBoxOthersColor->TabStop = false;
-			this->groupBoxOthersColor->Text = L"その他";
+			this->groupBoxOthersColor->Text = L"Other Colour Settings";
 			// 
 			// buttonSecret
 			// 
 			this->buttonSecret->BackColor = System::Drawing::SystemColors::Window;
-			this->buttonSecret->Location = System::Drawing::Point(16, 82);
+			this->buttonSecret->Location = System::Drawing::Point(300, 22);
 			this->buttonSecret->Name = L"buttonSecret";
 			this->buttonSecret->Size = System::Drawing::Size(136, 22);
 			this->buttonSecret->TabIndex = 3;
-			this->buttonSecret->Text = L"？？？";
+			this->buttonSecret->Text = L"Long Form Date";
 			this->buttonSecret->UseVisualStyleBackColor = false;
 			this->buttonSecret->Click += gcnew System::EventHandler(this, &OptionForm::buttonSecret_Click);
 			this->buttonSecret->ForeColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
@@ -1519,11 +1555,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// buttonCommentBack
 			// 
 			this->buttonCommentBack->ForeColor = System::Drawing::SystemColors::WindowText;
-			this->buttonCommentBack->Location = System::Drawing::Point(16, 52);
+			this->buttonCommentBack->Location = System::Drawing::Point(158, 22);
 			this->buttonCommentBack->Name = L"buttonCommentBack";
 			this->buttonCommentBack->Size = System::Drawing::Size(136, 22);
 			this->buttonCommentBack->TabIndex = 2;
-			this->buttonCommentBack->Text = L"コメントの背景";
+			this->buttonCommentBack->Text = L"Comment Background";
 			this->buttonCommentBack->UseVisualStyleBackColor = false;
 			this->buttonCommentBack->BackColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			this->buttonCommentBack->Click += gcnew System::EventHandler(this, &OptionForm::buttonCommentBack_Click);
@@ -1535,7 +1571,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->buttonNoticeBack->Name = L"buttonNoticeBack";
 			this->buttonNoticeBack->Size = System::Drawing::Size(136, 22);
 			this->buttonNoticeBack->TabIndex = 1;
-			this->buttonNoticeBack->Text = L"告知メッセージの背景";
+			this->buttonNoticeBack->Text = L"Notification Background";
 			this->buttonNoticeBack->UseVisualStyleBackColor = false;
 			this->buttonNoticeBack->BackColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			this->buttonNoticeBack->Click += gcnew System::EventHandler(this, &OptionForm::buttonNoticeBack_Click);
@@ -1546,20 +1582,20 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->groupBoxStateColor->Controls->Add(this->buttonWatchState);
 			this->groupBoxStateColor->Controls->Add(this->buttonVSState);
 			this->groupBoxStateColor->Controls->Add(this->buttonRestState);
-			this->groupBoxStateColor->Location = System::Drawing::Point(8, 139);
+			this->groupBoxStateColor->Location = System::Drawing::Point(8, 131);
 			this->groupBoxStateColor->Name = L"groupBoxStateColor";
-			this->groupBoxStateColor->Size = System::Drawing::Size(168, 148);
+			this->groupBoxStateColor->Size = System::Drawing::Size(543, 84);
 			this->groupBoxStateColor->TabIndex = 2;
 			this->groupBoxStateColor->TabStop = false;
-			this->groupBoxStateColor->Text = L"状態";
+			this->groupBoxStateColor->Text = L"State Colour Settings";
 			// 
 			// buttonSeekState
 			// 
-			this->buttonSeekState->Location = System::Drawing::Point(16, 112);
+			this->buttonSeekState->Location = System::Drawing::Point(16, 50);
 			this->buttonSeekState->Name = L"buttonSeekState";
 			this->buttonSeekState->Size = System::Drawing::Size(136, 23);
 			this->buttonSeekState->TabIndex = 4;
-			this->buttonSeekState->Text = L"対戦募集中";
+			this->buttonSeekState->Text = L"Joining";
 			this->buttonSeekState->UseVisualStyleBackColor = true;
 			this->buttonSeekState->BackColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			this->buttonSeekState->Click += gcnew System::EventHandler(this, &OptionForm::buttonSeekState_Click);
@@ -1567,11 +1603,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// buttonWatchState
 			// 
 			this->buttonWatchState->ForeColor = System::Drawing::SystemColors::WindowText;
-			this->buttonWatchState->Location = System::Drawing::Point(16, 82);
+			this->buttonWatchState->Location = System::Drawing::Point(300, 22);
 			this->buttonWatchState->Name = L"buttonWatchState";
 			this->buttonWatchState->Size = System::Drawing::Size(136, 22);
 			this->buttonWatchState->TabIndex = 3;
-			this->buttonWatchState->Text = L"観戦中";
+			this->buttonWatchState->Text = L"Spectating";
 			this->buttonWatchState->UseVisualStyleBackColor = false;
 			this->buttonWatchState->BackColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			this->buttonWatchState->Click += gcnew System::EventHandler(this, &OptionForm::buttonWatchState_Click);
@@ -1579,11 +1615,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// buttonVSState
 			// 
 			this->buttonVSState->ForeColor = System::Drawing::SystemColors::WindowText;
-			this->buttonVSState->Location = System::Drawing::Point(16, 52);
+			this->buttonVSState->Location = System::Drawing::Point(158, 22);
 			this->buttonVSState->Name = L"buttonVSState";
 			this->buttonVSState->Size = System::Drawing::Size(136, 22);
 			this->buttonVSState->TabIndex = 2;
-			this->buttonVSState->Text = L"対戦中";
+			this->buttonVSState->Text = L"Fighting";
 			this->buttonVSState->UseVisualStyleBackColor = false;
 			this->buttonVSState->BackColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			this->buttonVSState->Click += gcnew System::EventHandler(this, &OptionForm::buttonVSState_Click);
@@ -1595,7 +1631,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->buttonRestState->Name = L"buttonRestState";
 			this->buttonRestState->Size = System::Drawing::Size(136, 22);
 			this->buttonRestState->TabIndex = 1;
-			this->buttonRestState->Text = L"休憩中";
+			this->buttonRestState->Text = L"Resting";
 			this->buttonRestState->UseVisualStyleBackColor = false;
 			this->buttonRestState->BackColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			this->buttonRestState->Click += gcnew System::EventHandler(this, &OptionForm::buttonRestState_Click);
@@ -1607,19 +1643,19 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->groupBoxNameColor->Controls->Add(this->buttonServerName);
 			this->groupBoxNameColor->Location = System::Drawing::Point(8, 9);
 			this->groupBoxNameColor->Name = L"groupBoxNameColor";
-			this->groupBoxNameColor->Size = System::Drawing::Size(168, 117);
+			this->groupBoxNameColor->Size = System::Drawing::Size(543, 55);
 			this->groupBoxNameColor->TabIndex = 1;
 			this->groupBoxNameColor->TabStop = false;
-			this->groupBoxNameColor->Text = L"名前";
+			this->groupBoxNameColor->Text = L"Name Colour Settings";
 			// 
 			// buttonClientName
 			// 
 			this->buttonClientName->BackColor = System::Drawing::SystemColors::Window;
-			this->buttonClientName->Location = System::Drawing::Point(16, 82);
+			this->buttonClientName->Location = System::Drawing::Point(300, 22);
 			this->buttonClientName->Name = L"buttonClientName";
 			this->buttonClientName->Size = System::Drawing::Size(136, 22);
 			this->buttonClientName->TabIndex = 3;
-			this->buttonClientName->Text = L"クライアント";
+			this->buttonClientName->Text = L"Client";
 			this->buttonClientName->UseVisualStyleBackColor = false;
 			this->buttonClientName->Click += gcnew System::EventHandler(this, &OptionForm::buttonClientName_Click);
 			this->buttonClientName->ForeColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
@@ -1627,11 +1663,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// buttonHostName
 			// 
 			this->buttonHostName->BackColor = System::Drawing::SystemColors::Window;
-			this->buttonHostName->Location = System::Drawing::Point(16, 52);
+			this->buttonHostName->Location = System::Drawing::Point(158, 22);
 			this->buttonHostName->Name = L"buttonHostName";
 			this->buttonHostName->Size = System::Drawing::Size(136, 22);
 			this->buttonHostName->TabIndex = 2;
-			this->buttonHostName->Text = L"ホスト";
+			this->buttonHostName->Text = L"Host";
 			this->buttonHostName->UseVisualStyleBackColor = false;
 			this->buttonHostName->Click += gcnew System::EventHandler(this, &OptionForm::buttonHostName_Click);
 			this->buttonHostName->ForeColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
@@ -1643,7 +1679,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->buttonServerName->Name = L"buttonServerName";
 			this->buttonServerName->Size = System::Drawing::Size(136, 22);
 			this->buttonServerName->TabIndex = 1;
-			this->buttonServerName->Text = L"サーバ";
+			this->buttonServerName->Text = L"Server";
 			this->buttonServerName->UseVisualStyleBackColor = false;
 			this->buttonServerName->Click += gcnew System::EventHandler(this, &OptionForm::buttonServerName_Click);
 			this->buttonServerName->ForeColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
@@ -1651,31 +1687,19 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// tabPageVolume
 			// 
 			this->tabPageVolume->Controls->Add(this->groupBoxMidi);
-			this->tabPageVolume->Controls->Add(this->groupBoxSE);
 			this->tabPageVolume->Controls->Add(this->groupBoxBGM);
 			this->tabPageVolume->Location = System::Drawing::Point(4, 22);
 			this->tabPageVolume->Name = L"tabPageVolume";
 			this->tabPageVolume->Padding = System::Windows::Forms::Padding(3);
-			this->tabPageVolume->Size = System::Drawing::Size(409, 338);
+			this->tabPageVolume->Size = System::Drawing::Size(557, 363);
 			this->tabPageVolume->TabIndex = 6;
 			this->tabPageVolume->Text = L"Volume";
 			this->tabPageVolume->UseVisualStyleBackColor = true;
 			// 
-			// groupBoxMidi
-			// 
-			this->groupBoxMidi->Controls->Add(this->labelMidi);
-			this->groupBoxMidi->Controls->Add(this->trackBarMidi);
-			this->groupBoxMidi->Location = System::Drawing::Point(8, 199);
-			this->groupBoxMidi->Name = L"groupBoxMidi";
-			this->groupBoxMidi->Size = System::Drawing::Size(352, 56);
-			this->groupBoxMidi->TabIndex = 3;
-			this->groupBoxMidi->TabStop = false;
-			this->groupBoxMidi->Text = L"SW シンセサイザ";
-			// 
 			// labelMidi
 			// 
 			this->labelMidi->AutoSize = true;
-			this->labelMidi->Location = System::Drawing::Point(8, 26);
+			this->labelMidi->Location = System::Drawing::Point(504, 31);
 			this->labelMidi->Name = L"labelMidi";
 			this->labelMidi->Size = System::Drawing::Size(33, 13);
 			this->labelMidi->TabIndex = 0;
@@ -1684,31 +1708,21 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// trackBarMidi
 			// 
 			this->trackBarMidi->AutoSize = false;
+			this->trackBarMidi->BackColor = System::Drawing::SystemColors::Control;
 			this->trackBarMidi->LargeChange = 10;
-			this->trackBarMidi->Location = System::Drawing::Point(48, 13);
+			this->trackBarMidi->Location = System::Drawing::Point(83, 20);
 			this->trackBarMidi->Maximum = 100;
 			this->trackBarMidi->Name = L"trackBarMidi";
-			this->trackBarMidi->Size = System::Drawing::Size(296, 35);
+			this->trackBarMidi->Size = System::Drawing::Size(415, 35);
 			this->trackBarMidi->TabIndex = 1;
 			this->trackBarMidi->TickFrequency = 10;
 			this->trackBarMidi->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
 			this->trackBarMidi->Scroll += gcnew System::EventHandler(this, &OptionForm::trackBarMidi_Scroll);
 			// 
-			// groupBoxSE
-			// 
-			this->groupBoxSE->Controls->Add(this->labelSE);
-			this->groupBoxSE->Controls->Add(this->trackBarSE);
-			this->groupBoxSE->Location = System::Drawing::Point(8, 76);
-			this->groupBoxSE->Name = L"groupBoxSE";
-			this->groupBoxSE->Size = System::Drawing::Size(352, 56);
-			this->groupBoxSE->TabIndex = 2;
-			this->groupBoxSE->TabStop = false;
-			this->groupBoxSE->Text = L"SE";
-			// 
 			// labelSE
 			// 
 			this->labelSE->AutoSize = true;
-			this->labelSE->Location = System::Drawing::Point(8, 26);
+			this->labelSE->Location = System::Drawing::Point(504, 74);
 			this->labelSE->Name = L"labelSE";
 			this->labelSE->Size = System::Drawing::Size(33, 13);
 			this->labelSE->TabIndex = 0;
@@ -1718,10 +1732,10 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// 
 			this->trackBarSE->AutoSize = false;
 			this->trackBarSE->LargeChange = 2;
-			this->trackBarSE->Location = System::Drawing::Point(48, 13);
+			this->trackBarSE->Location = System::Drawing::Point(111, 63);
 			this->trackBarSE->Maximum = 20;
 			this->trackBarSE->Name = L"trackBarSE";
-			this->trackBarSE->Size = System::Drawing::Size(296, 35);
+			this->trackBarSE->Size = System::Drawing::Size(387, 35);
 			this->trackBarSE->TabIndex = 1;
 			this->trackBarSE->TickFrequency = 2;
 			this->trackBarSE->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
@@ -1729,19 +1743,23 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// 
 			// groupBoxBGM
 			// 
+			this->groupBoxBGM->Controls->Add(this->labelSE);
+			this->groupBoxBGM->Controls->Add(this->label1);
+			this->groupBoxBGM->Controls->Add(this->trackBarSE);
+			this->groupBoxBGM->Controls->Add(this->backgroundMusicLabel);
 			this->groupBoxBGM->Controls->Add(this->labelBGM);
 			this->groupBoxBGM->Controls->Add(this->trackBarBGM);
-			this->groupBoxBGM->Location = System::Drawing::Point(8, 9);
+			this->groupBoxBGM->Location = System::Drawing::Point(6, 9);
 			this->groupBoxBGM->Name = L"groupBoxBGM";
-			this->groupBoxBGM->Size = System::Drawing::Size(352, 56);
+			this->groupBoxBGM->Size = System::Drawing::Size(545, 107);
 			this->groupBoxBGM->TabIndex = 1;
 			this->groupBoxBGM->TabStop = false;
-			this->groupBoxBGM->Text = L"BGM";
+			this->groupBoxBGM->Text = L"Sound Settings";
 			// 
 			// labelBGM
 			// 
 			this->labelBGM->AutoSize = true;
-			this->labelBGM->Location = System::Drawing::Point(8, 26);
+			this->labelBGM->Location = System::Drawing::Point(504, 26);
 			this->labelBGM->Name = L"labelBGM";
 			this->labelBGM->Size = System::Drawing::Size(33, 13);
 			this->labelBGM->TabIndex = 0;
@@ -1751,10 +1769,10 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// 
 			this->trackBarBGM->AutoSize = false;
 			this->trackBarBGM->LargeChange = 2;
-			this->trackBarBGM->Location = System::Drawing::Point(48, 13);
+			this->trackBarBGM->Location = System::Drawing::Point(111, 13);
 			this->trackBarBGM->Maximum = 20;
 			this->trackBarBGM->Name = L"trackBarBGM";
-			this->trackBarBGM->Size = System::Drawing::Size(296, 35);
+			this->trackBarBGM->Size = System::Drawing::Size(387, 35);
 			this->trackBarBGM->TabIndex = 1;
 			this->trackBarBGM->TickFrequency = 2;
 			this->trackBarBGM->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
@@ -1766,20 +1784,54 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->tabPageIP->Location = System::Drawing::Point(4, 22);
 			this->tabPageIP->Name = L"tabPageIP";
 			this->tabPageIP->Padding = System::Windows::Forms::Padding(3);
-			this->tabPageIP->Size = System::Drawing::Size(581, 338);
+			this->tabPageIP->Size = System::Drawing::Size(557, 363);
 			this->tabPageIP->TabIndex = 7;
 			this->tabPageIP->Text = L"IP Conversion";
 			this->tabPageIP->UseVisualStyleBackColor = true;
 			// 
+			// IPgroupBox
+			// 
+			this->IPgroupBox->Controls->Add(this->AddPortbutton);
+			this->IPgroupBox->Controls->Add(this->Convertbutton);
+			this->IPgroupBox->Controls->Add(this->IPtextBox);
+			this->IPgroupBox->Controls->Add(this->discriptionlabel);
+			this->IPgroupBox->Controls->Add(this->Base64groupBox);
+			this->IPgroupBox->Location = System::Drawing::Point(8, 6);
+			this->IPgroupBox->Name = L"IPgroupBox";
+			this->IPgroupBox->Size = System::Drawing::Size(543, 223);
+			this->IPgroupBox->TabIndex = 0;
+			this->IPgroupBox->TabStop = false;
+			this->IPgroupBox->Text = L"IP Address Settings";
+			// 
 			// AddPortbutton
 			// 
-			this->AddPortbutton->Location = System::Drawing::Point(456, 190);
+			this->AddPortbutton->Location = System::Drawing::Point(434, 190);
 			this->AddPortbutton->Name = L"AddPortbutton";
 			this->AddPortbutton->Size = System::Drawing::Size(103, 26);
 			this->AddPortbutton->TabIndex = 4;
-			this->AddPortbutton->Text = L"ポート付き変換";
+			this->AddPortbutton->Text = L"Convert With Port";
 			this->AddPortbutton->UseVisualStyleBackColor = true;
 			this->AddPortbutton->Click += gcnew System::EventHandler(this, &OptionForm::AddPortbutton_Click);
+			// 
+			// Convertbutton
+			// 
+			this->Convertbutton->Location = System::Drawing::Point(364, 190);
+			this->Convertbutton->Name = L"Convertbutton";
+			this->Convertbutton->Size = System::Drawing::Size(64, 26);
+			this->Convertbutton->TabIndex = 2;
+			this->Convertbutton->Text = L"Convert";
+			this->Convertbutton->UseVisualStyleBackColor = true;
+			this->Convertbutton->Click += gcnew System::EventHandler(this, &OptionForm::Convertbutton_Click);
+			// 
+			// IPtextBox
+			// 
+			this->IPtextBox->AccessibleDescription = L"";
+			this->IPtextBox->Location = System::Drawing::Point(9, 67);
+			this->IPtextBox->MaxLength = 20;
+			this->IPtextBox->Name = L"IPtextBox";
+			this->IPtextBox->Size = System::Drawing::Size(528, 20);
+			this->IPtextBox->TabIndex = 0;
+			this->IPtextBox->TextChanged += gcnew System::EventHandler(this, &OptionForm::IPtextBox_TextChanged);
 			// 
 			// discriptionlabel
 			// 
@@ -1792,16 +1844,6 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 				L"lishing a server.\r\n\r\nWhen you create a server, you should use your converted IP " 
 				L"address rather than your real one.";
 			// 
-			// Convertbutton
-			// 
-			this->Convertbutton->Location = System::Drawing::Point(386, 190);
-			this->Convertbutton->Name = L"Convertbutton";
-			this->Convertbutton->Size = System::Drawing::Size(64, 26);
-			this->Convertbutton->TabIndex = 2;
-			this->Convertbutton->Text = L"変換";
-			this->Convertbutton->UseVisualStyleBackColor = true;
-			this->Convertbutton->Click += gcnew System::EventHandler(this, &OptionForm::Convertbutton_Click);
-			// 
 			// Base64groupBox
 			// 
 			this->Base64groupBox->Controls->Add(this->labelAddrMT);
@@ -1810,7 +1852,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->Base64groupBox->Controls->Add(this->Base64textBox);
 			this->Base64groupBox->Location = System::Drawing::Point(9, 93);
 			this->Base64groupBox->Name = L"Base64groupBox";
-			this->Base64groupBox->Size = System::Drawing::Size(550, 91);
+			this->Base64groupBox->Size = System::Drawing::Size(528, 91);
 			this->Base64groupBox->TabIndex = 1;
 			this->Base64groupBox->TabStop = false;
 			this->Base64groupBox->Text = L"Converted IP Address";
@@ -1829,7 +1871,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->textBoxMTAddr->Location = System::Drawing::Point(52, 54);
 			this->textBoxMTAddr->Name = L"textBoxMTAddr";
 			this->textBoxMTAddr->ReadOnly = true;
-			this->textBoxMTAddr->Size = System::Drawing::Size(492, 20);
+			this->textBoxMTAddr->Size = System::Drawing::Size(470, 20);
 			this->textBoxMTAddr->TabIndex = 2;
 			// 
 			// labelAddrBase64
@@ -1847,32 +1889,8 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->Base64textBox->MaxLength = 100;
 			this->Base64textBox->Name = L"Base64textBox";
 			this->Base64textBox->ReadOnly = true;
-			this->Base64textBox->Size = System::Drawing::Size(482, 20);
+			this->Base64textBox->Size = System::Drawing::Size(460, 20);
 			this->Base64textBox->TabIndex = 0;
-			// 
-			// IPgroupBox
-			// 
-			this->IPgroupBox->Controls->Add(this->AddPortbutton);
-			this->IPgroupBox->Controls->Add(this->Convertbutton);
-			this->IPgroupBox->Controls->Add(this->IPtextBox);
-			this->IPgroupBox->Controls->Add(this->discriptionlabel);
-			this->IPgroupBox->Controls->Add(this->Base64groupBox);
-			this->IPgroupBox->Location = System::Drawing::Point(8, 6);
-			this->IPgroupBox->Name = L"IPgroupBox";
-			this->IPgroupBox->Size = System::Drawing::Size(565, 223);
-			this->IPgroupBox->TabIndex = 0;
-			this->IPgroupBox->TabStop = false;
-			this->IPgroupBox->Text = L"IP Address Settings";
-			// 
-			// IPtextBox
-			// 
-			this->IPtextBox->AccessibleDescription = L"";
-			this->IPtextBox->Location = System::Drawing::Point(9, 67);
-			this->IPtextBox->MaxLength = 20;
-			this->IPtextBox->Name = L"IPtextBox";
-			this->IPtextBox->Size = System::Drawing::Size(550, 20);
-			this->IPtextBox->TabIndex = 0;
-			this->IPtextBox->TextChanged += gcnew System::EventHandler(this, &OptionForm::IPtextBox_TextChanged);
 			// 
 			// tabPageDetails
 			// 
@@ -1881,7 +1899,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->tabPageDetails->Location = System::Drawing::Point(4, 22);
 			this->tabPageDetails->Name = L"tabPageDetails";
 			this->tabPageDetails->Padding = System::Windows::Forms::Padding(3);
-			this->tabPageDetails->Size = System::Drawing::Size(581, 338);
+			this->tabPageDetails->Size = System::Drawing::Size(557, 363);
 			this->tabPageDetails->TabIndex = 8;
 			this->tabPageDetails->Text = L"Misc";
 			this->tabPageDetails->UseVisualStyleBackColor = true;
@@ -1892,7 +1910,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->groupBoxLog->Controls->Add(this->radioButtonLogRTF);
 			this->groupBoxLog->Location = System::Drawing::Point(8, 9);
 			this->groupBoxLog->Name = L"groupBoxLog";
-			this->groupBoxLog->Size = System::Drawing::Size(352, 56);
+			this->groupBoxLog->Size = System::Drawing::Size(543, 45);
 			this->groupBoxLog->TabIndex = 1;
 			this->groupBoxLog->TabStop = false;
 			this->groupBoxLog->Text = L"Log File Output";
@@ -1900,22 +1918,22 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// radioButtonLogTXT
 			// 
 			this->radioButtonLogTXT->AutoSize = true;
-			this->radioButtonLogTXT->Location = System::Drawing::Point(161, 22);
+			this->radioButtonLogTXT->Location = System::Drawing::Point(151, 19);
 			this->radioButtonLogTXT->Name = L"radioButtonLogTXT";
-			this->radioButtonLogTXT->Size = System::Drawing::Size(136, 17);
+			this->radioButtonLogTXT->Size = System::Drawing::Size(88, 17);
 			this->radioButtonLogTXT->TabIndex = 1;
-			this->radioButtonLogTXT->Text = L"プレーンテキスト(.txt)";
+			this->radioButtonLogTXT->Text = L"Text File (.txt)";
 			this->radioButtonLogTXT->UseVisualStyleBackColor = true;
 			this->radioButtonLogTXT->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::radioButtonLogTXT_CheckedChanged);
 			// 
 			// radioButtonLogRTF
 			// 
 			this->radioButtonLogRTF->AutoSize = true;
-			this->radioButtonLogRTF->Location = System::Drawing::Point(16, 22);
+			this->radioButtonLogRTF->Location = System::Drawing::Point(6, 19);
 			this->radioButtonLogRTF->Name = L"radioButtonLogRTF";
-			this->radioButtonLogRTF->Size = System::Drawing::Size(126, 17);
+			this->radioButtonLogRTF->Size = System::Drawing::Size(127, 17);
 			this->radioButtonLogRTF->TabIndex = 0;
-			this->radioButtonLogRTF->Text = L"リッチテキスト(.rtf)";
+			this->radioButtonLogRTF->Text = L"Rich Text Format (.rtf)";
 			this->radioButtonLogRTF->UseVisualStyleBackColor = true;
 			this->radioButtonLogRTF->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::radioButtonLogRTF_CheckedChanged);
 			// 
@@ -1926,9 +1944,9 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->groupBoxDetails->Controls->Add(this->checkBoxNameFlash);
 			this->groupBoxDetails->Controls->Add(this->checkBoxGetIP);
 			this->groupBoxDetails->Controls->Add(this->checkBoxTalkFlash);
-			this->groupBoxDetails->Location = System::Drawing::Point(8, 76);
+			this->groupBoxDetails->Location = System::Drawing::Point(8, 60);
 			this->groupBoxDetails->Name = L"groupBoxDetails";
-			this->groupBoxDetails->Size = System::Drawing::Size(352, 242);
+			this->groupBoxDetails->Size = System::Drawing::Size(543, 242);
 			this->groupBoxDetails->TabIndex = 0;
 			this->groupBoxDetails->TabStop = false;
 			this->groupBoxDetails->Text = L"Other Settings";
@@ -1936,18 +1954,18 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// checkBoxLogClearWithoutWelcome
 			// 
 			this->checkBoxLogClearWithoutWelcome->AutoSize = true;
-			this->checkBoxLogClearWithoutWelcome->Location = System::Drawing::Point(16, 117);
+			this->checkBoxLogClearWithoutWelcome->Location = System::Drawing::Point(6, 114);
 			this->checkBoxLogClearWithoutWelcome->Name = L"checkBoxLogClearWithoutWelcome";
-			this->checkBoxLogClearWithoutWelcome->Size = System::Drawing::Size(143, 17);
+			this->checkBoxLogClearWithoutWelcome->Size = System::Drawing::Size(67, 17);
 			this->checkBoxLogClearWithoutWelcome->TabIndex = 4;
-			this->checkBoxLogClearWithoutWelcome->Text = L"ログの削除でサーバ告知を残す";
+			this->checkBoxLogClearWithoutWelcome->Text = L"Clear log";
 			this->checkBoxLogClearWithoutWelcome->UseVisualStyleBackColor = true;
 			this->checkBoxLogClearWithoutWelcome->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
 			// checkBoxShowGameOption
 			// 
 			this->checkBoxShowGameOption->AutoSize = true;
-			this->checkBoxShowGameOption->Location = System::Drawing::Point(16, 93);
+			this->checkBoxShowGameOption->Location = System::Drawing::Point(6, 90);
 			this->checkBoxShowGameOption->Name = L"checkBoxShowGameOption";
 			this->checkBoxShowGameOption->Size = System::Drawing::Size(195, 17);
 			this->checkBoxShowGameOption->TabIndex = 3;
@@ -1958,7 +1976,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// checkBoxNameFlash
 			// 
 			this->checkBoxNameFlash->AutoSize = true;
-			this->checkBoxNameFlash->Location = System::Drawing::Point(16, 46);
+			this->checkBoxNameFlash->Location = System::Drawing::Point(185, 19);
 			this->checkBoxNameFlash->Name = L"checkBoxNameFlash";
 			this->checkBoxNameFlash->Size = System::Drawing::Size(230, 17);
 			this->checkBoxNameFlash->TabIndex = 1;
@@ -1969,7 +1987,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// checkBoxGetIP
 			// 
 			this->checkBoxGetIP->AutoSize = true;
-			this->checkBoxGetIP->Location = System::Drawing::Point(16, 69);
+			this->checkBoxGetIP->Location = System::Drawing::Point(6, 66);
 			this->checkBoxGetIP->Name = L"checkBoxGetIP";
 			this->checkBoxGetIP->Size = System::Drawing::Size(223, 17);
 			this->checkBoxGetIP->TabIndex = 2;
@@ -1980,13 +1998,53 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// checkBoxTalkFlash
 			// 
 			this->checkBoxTalkFlash->AutoSize = true;
-			this->checkBoxTalkFlash->Location = System::Drawing::Point(16, 22);
+			this->checkBoxTalkFlash->Location = System::Drawing::Point(6, 19);
 			this->checkBoxTalkFlash->Name = L"checkBoxTalkFlash";
 			this->checkBoxTalkFlash->Size = System::Drawing::Size(173, 17);
 			this->checkBoxTalkFlash->TabIndex = 0;
 			this->checkBoxTalkFlash->Text = L"Flash window on new message";
 			this->checkBoxTalkFlash->UseVisualStyleBackColor = true;
 			this->checkBoxTalkFlash->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
+			// 
+			// backgroundMusicLabel
+			// 
+			this->backgroundMusicLabel->AutoSize = true;
+			this->backgroundMusicLabel->Location = System::Drawing::Point(6, 26);
+			this->backgroundMusicLabel->Name = L"backgroundMusicLabel";
+			this->backgroundMusicLabel->Size = System::Drawing::Size(99, 13);
+			this->backgroundMusicLabel->TabIndex = 2;
+			this->backgroundMusicLabel->Text = L"Background Music:";
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(28, 74);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(77, 13);
+			this->label1->TabIndex = 3;
+			this->label1->Text = L"Sound Effects:";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(6, 31);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(71, 13);
+			this->label2->TabIndex = 4;
+			this->label2->Text = L"MIDI Volume:";
+			// 
+			// groupBoxMidi
+			// 
+			this->groupBoxMidi->Controls->Add(this->label2);
+			this->groupBoxMidi->Controls->Add(this->labelMidi);
+			this->groupBoxMidi->Controls->Add(this->trackBarMidi);
+			this->groupBoxMidi->Location = System::Drawing::Point(6, 122);
+			this->groupBoxMidi->Name = L"groupBoxMidi";
+			this->groupBoxMidi->Size = System::Drawing::Size(545, 63);
+			this->groupBoxMidi->TabIndex = 2;
+			this->groupBoxMidi->TabStop = false;
+			this->groupBoxMidi->Text = L"Musical Instrument Digital Interface";
+			this->groupBoxMidi->Visible = false;
 			// 
 			// OptionForm
 			// 
@@ -1995,7 +2053,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoScroll = true;
 			this->BackColor = System::Drawing::Color::Black;
-			this->ClientSize = System::Drawing::Size(589, 402);
+			this->ClientSize = System::Drawing::Size(587, 439);
 			this->Controls->Add(this->tabControlOption);
 			this->Controls->Add(this->buttonApply);
 			this->Controls->Add(this->buttonCancel);
@@ -2060,25 +2118,23 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			this->groupBoxStateColor->ResumeLayout(false);
 			this->groupBoxNameColor->ResumeLayout(false);
 			this->tabPageVolume->ResumeLayout(false);
-			this->groupBoxMidi->ResumeLayout(false);
-			this->groupBoxMidi->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBarMidi))->EndInit();
-			this->groupBoxSE->ResumeLayout(false);
-			this->groupBoxSE->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBarSE))->EndInit();
 			this->groupBoxBGM->ResumeLayout(false);
 			this->groupBoxBGM->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBarBGM))->EndInit();
 			this->tabPageIP->ResumeLayout(false);
-			this->Base64groupBox->ResumeLayout(false);
-			this->Base64groupBox->PerformLayout();
 			this->IPgroupBox->ResumeLayout(false);
 			this->IPgroupBox->PerformLayout();
+			this->Base64groupBox->ResumeLayout(false);
+			this->Base64groupBox->PerformLayout();
 			this->tabPageDetails->ResumeLayout(false);
 			this->groupBoxLog->ResumeLayout(false);
 			this->groupBoxLog->PerformLayout();
 			this->groupBoxDetails->ResumeLayout(false);
 			this->groupBoxDetails->PerformLayout();
+			this->groupBoxMidi->ResumeLayout(false);
+			this->groupBoxMidi->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -2089,22 +2145,22 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 		DWORD MixerVolumeMin, MixerVolumeMax;
 
 		void AdviceGameExe(){
-			textBoxGameExe->Text = gcnew String("右のボタンを押してパスを設定してください");
+			textBoxGameExe->Text = gcnew String("No game executable selected.");
 			textBoxGameExe->Focus();
 		}
 
 		void CheckStageValue(){
 			if(numericUpDownStageSelect->Value > numericUpDownMaxStage->Value){
-				labelMaxStage->Text    = gcnew String("開始ステージ");
-				labelStageSelect->Text = gcnew String("終端ステージ");
+				labelMaxStage->Text    = gcnew String("Start stage:");
+				labelStageSelect->Text = gcnew String("End stage:");
 			}
 			else{
-				labelMaxStage->Text    = gcnew String("最大ステージ数");
-				labelStageSelect->Text = gcnew String("対戦ステージ");
+				labelMaxStage->Text    = gcnew String("Max. stage:");
+				labelStageSelect->Text = gcnew String("Selected stage:");
 			}
 
 			if(numericUpDownStageSelect->Value == 0){
-				labelStageSelect->Text = gcnew String("ランダムステージ");
+				labelStageSelect->Text = gcnew String("Random stage:");
 			}
 		}
 
@@ -2877,5 +2933,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxLogClearWithoutWelcome;
 			// ログ保存形式 > txt
 			buttonApply->Enabled = true;
 		}
-	};
+	private: System::Void groupBoxNet_Enter(System::Object^  sender, System::EventArgs^  e) {
+			 }
+};
 }
