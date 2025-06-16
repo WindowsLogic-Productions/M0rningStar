@@ -52,19 +52,19 @@ namespace LilithPort {
 	private: System::Windows::Forms::NumericUpDown^  numericUpDownOpenPort;
 	private: System::Windows::Forms::Button^  buttonOK;
 	private: System::Windows::Forms::Button^  buttonCancel;
-	private: System::Windows::Forms::Label^  labelName;
-	private: System::Windows::Forms::TextBox^  textBoxName;
 
 
 
-	private: System::Windows::Forms::Label^  labelComment;
-	private: System::Windows::Forms::TextBox^  textBoxComment;
+
+
+
+
 	private: System::Windows::Forms::GroupBox^  groupBoxStartMode;
 	private: System::Windows::Forms::TextBox^  textBoxServerName;
 	private: System::Windows::Forms::GroupBox^  groupBoxConnection;
 
 
-	private: System::Windows::Forms::GroupBox^  groupBoxProfile;
+
 	private: System::Windows::Forms::GroupBox^  groupBoxWelcome;
 	private: System::Windows::Forms::RichTextBox^  textBoxWelcome;
 	private: System::Windows::Forms::ToolTip^  toolTipStartupForm;
@@ -72,6 +72,14 @@ namespace LilithPort {
 	private: System::Windows::Forms::Button^  buttonOpenPortUPnP;
 	private: System::Windows::Forms::Button^  buttonClosePortUPnP;
 	private: System::Windows::Forms::Label^  labelButtonUPnP;
+	private: System::Windows::Forms::TabControl^  startupTabs;
+
+	private: System::Windows::Forms::TabPage^  tabPage1;
+	private: System::Windows::Forms::TabPage^  tabPage2;
+	private: System::Windows::Forms::Label^  labelComment;
+	private: System::Windows::Forms::Label^  labelName;
+	private: System::Windows::Forms::TextBox^  textBoxComment;
+	private: System::Windows::Forms::TextBox^  textBoxName;
 
 
 
@@ -103,70 +111,76 @@ namespace LilithPort {
 			this->numericUpDownOpenPort = (gcnew System::Windows::Forms::NumericUpDown());
 			this->buttonOK = (gcnew System::Windows::Forms::Button());
 			this->buttonCancel = (gcnew System::Windows::Forms::Button());
-			this->textBoxComment = (gcnew System::Windows::Forms::TextBox());
-			this->labelComment = (gcnew System::Windows::Forms::Label());
-			this->textBoxName = (gcnew System::Windows::Forms::TextBox());
-			this->labelName = (gcnew System::Windows::Forms::Label());
 			this->groupBoxStartMode = (gcnew System::Windows::Forms::GroupBox());
 			this->labelButtonUPnP = (gcnew System::Windows::Forms::Label());
 			this->buttonClosePortUPnP = (gcnew System::Windows::Forms::Button());
 			this->buttonOpenPortUPnP = (gcnew System::Windows::Forms::Button());
 			this->textBoxServerName = (gcnew System::Windows::Forms::TextBox());
 			this->groupBoxConnection = (gcnew System::Windows::Forms::GroupBox());
-			this->groupBoxProfile = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBoxWelcome = (gcnew System::Windows::Forms::GroupBox());
 			this->textBoxWelcome = (gcnew System::Windows::Forms::RichTextBox());
 			this->toolTipStartupForm = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->buttonConnect = (gcnew System::Windows::Forms::Button());
+			this->startupTabs = (gcnew System::Windows::Forms::TabControl());
+			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->labelComment = (gcnew System::Windows::Forms::Label());
+			this->labelName = (gcnew System::Windows::Forms::Label());
+			this->textBoxComment = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxName = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->numericUpDownOpenPort))->BeginInit();
 			this->groupBoxStartMode->SuspendLayout();
 			this->groupBoxConnection->SuspendLayout();
-			this->groupBoxProfile->SuspendLayout();
 			this->groupBoxWelcome->SuspendLayout();
+			this->startupTabs->SuspendLayout();
+			this->tabPage1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// radioButtonServer
 			// 
 			this->radioButtonServer->AutoSize = true;
-			this->radioButtonServer->Location = System::Drawing::Point(8, 18);
+			this->radioButtonServer->Location = System::Drawing::Point(8, 20);
 			this->radioButtonServer->Name = L"radioButtonServer";
-			this->radioButtonServer->Size = System::Drawing::Size(56, 16);
+			this->radioButtonServer->Size = System::Drawing::Size(56, 17);
 			this->radioButtonServer->TabIndex = 4;
 			this->radioButtonServer->Text = L"Server";
-			this->toolTipStartupForm->SetToolTip(this->radioButtonServer, L"ƒT[ƒo‚ðŒš‚Ä‚Ä‘¼‚ÌÚ‘±ŽÒ‚ð‘Ò‚¿Žó‚¯‚Ü‚·B\r\nŽw’è‚µ‚½‘ÒŽóƒ|[ƒg(UDP)‚ðŠJ•ú‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B");
+			this->toolTipStartupForm->SetToolTip(this->radioButtonServer, L"ƒT[ƒo‚ðŒš‚Ä‚Ä‘¼‚ÌÚ‘±ŽÒ‚ð‘Ò‚¿Žó‚¯‚Ü‚·B\r\nŽw’è‚µ‚½‘ÒŽóƒ|[ƒg(UDP)‚ðŠJ•ú‚·‚é•K—v‚ª" 
+				L"‚ ‚è‚Ü‚·B");
 			this->radioButtonServer->UseVisualStyleBackColor = true;
 			this->radioButtonServer->CheckedChanged += gcnew System::EventHandler(this, &StartupForm::radioButtonServer_CheckedChanged);
 			// 
 			// radioButtonHost
 			// 
 			this->radioButtonHost->AutoSize = true;
-			this->radioButtonHost->Location = System::Drawing::Point(70, 18);
+			this->radioButtonHost->Location = System::Drawing::Point(70, 20);
 			this->radioButtonHost->Name = L"radioButtonHost";
-			this->radioButtonHost->Size = System::Drawing::Size(47, 16);
+			this->radioButtonHost->Size = System::Drawing::Size(47, 17);
 			this->radioButtonHost->TabIndex = 5;
 			this->radioButtonHost->Text = L"Host";
-			this->toolTipStartupForm->SetToolTip(this->radioButtonHost, L"ƒT[ƒo‚ÉÚ‘±‚µ‚Ü‚·B\r\nŽw’è‚µ‚½‘ÒŽóƒ|[ƒg(UDP)‚ð’ÊM‚ÉŽg—p‚µ‚Ü‚·B\r\n(ƒ|[ƒg‚ðŠJ•ú‚·‚é‚Æ“®ì‚ªˆÀ’è‚µ‚Ü‚·B)");
+			this->toolTipStartupForm->SetToolTip(this->radioButtonHost, L"ƒT[ƒo‚ÉÚ‘±‚µ‚Ü‚·B\r\nŽw’è‚µ‚½‘ÒŽóƒ|[ƒg(UDP)‚ð’ÊM‚ÉŽg—p‚µ‚Ü‚·B\r\n(ƒ|[ƒg‚ðŠJ•ú‚" 
+				L"·‚é‚Æ“®ì‚ªˆÀ’è‚µ‚Ü‚·B)");
 			this->radioButtonHost->UseVisualStyleBackColor = true;
 			this->radioButtonHost->CheckedChanged += gcnew System::EventHandler(this, &StartupForm::radioButtonHost_CheckedChanged);
 			// 
 			// radioButtonClient
 			// 
 			this->radioButtonClient->AutoSize = true;
-			this->radioButtonClient->Location = System::Drawing::Point(123, 18);
+			this->radioButtonClient->Location = System::Drawing::Point(123, 20);
 			this->radioButtonClient->Name = L"radioButtonClient";
-			this->radioButtonClient->Size = System::Drawing::Size(53, 16);
+			this->radioButtonClient->Size = System::Drawing::Size(51, 17);
 			this->radioButtonClient->TabIndex = 6;
 			this->radioButtonClient->Text = L"Client";
-			this->toolTipStartupForm->SetToolTip(this->radioButtonClient, L"ƒT[ƒo‚ÉÚ‘±‚µ‚Ü‚·B\r\nƒ|[ƒg‚ÍŽ©“®“I‚ÉŠ„‚è“–‚Ä‚ç‚ê‚Ü‚·B\r\n(ƒ|[ƒg‚ðŠJ•ú‚µ‚È‚­‚Ä‚àÚ‘±‚Å‚«‚Ü‚·‚ªA“®ì‚ª‚â‚â•sˆÀ’è‚Å‚·B)");
+			this->toolTipStartupForm->SetToolTip(this->radioButtonClient, L"ƒT[ƒo‚ÉÚ‘±‚µ‚Ü‚·B\r\nƒ|[ƒg‚ÍŽ©“®“I‚ÉŠ„‚è“–‚Ä‚ç‚ê‚Ü‚·B\r\n(ƒ|[ƒg‚ðŠJ•ú‚µ‚È‚­‚Ä‚à" 
+				L"Ú‘±‚Å‚«‚Ü‚·‚ªA“®ì‚ª‚â‚â•sˆÀ’è‚Å‚·B)");
 			this->radioButtonClient->UseVisualStyleBackColor = true;
 			this->radioButtonClient->CheckedChanged += gcnew System::EventHandler(this, &StartupForm::radioButtonClient_CheckedChanged);
 			// 
 			// labelServerName
 			// 
 			this->labelServerName->AutoSize = true;
-			this->labelServerName->Location = System::Drawing::Point(6, 41);
+			this->labelServerName->Location = System::Drawing::Point(6, 44);
 			this->labelServerName->Name = L"labelServerName";
-			this->labelServerName->Size = System::Drawing::Size(49, 12);
+			this->labelServerName->Size = System::Drawing::Size(51, 13);
 			this->labelServerName->TabIndex = 0;
 			this->labelServerName->Text = L"ƒT[ƒo–¼:";
 			this->toolTipStartupForm->SetToolTip(this->labelServerName, L"The name your server will have.\nThis is not the address.");
@@ -175,43 +189,42 @@ namespace LilithPort {
 			// 
 			// textBoxIP
 			// 
-			this->textBoxIP->Location = System::Drawing::Point(8, 23);
+			this->textBoxIP->Location = System::Drawing::Point(8, 25);
 			this->textBoxIP->Name = L"textBoxIP";
-			this->textBoxIP->Size = System::Drawing::Size(178, 19);
+			this->textBoxIP->Size = System::Drawing::Size(178, 20);
 			this->textBoxIP->TabIndex = 11;
 			this->textBoxIP->WordWrap = false;
 			// 
 			// labelOpenPort
 			// 
 			this->labelOpenPort->AutoSize = true;
-			this->labelOpenPort->Location = System::Drawing::Point(6, 67);
+			this->labelOpenPort->Location = System::Drawing::Point(6, 73);
 			this->labelOpenPort->Name = L"labelOpenPort";
-			this->labelOpenPort->Size = System::Drawing::Size(59, 12);
+			this->labelOpenPort->Size = System::Drawing::Size(57, 13);
 			this->labelOpenPort->TabIndex = 0;
 			this->labelOpenPort->Text = L"‘ÒŽóƒ|[ƒg:";
-			this->toolTipStartupForm->SetToolTip(this->labelOpenPort, L"’ÊM‚ÉŽg—p‚·‚éƒ|[ƒg”Ô†(UDP)‚Å‚·B\r\n1024-65535‚Ü‚ÅŽw’è‚Å‚«‚Ü‚·B(ƒfƒtƒHƒ‹ƒg’l: 7500)\r\n7500”Ô‚ðƒT[ƒo‚ÅŽg—p‚·‚é‚ÆAÚ‘±ŽÒ‚ÍIPƒAƒh" 
-				L"ƒŒƒX‚Ü‚½‚ÍƒzƒXƒg–¼“ü—Í‚Ì‚Ý‚ÅÚ‘±‚Å‚«‚Ü‚·B\r\n(—á: [ lilith.port.xx:54321 ] -> [ lilith.port.xx ])");
+			this->toolTipStartupForm->SetToolTip(this->labelOpenPort, resources->GetString(L"labelOpenPort.ToolTip"));
 			this->labelOpenPort->MouseLeave += gcnew System::EventHandler(this, &StartupForm::label_MouseLeave);
 			this->labelOpenPort->MouseEnter += gcnew System::EventHandler(this, &StartupForm::label_MouseEnter);
 			// 
 			// numericUpDownOpenPort
 			// 
-			this->numericUpDownOpenPort->Location = System::Drawing::Point(133, 65);
+			this->numericUpDownOpenPort->Location = System::Drawing::Point(133, 70);
 			this->numericUpDownOpenPort->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) {65535, 0, 0, 0});
 			this->numericUpDownOpenPort->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) {1024, 0, 0, 0});
 			this->numericUpDownOpenPort->Name = L"numericUpDownOpenPort";
-			this->numericUpDownOpenPort->Size = System::Drawing::Size(53, 19);
+			this->numericUpDownOpenPort->Size = System::Drawing::Size(53, 20);
 			this->numericUpDownOpenPort->TabIndex = 8;
 			this->numericUpDownOpenPort->Tag = L"";
 			this->numericUpDownOpenPort->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) {7500, 0, 0, 0});
 			// 
 			// buttonOK
 			// 
-			this->buttonOK->Location = System::Drawing::Point(210, 205);
+			this->buttonOK->Location = System::Drawing::Point(32, 320);
 			this->buttonOK->Name = L"buttonOK";
-			this->buttonOK->Size = System::Drawing::Size(58, 24);
+			this->buttonOK->Size = System::Drawing::Size(58, 26);
 			this->buttonOK->TabIndex = 12;
-			this->buttonOK->Text = L"‹N“®";
+			this->buttonOK->Text = L"OK";
 			this->toolTipStartupForm->SetToolTip(this->buttonOK, L"ƒT[ƒo‘Ò‚¿Žó‚¯‚ðŠJŽn‚µ‚Ü‚·B");
 			this->buttonOK->UseVisualStyleBackColor = true;
 			this->buttonOK->Click += gcnew System::EventHandler(this, &StartupForm::buttonOK_Click);
@@ -219,54 +232,14 @@ namespace LilithPort {
 			// buttonCancel
 			// 
 			this->buttonCancel->DialogResult = System::Windows::Forms::DialogResult::Cancel;
-			this->buttonCancel->Location = System::Drawing::Point(338, 205);
+			this->buttonCancel->Location = System::Drawing::Point(160, 320);
 			this->buttonCancel->Name = L"buttonCancel";
-			this->buttonCancel->Size = System::Drawing::Size(57, 24);
+			this->buttonCancel->Size = System::Drawing::Size(57, 26);
 			this->buttonCancel->TabIndex = 14;
-			this->buttonCancel->Text = L"•Â‚¶‚é";
+			this->buttonCancel->Text = L"Cancel";
 			this->toolTipStartupForm->SetToolTip(this->buttonCancel, L"ƒIƒtƒ‰ƒCƒ“‚ÅƒtƒŠ[ƒvƒŒƒCƒ‚[ƒh‚ÉˆÚs‚µ‚Ü‚·B");
 			this->buttonCancel->UseVisualStyleBackColor = true;
 			this->buttonCancel->Click += gcnew System::EventHandler(this, &StartupForm::buttonCancel_Click);
-			// 
-			// textBoxComment
-			// 
-			this->textBoxComment->Location = System::Drawing::Point(80, 43);
-			this->textBoxComment->Name = L"textBoxComment";
-			this->textBoxComment->Size = System::Drawing::Size(94, 19);
-			this->textBoxComment->TabIndex = 2;
-			this->textBoxComment->WordWrap = false;
-			// 
-			// labelComment
-			// 
-			this->labelComment->AutoSize = true;
-			this->labelComment->Location = System::Drawing::Point(7, 46);
-			this->labelComment->Name = L"labelComment";
-			this->labelComment->Size = System::Drawing::Size(40, 12);
-			this->labelComment->TabIndex = 4;
-			this->labelComment->Text = L"ƒRƒƒ“ƒg:";
-			this->toolTipStartupForm->SetToolTip(this->labelComment, L"You will automatically say this message when you join.");
-			this->labelComment->MouseLeave += gcnew System::EventHandler(this, &StartupForm::label_MouseLeave);
-			this->labelComment->MouseEnter += gcnew System::EventHandler(this, &StartupForm::label_MouseEnter);
-			// 
-			// textBoxName
-			// 
-			this->textBoxName->Location = System::Drawing::Point(80, 18);
-			this->textBoxName->Name = L"textBoxName";
-			this->textBoxName->Size = System::Drawing::Size(94, 19);
-			this->textBoxName->TabIndex = 1;
-			this->textBoxName->WordWrap = false;
-			// 
-			// labelName
-			// 
-			this->labelName->AutoSize = true;
-			this->labelName->Location = System::Drawing::Point(6, 21);
-			this->labelName->Name = L"labelName";
-			this->labelName->Size = System::Drawing::Size(61, 12);
-			this->labelName->TabIndex = 0;
-			this->labelName->Text = L"ƒjƒbƒNƒl[ƒ€:";
-			this->toolTipStartupForm->SetToolTip(this->labelName, L"Your username. Don't use special characters.");
-			this->labelName->MouseLeave += gcnew System::EventHandler(this, &StartupForm::label_MouseLeave);
-			this->labelName->MouseEnter += gcnew System::EventHandler(this, &StartupForm::label_MouseEnter);
 			// 
 			// groupBoxStartMode
 			// 
@@ -280,9 +253,9 @@ namespace LilithPort {
 			this->groupBoxStartMode->Controls->Add(this->numericUpDownOpenPort);
 			this->groupBoxStartMode->Controls->Add(this->radioButtonHost);
 			this->groupBoxStartMode->Controls->Add(this->radioButtonClient);
-			this->groupBoxStartMode->Location = System::Drawing::Point(201, 12);
+			this->groupBoxStartMode->Location = System::Drawing::Point(319, 114);
 			this->groupBoxStartMode->Name = L"groupBoxStartMode";
-			this->groupBoxStartMode->Size = System::Drawing::Size(194, 131);
+			this->groupBoxStartMode->Size = System::Drawing::Size(194, 142);
 			this->groupBoxStartMode->TabIndex = 8;
 			this->groupBoxStartMode->TabStop = false;
 			this->groupBoxStartMode->Text = L"‹N“®ƒ‚[ƒh";
@@ -290,9 +263,9 @@ namespace LilithPort {
 			// labelButtonUPnP
 			// 
 			this->labelButtonUPnP->AutoSize = true;
-			this->labelButtonUPnP->Location = System::Drawing::Point(6, 93);
+			this->labelButtonUPnP->Location = System::Drawing::Point(6, 101);
 			this->labelButtonUPnP->Name = L"labelButtonUPnP";
-			this->labelButtonUPnP->Size = System::Drawing::Size(59, 24);
+			this->labelButtonUPnP->Size = System::Drawing::Size(43, 26);
 			this->labelButtonUPnP->TabIndex = 8;
 			this->labelButtonUPnP->Text = L"UPnP\nToggle:";
 			this->toolTipStartupForm->SetToolTip(this->labelButtonUPnP, L"Defines if you want to use UPnP mode.");
@@ -301,65 +274,55 @@ namespace LilithPort {
 			// 
 			// buttonClosePortUPnP
 			// 
-			this->buttonClosePortUPnP->Location = System::Drawing::Point(134, 93);
+			this->buttonClosePortUPnP->Location = System::Drawing::Point(134, 101);
 			this->buttonClosePortUPnP->Name = L"buttonClosePortUPnP";
-			this->buttonClosePortUPnP->Size = System::Drawing::Size(52, 24);
+			this->buttonClosePortUPnP->Size = System::Drawing::Size(52, 26);
 			this->buttonClosePortUPnP->TabIndex = 10;
 			this->buttonClosePortUPnP->Text = L"•Â½";
-			this->toolTipStartupForm->SetToolTip(this->buttonClosePortUPnP, L"‘ÒŽóƒ|[ƒg”Ô†‚ÌUDPƒ|[ƒg‚ð•Â½‚µ‚Ü‚·B\r\nLilithPort‚ÅŠJ•ú‚µ‚½ƒ|[ƒg‚Ì‚Ý•Â½‚Å‚«‚Ü‚·B");
+			this->toolTipStartupForm->SetToolTip(this->buttonClosePortUPnP, L"‘ÒŽóƒ|[ƒg”Ô†‚ÌUDPƒ|[ƒg‚ð•Â½‚µ‚Ü‚·B\r\nLilithPort‚ÅŠJ•ú‚µ‚½ƒ|[ƒg‚Ì‚Ý•Â½‚Å‚«‚Ü" 
+				L"‚·B");
 			this->buttonClosePortUPnP->UseVisualStyleBackColor = true;
 			this->buttonClosePortUPnP->Click += gcnew System::EventHandler(this, &StartupForm::buttonClosePortUPnP_Click);
 			// 
 			// buttonOpenPortUPnP
 			// 
-			this->buttonOpenPortUPnP->Location = System::Drawing::Point(76, 93);
+			this->buttonOpenPortUPnP->Location = System::Drawing::Point(76, 101);
 			this->buttonOpenPortUPnP->Name = L"buttonOpenPortUPnP";
-			this->buttonOpenPortUPnP->Size = System::Drawing::Size(52, 24);
+			this->buttonOpenPortUPnP->Size = System::Drawing::Size(52, 26);
 			this->buttonOpenPortUPnP->TabIndex = 9;
 			this->buttonOpenPortUPnP->Text = L"ŠJ•ú";
-			this->toolTipStartupForm->SetToolTip(this->buttonOpenPortUPnP, L"‘ÒŽóƒ|[ƒg”Ô†‚ÌUDPƒ|[ƒg‚ðŠJ•ú‚µ‚Ü‚·B\r\nŽg—pŒã‚ÍŽè“®‚Å‚Ìƒ|[ƒg•Â½‚ð„§‚µ‚Ü‚·B");
+			this->toolTipStartupForm->SetToolTip(this->buttonOpenPortUPnP, L"‘ÒŽóƒ|[ƒg”Ô†‚ÌUDPƒ|[ƒg‚ðŠJ•ú‚µ‚Ü‚·B\r\nŽg—pŒã‚ÍŽè“®‚Å‚Ìƒ|[ƒg•Â½‚ð„§‚µ‚Ü‚·B" 
+				L"");
 			this->buttonOpenPortUPnP->UseVisualStyleBackColor = true;
 			this->buttonOpenPortUPnP->Click += gcnew System::EventHandler(this, &StartupForm::buttonOpenPortUPnP_Click);
 			// 
 			// textBoxServerName
 			// 
-			this->textBoxServerName->Location = System::Drawing::Point(70, 38);
+			this->textBoxServerName->Location = System::Drawing::Point(70, 41);
 			this->textBoxServerName->Name = L"textBoxServerName";
-			this->textBoxServerName->Size = System::Drawing::Size(116, 19);
+			this->textBoxServerName->Size = System::Drawing::Size(116, 20);
 			this->textBoxServerName->TabIndex = 7;
 			this->textBoxServerName->WordWrap = false;
 			// 
 			// groupBoxConnection
 			// 
 			this->groupBoxConnection->Controls->Add(this->textBoxIP);
-			this->groupBoxConnection->Location = System::Drawing::Point(201, 149);
+			this->groupBoxConnection->Location = System::Drawing::Point(319, 262);
 			this->groupBoxConnection->Name = L"groupBoxConnection";
-			this->groupBoxConnection->Size = System::Drawing::Size(194, 50);
+			this->groupBoxConnection->Size = System::Drawing::Size(194, 54);
 			this->groupBoxConnection->TabIndex = 9;
 			this->groupBoxConnection->TabStop = false;
 			this->groupBoxConnection->Text = L"Ú‘±æƒAƒhƒŒƒX";
-			this->toolTipStartupForm->SetToolTip(this->groupBoxConnection, L"IPƒAƒhƒŒƒX, ƒzƒXƒg–¼, •ÏŠ·ƒAƒhƒŒƒX‚Ì‚¢‚¸‚ê‚©‚ð“ü—Í‚µ‚Ü‚·B\r\nw:x‚ÉŒq‚°‚Äƒ|[ƒg”Ô†‚ðŽw’è‚µ‚Ü‚·B\r\nƒ|[ƒg”Ô†‚ðÈ—ª‚µ‚½ê‡A7500ƒ|[ƒg‚ÉÚ‘±‚µ‚Ü‚·" 
-				L"B\r\n(—á:[ lilith.port.xx:7500 ], [ 123.456.xxx.xxx ])");
-			// 
-			// groupBoxProfile
-			// 
-			this->groupBoxProfile->Controls->Add(this->labelComment);
-			this->groupBoxProfile->Controls->Add(this->textBoxComment);
-			this->groupBoxProfile->Controls->Add(this->textBoxName);
-			this->groupBoxProfile->Controls->Add(this->labelName);
-			this->groupBoxProfile->Location = System::Drawing::Point(12, 12);
-			this->groupBoxProfile->Name = L"groupBoxProfile";
-			this->groupBoxProfile->Size = System::Drawing::Size(183, 67);
-			this->groupBoxProfile->TabIndex = 10;
-			this->groupBoxProfile->TabStop = false;
-			this->groupBoxProfile->Text = L"ƒvƒƒtƒB[ƒ‹";
+			this->toolTipStartupForm->SetToolTip(this->groupBoxConnection, L"IPƒAƒhƒŒƒX, ƒzƒXƒg–¼, •ÏŠ·ƒAƒhƒŒƒX‚Ì‚¢‚¸‚ê‚©‚ð“ü—Í‚µ‚Ü‚·B\r\nw:x‚ÉŒq‚°‚Äƒ|[ƒg”Ô" 
+				L"†‚ðŽw’è‚µ‚Ü‚·B\r\nƒ|[ƒg”Ô†‚ðÈ—ª‚µ‚½ê‡A7500ƒ|[ƒg‚ÉÚ‘±‚µ‚Ü‚·B\r\n(—á:[ lili" 
+				L"th.port.xx:7500 ], [ 123.456.xxx.xxx ])");
 			// 
 			// groupBoxWelcome
 			// 
 			this->groupBoxWelcome->Controls->Add(this->textBoxWelcome);
-			this->groupBoxWelcome->Location = System::Drawing::Point(12, 86);
+			this->groupBoxWelcome->Location = System::Drawing::Point(130, 194);
 			this->groupBoxWelcome->Name = L"groupBoxWelcome";
-			this->groupBoxWelcome->Size = System::Drawing::Size(183, 113);
+			this->groupBoxWelcome->Size = System::Drawing::Size(183, 122);
 			this->groupBoxWelcome->TabIndex = 11;
 			this->groupBoxWelcome->TabStop = false;
 			this->groupBoxWelcome->Text = L"ƒT[ƒo’m";
@@ -367,10 +330,10 @@ namespace LilithPort {
 			// 
 			// textBoxWelcome
 			// 
-			this->textBoxWelcome->Location = System::Drawing::Point(8, 19);
+			this->textBoxWelcome->Location = System::Drawing::Point(8, 21);
 			this->textBoxWelcome->MaxLength = 254;
 			this->textBoxWelcome->Name = L"textBoxWelcome";
-			this->textBoxWelcome->Size = System::Drawing::Size(167, 86);
+			this->textBoxWelcome->Size = System::Drawing::Size(167, 93);
 			this->textBoxWelcome->TabIndex = 3;
 			this->textBoxWelcome->Text = L"";
 			this->textBoxWelcome->WordWrap = false;
@@ -386,24 +349,94 @@ namespace LilithPort {
 			// 
 			// buttonConnect
 			// 
-			this->buttonConnect->Location = System::Drawing::Point(274, 205);
+			this->buttonConnect->Location = System::Drawing::Point(96, 320);
 			this->buttonConnect->Name = L"buttonConnect";
-			this->buttonConnect->Size = System::Drawing::Size(58, 24);
+			this->buttonConnect->Size = System::Drawing::Size(58, 26);
 			this->buttonConnect->TabIndex = 13;
-			this->buttonConnect->Text = L"Ú‘±";
+			this->buttonConnect->Text = L"Connect";
 			this->toolTipStartupForm->SetToolTip(this->buttonConnect, L"ƒIƒ“ƒ‰ƒCƒ“Ú‘±‚ðŠJŽn‚µ‚Ü‚·B");
 			this->buttonConnect->UseVisualStyleBackColor = true;
 			this->buttonConnect->Click += gcnew System::EventHandler(this, &StartupForm::buttonOK_Click);
 			// 
+			// startupTabs
+			// 
+			this->startupTabs->Controls->Add(this->tabPage1);
+			this->startupTabs->Controls->Add(this->tabPage2);
+			this->startupTabs->Location = System::Drawing::Point(12, 12);
+			this->startupTabs->Name = L"startupTabs";
+			this->startupTabs->SelectedIndex = 0;
+			this->startupTabs->Size = System::Drawing::Size(293, 96);
+			this->startupTabs->TabIndex = 15;
+			// 
+			// tabPage1
+			// 
+			this->tabPage1->Controls->Add(this->labelComment);
+			this->tabPage1->Controls->Add(this->labelName);
+			this->tabPage1->Controls->Add(this->textBoxComment);
+			this->tabPage1->Controls->Add(this->textBoxName);
+			this->tabPage1->Location = System::Drawing::Point(4, 22);
+			this->tabPage1->Name = L"tabPage1";
+			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage1->Size = System::Drawing::Size(285, 70);
+			this->tabPage1->TabIndex = 0;
+			this->tabPage1->Text = L"Profile";
+			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// tabPage2
+			// 
+			this->tabPage2->Location = System::Drawing::Point(4, 22);
+			this->tabPage2->Name = L"tabPage2";
+			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage2->Size = System::Drawing::Size(496, 70);
+			this->tabPage2->TabIndex = 1;
+			this->tabPage2->Text = L"tabPage2";
+			this->tabPage2->UseVisualStyleBackColor = true;
+			// 
+			// labelComment
+			// 
+			this->labelComment->AutoSize = true;
+			this->labelComment->Location = System::Drawing::Point(14, 41);
+			this->labelComment->Name = L"labelComment";
+			this->labelComment->Size = System::Drawing::Size(63, 13);
+			this->labelComment->TabIndex = 8;
+			this->labelComment->Text = L"Description:";
+			this->toolTipStartupForm->SetToolTip(this->labelComment, L"You will automatically say this message when you join.");
+			// 
+			// labelName
+			// 
+			this->labelName->AutoSize = true;
+			this->labelName->Location = System::Drawing::Point(13, 14);
+			this->labelName->Name = L"labelName";
+			this->labelName->Size = System::Drawing::Size(38, 13);
+			this->labelName->TabIndex = 5;
+			this->labelName->Text = L"Name:";
+			this->toolTipStartupForm->SetToolTip(this->labelName, L"Your username. Don\'t use special characters.");
+			// 
+			// textBoxComment
+			// 
+			this->textBoxComment->Location = System::Drawing::Point(87, 38);
+			this->textBoxComment->Name = L"textBoxComment";
+			this->textBoxComment->Size = System::Drawing::Size(94, 20);
+			this->textBoxComment->TabIndex = 7;
+			this->textBoxComment->WordWrap = false;
+			// 
+			// textBoxName
+			// 
+			this->textBoxName->Location = System::Drawing::Point(87, 11);
+			this->textBoxName->Name = L"textBoxName";
+			this->textBoxName->Size = System::Drawing::Size(94, 20);
+			this->textBoxName->TabIndex = 6;
+			this->textBoxName->WordWrap = false;
+			// 
 			// StartupForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->CancelButton = this->buttonCancel;
-			this->ClientSize = System::Drawing::Size(407, 241);
+			this->ClientSize = System::Drawing::Size(528, 358);
+			this->Controls->Add(this->startupTabs);
 			this->Controls->Add(this->buttonConnect);
 			this->Controls->Add(this->groupBoxWelcome);
-			this->Controls->Add(this->groupBoxProfile);
 			this->Controls->Add(this->groupBoxConnection);
 			this->Controls->Add(this->groupBoxStartMode);
 			this->Controls->Add(this->buttonOK);
@@ -416,7 +449,7 @@ namespace LilithPort {
 			this->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->ShowInTaskbar = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			this->Text = L"ƒXƒ^[ƒgƒAƒbƒv";
+			this->Text = L"Welcome";
 			this->Load += gcnew System::EventHandler(this, &StartupForm::StartupForm_Load);
 			this->Shown += gcnew System::EventHandler(this, &StartupForm::StartupForm_Shown);
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &StartupForm::StartupForm_FormClosed);
@@ -425,9 +458,10 @@ namespace LilithPort {
 			this->groupBoxStartMode->PerformLayout();
 			this->groupBoxConnection->ResumeLayout(false);
 			this->groupBoxConnection->PerformLayout();
-			this->groupBoxProfile->ResumeLayout(false);
-			this->groupBoxProfile->PerformLayout();
 			this->groupBoxWelcome->ResumeLayout(false);
+			this->startupTabs->ResumeLayout(false);
+			this->tabPage1->ResumeLayout(false);
+			this->tabPage1->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -587,5 +621,7 @@ namespace LilithPort {
 			buttonOpenPortUPnP->Enabled = true;
 			buttonClosePortUPnP->Enabled = true;
 		}
-	};
+	private: System::Void textBoxComment_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+};
 }
