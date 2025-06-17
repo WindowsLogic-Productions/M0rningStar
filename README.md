@@ -136,3 +136,5 @@ If you have any issues with the software, or find bugs, please report them on th
 You can find all releases of this software on the [releases](https://github.com/WindowsLogic-Productions/LilithPort/releases) page.
 
 This software is licensed under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html).
+
+Original source code is Copyright © Joe, all changes in this repo are Copyright © WindowsLogic Productions & BattleCapacity.
