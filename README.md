@@ -1,7 +1,7 @@
 # LilithPort
 LilithPort is a UDP multiplayer/netplay program for 2D Fighter Maker games. It includes chat and makes accommodations for players who cannot forward their ports. LilithPort is based off MT Special Edition, which is in turn based off LunaPort.
 
-This program was *not* made with Enterbrain's permission. It was ultimately made by reverse engineering the 2D Fighter Maker code. More so, my translation/continuation of LilithPort was not made with the original LilithPort developer's permission. If he ever decides to pick this back up or make changes to the code, I will comply.
+This program was *not* made with Enterbrain's permission. It was ultimately made by reverse engineering the 2D Fighter Maker code. More so, the translation/continuation of LilithPort was not made with the original LilithPort developer's permission. If he ever decides to pick this back up or make changes to the code, we will comply.
 
 > LilithPort requires .NET Framework 3.5. **You also need the Visual C++ 2008 redistributable. (https://aka.ms/vs/17/release/vc_redist.x86.exe)**
 
@@ -11,11 +11,6 @@ Any game that uses 2D Fighter Maker (95/2002) will work. LilithPort is also back
  - [Vanguard Princess](http://wiki.mizuumi.net/w/Vanguard_Princess/Netplay)
  - [WonderfulWorld](http://www55.atwiki.jp/ainefill_oinusama/pages/111.html)
  - and many more...
- 
-## Public Servers
-This 24/7 server is run by Vick, for Vanguard Princess and Pokémon Type: Wild players:
-
-    alavanguard.ddns.net:7500
 
 ## Instructions
 When you start LilithPort, a Welcome menu appears. There are 4 main modes of operation:
