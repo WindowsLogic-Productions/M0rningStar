@@ -120,14 +120,17 @@
   <metadata name="toolTipStartupForm.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="toolTipStartupForm.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="labelOpenPort.ToolTip" xml:space="preserve">
     <value>’ÊM‚ÉŽg—p‚·‚éƒ|[ƒg”Ô†(UDP)‚Å‚·B
 1024-65535‚Ü‚ÅŽw’è‚Å‚«‚Ü‚·B(ƒfƒtƒHƒ‹ƒg’l: 7500)
 7500”Ô‚ðƒT[ƒo‚ÅŽg—p‚·‚é‚ÆAÚ‘±ŽÒ‚ÍIPƒAƒhƒŒƒX‚Ü‚½‚ÍƒzƒXƒg–¼“ü—Í‚Ì‚Ý‚ÅÚ‘±‚Å‚«‚Ü‚·B
 (—á: [ lilith.port.xx:54321 ] -&gt; [ lilith.port.xx ])</value>
+  </data>
+  <data name="groupBoxConnection.ToolTip" xml:space="preserve">
+    <value>Enter an IP address, host name, or translation address.
+Specify the port number by connecting it with a colon (:).
+If the port number is omitted, it will connect to port 7500.
+(Example:[ lilith.port.xx:7500 ], [ 123.456.xxx.xxx ])</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
