@@ -47,7 +47,7 @@ int main(array<System::String ^> ^args)
 	}
 
 #ifdef _DEBUG
-	MTINFO.DEBUG = true;
+	MTINFO.DEBUG = false;
 #endif
 
 	LoadMTOption();
