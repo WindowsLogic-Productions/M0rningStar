@@ -357,7 +357,7 @@ namespace LilithPort {
 			this->label1->Size = System::Drawing::Size(69, 13);
 			this->label1->TabIndex = 11;
 			this->label1->Text = L"Address / IP:";
-			this->toolTipStartupForm->SetToolTip(this->label1, L"Defines if you want to use UPnP mode.");
+			this->toolTipStartupForm->SetToolTip(this->label1, L"Specify the server address or IP you want to connect to.\r\n[<address/ip>:<port>]");
 			// 
 			// groupBoxWelcome
 			// 
@@ -714,12 +714,12 @@ namespace LilithPort {
 		}
 		System::Void label_MouseEnter(System::Object^  sender, System::EventArgs^  e) {
 			// マウスオーバーでラベルに下線
-			Label^ obj = (Label^)sender;
-			obj->Font = gcnew System::Drawing::Font(this->Font, FontStyle::Underline);
+			/*Label^ obj = (Label^)sender;
+			obj->Font = gcnew System::Drawing::Font(this->Font, FontStyle::Underline);*/
 		}
 		System::Void label_MouseLeave(System::Object^  sender, System::EventArgs^  e) {
-			Label^ obj = (Label^)sender;
-			obj->Font = gcnew System::Drawing::Font(this->Font, FontStyle::Regular);
+			/*Label^ obj = (Label^)sender;
+			obj->Font = gcnew System::Drawing::Font(this->Font, FontStyle::Regular);*/
 		}
 		System::Void buttonOpenPortUPnP_Click(System::Object^  sender, System::EventArgs^  e) {
 			// Unused old UPnP enable button.

@@ -120,9 +120,6 @@
   <metadata name="toolTipStartupForm.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="toolTipStartupForm.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="labelOpenPort.ToolTip" xml:space="preserve">
     <value>’ÊM‚ÉŽg—p‚·‚éƒ|[ƒg”Ô†(UDP)‚Å‚·B
 1024-65535‚Ü‚ÅŽw’è‚Å‚«‚Ü‚·B(ƒfƒtƒHƒ‹ƒg’l: 7500)
