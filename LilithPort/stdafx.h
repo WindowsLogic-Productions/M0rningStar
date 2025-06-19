@@ -66,6 +66,8 @@ public ref struct MemberInfo
 	IPEndPoint^ IP_EP;
 	String^     NAME;
 	String^     COMMENT;
+	String^		LOOKING;
+	String^		AVOIDING;
 	UINT16      ID;
 	UINT        TYPE;
 	UINT        STATE;
@@ -294,6 +296,8 @@ typedef struct _MT_SP_OPTION
 	TCHAR KEYWORD[MAX_KEYWORD];
 	TCHAR NAME[MAX_NAME];
 	TCHAR COMMENT[MAX_NAME];
+	TCHAR LOOKING[MAX_NAME];
+	TCHAR AVOIDING[MAX_NAME];
 	UINT  PORT;
 	UINT  OPEN_PORT;
 	UINT  AUTO_SAVE;

@@ -85,9 +85,11 @@ namespace LilithPort {
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::GroupBox^  groupBoxUser;
 	private: System::Windows::Forms::Label^  label3;
-	private: System::Windows::Forms::TextBox^  textBox2;
+	private: System::Windows::Forms::TextBox^  textBoxAvoiding;
+
 	private: System::Windows::Forms::Label^  label2;
-	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::TextBox^  textBoxLooking;
+
 	private: System::Windows::Forms::CheckBox^  checkBoxUpnp;
 
 
@@ -140,8 +142,8 @@ namespace LilithPort {
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->groupBoxUser = (gcnew System::Windows::Forms::GroupBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxAvoiding = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxLooking = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxName = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxComment = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
@@ -432,7 +434,6 @@ namespace LilithPort {
 			this->label2->TabIndex = 10;
 			this->label2->Text = L"Looking for:";
 			this->toolTipStartupForm->SetToolTip(this->label2, L"You will automatically say this message when you join.");
-			this->label2->Visible = false;
 			// 
 			// label3
 			// 
@@ -443,7 +444,6 @@ namespace LilithPort {
 			this->label3->TabIndex = 12;
 			this->label3->Text = L"Avoiding:";
 			this->toolTipStartupForm->SetToolTip(this->label3, L"You will automatically say this message when you join.");
-			this->label3->Visible = false;
 			// 
 			// startupTabs
 			// 
@@ -488,9 +488,9 @@ namespace LilithPort {
 			// groupBoxUser
 			// 
 			this->groupBoxUser->Controls->Add(this->label3);
-			this->groupBoxUser->Controls->Add(this->textBox2);
+			this->groupBoxUser->Controls->Add(this->textBoxAvoiding);
 			this->groupBoxUser->Controls->Add(this->label2);
-			this->groupBoxUser->Controls->Add(this->textBox1);
+			this->groupBoxUser->Controls->Add(this->textBoxLooking);
 			this->groupBoxUser->Controls->Add(this->labelName);
 			this->groupBoxUser->Controls->Add(this->labelComment);
 			this->groupBoxUser->Controls->Add(this->textBoxName);
@@ -502,23 +502,21 @@ namespace LilithPort {
 			this->groupBoxUser->TabStop = false;
 			this->groupBoxUser->Text = L"User Profile Settings";
 			// 
-			// textBox2
+			// textBoxAvoiding
 			// 
-			this->textBox2->Location = System::Drawing::Point(80, 101);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(323, 20);
-			this->textBox2->TabIndex = 3;
-			this->textBox2->Visible = false;
-			this->textBox2->WordWrap = false;
+			this->textBoxAvoiding->Location = System::Drawing::Point(80, 101);
+			this->textBoxAvoiding->Name = L"textBoxAvoiding";
+			this->textBoxAvoiding->Size = System::Drawing::Size(323, 20);
+			this->textBoxAvoiding->TabIndex = 3;
+			this->textBoxAvoiding->WordWrap = false;
 			// 
-			// textBox1
+			// textBoxLooking
 			// 
-			this->textBox1->Location = System::Drawing::Point(80, 75);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(323, 20);
-			this->textBox1->TabIndex = 2;
-			this->textBox1->Visible = false;
-			this->textBox1->WordWrap = false;
+			this->textBoxLooking->Location = System::Drawing::Point(80, 75);
+			this->textBoxLooking->Name = L"textBoxLooking";
+			this->textBoxLooking->Size = System::Drawing::Size(323, 20);
+			this->textBoxLooking->TabIndex = 2;
+			this->textBoxLooking->WordWrap = false;
 			// 
 			// textBoxName
 			// 
@@ -632,6 +630,8 @@ namespace LilithPort {
 			textBoxName->Text = gcnew String(MTOPTION.NAME);
 
 			textBoxComment->Text = gcnew String(MTOPTION.COMMENT);
+			textBoxLooking->Text = gcnew String(MTOPTION.LOOKING);
+			textBoxAvoiding->Text = gcnew String(MTOPTION.AVOIDING);
 			// タブを改行に
 			ReplaceWelcomeTab(true);
 			textBoxWelcome->Text = gcnew String(MTOPTION.WELCOME);
@@ -644,7 +644,7 @@ namespace LilithPort {
 		// After which it then either connects you as the server or as a host/client to another server.
 		System::Void buttonOK_Click(System::Object^  sender, System::EventArgs^  e) {
 			String^ text = textBoxName->Text;
-			array<Char>^ charactersToFind = { '<', '>', ':', '/', '|', '?', '*', '!' };
+			array<Char>^ charactersToFind = { '<', '>', ':', '/', '|', '?', '*', '!', '@' };
 
 			if (String::IsNullOrEmpty(textBoxName->Text)){
 				MessageBox::Show("Your username cannot be blank.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
@@ -652,9 +652,9 @@ namespace LilithPort {
 			}
 			
 			for each (Char character in charactersToFind) {
-				String^ charAsString = gcnew String(&character, 0, 1); // Create a string from the character
+				String^ charAsString = gcnew String(&character, 0, 1);
 				if (text->Contains(charAsString)) {
-					MessageBox::Show("Your username cannot contain special characters < > : | ? * or !.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+					MessageBox::Show("Your username cannot contain special characters < > : | ? *, !, @.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 					return;
 				}
 			}
@@ -672,8 +672,8 @@ namespace LilithPort {
 
 			this->Close();
 		}
+		// Closes the 'Welcome' dialogue and sends the user to Free Play mode, skipping any type of connection. Effectively "offline" mode.
 		System::Void buttonCancel_Click(System::Object^  sender, System::EventArgs^  e) {
-			// 閉じるボタン
 			MTOPTION.CONNECTION_TYPE = CT_FREE;
 			ConnectionStart = false;
 
