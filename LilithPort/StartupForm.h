@@ -639,9 +639,10 @@ namespace LilithPort {
 		}
 		System::Void StartupForm_Shown(System::Object^  sender, System::EventArgs^  e) {
 		}
+		// Checks if name textbox is null or has invalid characters.
+		// Then checks if the server name is null or invalid.
+		// After which it then either connects you as the server or as a host/client to another server.
 		System::Void buttonOK_Click(System::Object^  sender, System::EventArgs^  e) {
-			// 起動・接続ボタン
-
 			String^ text = textBoxName->Text;
 			array<Char>^ charactersToFind = { '<', '>', ':', '/', '|', '?', '*', '!' };
 
@@ -649,7 +650,6 @@ namespace LilithPort {
 				MessageBox::Show("Your username cannot be blank.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 				return;
 			}
-
 			
 			for each (Char character in charactersToFind) {
 				String^ charAsString = gcnew String(&character, 0, 1); // Create a string from the character
