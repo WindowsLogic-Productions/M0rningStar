@@ -641,10 +641,22 @@ namespace LilithPort {
 		}
 		System::Void buttonOK_Click(System::Object^  sender, System::EventArgs^  e) {
 			// 起動・接続ボタン
-			
+
+			String^ text = textBoxName->Text;
+			array<Char>^ charactersToFind = { '<', '>', ':', '/', '|', '?', '*', '!' };
+
 			if (String::IsNullOrEmpty(textBoxName->Text)){
-			MessageBox::Show("Your username cannot be blank.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
-			return;
+				MessageBox::Show("Your username cannot be blank.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+				return;
+			}
+
+			
+			for each (Char character in charactersToFind) {
+				String^ charAsString = gcnew String(&character, 0, 1); // Create a string from the character
+				if (text->Contains(charAsString)) {
+					MessageBox::Show("Your username cannot contain special characters < > : | ? * or !.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+					return;
+				}
 			}
 
 			if(!CheckValidate()){
