@@ -29,7 +29,7 @@ Since LilithPort 1.08, you can use UPnP to directly communicate to your router t
 How to use:
 
 1. Enter the port number. This should be your listen port.
-2. Press either `Open` or `Close` to open or close the desired port.
+2. Check or uncheck `Enable UPnP` to open or close the desired port.
 3. After opening the port, you can use the port in Host or Server mode.
 4. After closing the port, it is no longer open to the Internet.
 
