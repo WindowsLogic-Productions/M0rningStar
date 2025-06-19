@@ -497,7 +497,7 @@ namespace LilithPort {
 			this->groupBoxUser->Controls->Add(this->textBoxComment);
 			this->groupBoxUser->Location = System::Drawing::Point(6, 6);
 			this->groupBoxUser->Name = L"groupBoxUser";
-			this->groupBoxUser->Size = System::Drawing::Size(409, 223);
+			this->groupBoxUser->Size = System::Drawing::Size(409, 128);
 			this->groupBoxUser->TabIndex = 9;
 			this->groupBoxUser->TabStop = false;
 			this->groupBoxUser->Text = L"User Profile Settings";
@@ -664,11 +664,7 @@ namespace LilithPort {
 			}
 			ConnectionStart = true;
 			
-			if (MTOPTION.REST_CONNECT = true){
-				
-			}else{
-				return;
-			};
+			
 
 			this->Close();
 		}

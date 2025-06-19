@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Mainform.h"
-//#include "StartupForm.h"
 
 using namespace LilithPort;
 
