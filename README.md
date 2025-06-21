@@ -133,6 +133,11 @@ The reason is that 2DFM will silently error out when a joystick is expected but 
 ## Dedicated Server
 A dedicated server is coming in the very distant future. In the meantime, you can pass the `-s <port>` command line argument to LilithPort to start server mode immediately and close silently on exception.
 
+## How to contribute
+You need to have installed the following to build the source code:
+
+- Visual C++ 2008 Express Edition
+
 ## Issues & Support
 
 If you have any issues with the software, or find bugs, please report them on the [issues](https://github.com/WindowsLogic-Productions/LilithPort/issues) page.
