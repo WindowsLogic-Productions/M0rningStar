@@ -12,11 +12,13 @@ As we will be releasing version 1.1.0.0 soon, this version will be incompatible 
 [Use LilithPort 1.1.x.x for bleeding edge feature updates.]()
 
 ## Games
-Any game that uses 2D Fighter Maker (95/2002) will work. LilithPort is also backwards compatible with servers that use MTSP.
+Any game that uses 2D Fighter Maker (95/2nd.) will work. LilithPort 1.0.9.x LTS is also backwards compatible with servers that use MTSP.
  - [Pokémon Type: Wild](http://oneweakness.com/pokemon-type-wild.html)
  - [Vanguard Princess](http://wiki.mizuumi.net/w/Vanguard_Princess/Netplay)
  - [WonderfulWorld](http://www55.atwiki.jp/ainefill_oinusama/pages/111.html)
  - and many more...
+
+**LilithPort 1.1.x.x+ will require a server update.**
 
 ## Instructions
 When you start LilithPort, a Welcome menu appears. There are 4 main modes of operation:
