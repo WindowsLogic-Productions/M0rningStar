@@ -213,7 +213,7 @@ const BYTE VOLUME_SET_2_95_CODE[] = {0x50,0x8B,0x08,0xCC,0x52,0x50,0xFF,0x51,0x3
 
 // バージョン情報
 // LilithPort 1.03以上互換, それ以前はなし
-const UINT LP_VERSION = 1091;
+const UINT LP_VERSION = 109;
 
 // 設定項目
 const UINT MAX_NAME   = 32;
