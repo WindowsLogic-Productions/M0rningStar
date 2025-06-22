@@ -537,7 +537,6 @@ namespace LilithPort {
 			this->Text = L"LilithPort - Welcome";
 			this->TopMost = true;
 			this->Load += gcnew System::EventHandler(this, &StartupForm::StartupForm_Load);
-			this->Shown += gcnew System::EventHandler(this, &StartupForm::StartupForm_Shown);
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &StartupForm::StartupForm_FormClosed);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->numericUpDownOpenPort))->EndInit();
 			this->groupBoxStartMode->ResumeLayout(false);
@@ -596,6 +595,7 @@ namespace LilithPort {
 			
 			numericUpDownOpenPort->Value = MTOPTION.OPEN_PORT;
 			textBoxName->Text = gcnew String(MTOPTION.NAME);
+			checkBoxLegacy->Checked = MTOPTION.LEGACY_SERVER;
 
 			textBoxComment->Text = gcnew String(MTOPTION.COMMENT);
 			textBoxLooking->Text = gcnew String(MTOPTION.LOOKING);
@@ -603,9 +603,6 @@ namespace LilithPort {
 			// ƒ^ƒu‚ð‰üs‚É
 			ReplaceWelcomeTab(true);
 			textBoxWelcome->Text = gcnew String(MTOPTION.WELCOME);
-
-		}
-		System::Void StartupForm_Shown(System::Object^  sender, System::EventArgs^  e) {
 		}
 		// Checks if name textbox is null or has invalid characters.
 		// Then checks if the server name is null or invalid.
@@ -678,6 +675,12 @@ namespace LilithPort {
 			groupBoxConnection->Enabled    = true;
 			groupBoxWelcome->Enabled       = false;
 			checkBoxUpnp->Enabled          = false;
+
+			/*if (MTOPTION.LEGACY_SERVER {
+				this->checkBoxLegacy->Checked = true;
+			}else{
+				this->checkBoxLegacy->Checked = false;
+			}*/
 		}
 		System::Void checkBoxUpnp_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 			//Checkbox for enabling/disabling UPnP.
@@ -693,7 +696,7 @@ namespace LilithPort {
 			}
 		}
 		System::Void checkBoxLegacy_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
-			if (this->checkBoxLegacy->Checked){
+			if (checkBoxLegacy->Checked == true){
 				MTOPTION.LEGACY_SERVER = true;
 			}else{
 				MTOPTION.LEGACY_SERVER = false;
