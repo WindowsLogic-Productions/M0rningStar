@@ -70,9 +70,9 @@ namespace LilithPort {
 	private: System::Windows::Forms::RichTextBox^  textBoxWelcome;
 	private: System::Windows::Forms::ToolTip^  toolTipStartupForm;
 	private: System::Windows::Forms::Button^  buttonConnect;
-	private: System::Windows::Forms::Button^  buttonOpenPortUPnP;
-	private: System::Windows::Forms::Button^  buttonClosePortUPnP;
-	private: System::Windows::Forms::Label^  labelButtonUPnP;
+
+
+
 	private: System::Windows::Forms::TabControl^  startupTabs;
 
 	private: System::Windows::Forms::TabPage^  tabPage1;
@@ -91,6 +91,7 @@ namespace LilithPort {
 	private: System::Windows::Forms::TextBox^  textBoxLooking;
 
 	private: System::Windows::Forms::CheckBox^  checkBoxUpnp;
+	private: System::Windows::Forms::CheckBox^  checkBoxLegacy;
 
 
 
@@ -125,9 +126,6 @@ namespace LilithPort {
 			this->groupBoxStartMode = (gcnew System::Windows::Forms::GroupBox());
 			this->checkBoxUpnp = (gcnew System::Windows::Forms::CheckBox());
 			this->textBoxServerName = (gcnew System::Windows::Forms::TextBox());
-			this->labelButtonUPnP = (gcnew System::Windows::Forms::Label());
-			this->buttonClosePortUPnP = (gcnew System::Windows::Forms::Button());
-			this->buttonOpenPortUPnP = (gcnew System::Windows::Forms::Button());
 			this->groupBoxConnection = (gcnew System::Windows::Forms::GroupBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->groupBoxWelcome = (gcnew System::Windows::Forms::GroupBox());
@@ -147,6 +145,7 @@ namespace LilithPort {
 			this->textBoxName = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxComment = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->checkBoxLegacy = (gcnew System::Windows::Forms::CheckBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->numericUpDownOpenPort))->BeginInit();
 			this->groupBoxStartMode->SuspendLayout();
 			this->groupBoxConnection->SuspendLayout();
@@ -209,8 +208,6 @@ namespace LilithPort {
 			this->labelServerName->TabIndex = 0;
 			this->labelServerName->Text = L"Server name:";
 			this->toolTipStartupForm->SetToolTip(this->labelServerName, L"The name your server will have.\nThis is not the address.");
-			this->labelServerName->MouseLeave += gcnew System::EventHandler(this, &StartupForm::label_MouseLeave);
-			this->labelServerName->MouseEnter += gcnew System::EventHandler(this, &StartupForm::label_MouseEnter);
 			// 
 			// textBoxIP
 			// 
@@ -229,8 +226,6 @@ namespace LilithPort {
 			this->labelOpenPort->TabIndex = 0;
 			this->labelOpenPort->Text = L"Server port:";
 			this->toolTipStartupForm->SetToolTip(this->labelOpenPort, resources->GetString(L"labelOpenPort.ToolTip"));
-			this->labelOpenPort->MouseLeave += gcnew System::EventHandler(this, &StartupForm::label_MouseLeave);
-			this->labelOpenPort->MouseEnter += gcnew System::EventHandler(this, &StartupForm::label_MouseEnter);
 			// 
 			// numericUpDownOpenPort
 			// 
@@ -302,50 +297,14 @@ namespace LilithPort {
 			this->textBoxServerName->TabIndex = 3;
 			this->textBoxServerName->WordWrap = false;
 			// 
-			// labelButtonUPnP
-			// 
-			this->labelButtonUPnP->AutoSize = true;
-			this->labelButtonUPnP->Location = System::Drawing::Point(142, 199);
-			this->labelButtonUPnP->Name = L"labelButtonUPnP";
-			this->labelButtonUPnP->Size = System::Drawing::Size(70, 13);
-			this->labelButtonUPnP->TabIndex = 8;
-			this->labelButtonUPnP->Text = L"UPnP toggle:";
-			this->toolTipStartupForm->SetToolTip(this->labelButtonUPnP, L"Defines if you want to use UPnP mode.");
-			this->labelButtonUPnP->Visible = false;
-			this->labelButtonUPnP->MouseLeave += gcnew System::EventHandler(this, &StartupForm::label_MouseLeave);
-			this->labelButtonUPnP->MouseEnter += gcnew System::EventHandler(this, &StartupForm::label_MouseEnter);
-			// 
-			// buttonClosePortUPnP
-			// 
-			this->buttonClosePortUPnP->Location = System::Drawing::Point(276, 198);
-			this->buttonClosePortUPnP->Name = L"buttonClosePortUPnP";
-			this->buttonClosePortUPnP->Size = System::Drawing::Size(52, 26);
-			this->buttonClosePortUPnP->TabIndex = 6;
-			this->buttonClosePortUPnP->Text = L"Disable";
-			this->toolTipStartupForm->SetToolTip(this->buttonClosePortUPnP, L"Close your UPnP port.");
-			this->buttonClosePortUPnP->UseVisualStyleBackColor = true;
-			this->buttonClosePortUPnP->Visible = false;
-			this->buttonClosePortUPnP->Click += gcnew System::EventHandler(this, &StartupForm::buttonClosePortUPnP_Click);
-			// 
-			// buttonOpenPortUPnP
-			// 
-			this->buttonOpenPortUPnP->Location = System::Drawing::Point(218, 198);
-			this->buttonOpenPortUPnP->Name = L"buttonOpenPortUPnP";
-			this->buttonOpenPortUPnP->Size = System::Drawing::Size(52, 26);
-			this->buttonOpenPortUPnP->TabIndex = 5;
-			this->buttonOpenPortUPnP->Text = L"Enable";
-			this->toolTipStartupForm->SetToolTip(this->buttonOpenPortUPnP, L"Open your UPnP port.");
-			this->buttonOpenPortUPnP->UseVisualStyleBackColor = true;
-			this->buttonOpenPortUPnP->Visible = false;
-			this->buttonOpenPortUPnP->Click += gcnew System::EventHandler(this, &StartupForm::buttonOpenPortUPnP_Click);
-			// 
 			// groupBoxConnection
 			// 
+			this->groupBoxConnection->Controls->Add(this->checkBoxLegacy);
 			this->groupBoxConnection->Controls->Add(this->label1);
 			this->groupBoxConnection->Controls->Add(this->textBoxIP);
 			this->groupBoxConnection->Location = System::Drawing::Point(68, 117);
 			this->groupBoxConnection->Name = L"groupBoxConnection";
-			this->groupBoxConnection->Size = System::Drawing::Size(343, 52);
+			this->groupBoxConnection->Size = System::Drawing::Size(343, 74);
 			this->groupBoxConnection->TabIndex = 9;
 			this->groupBoxConnection->TabStop = false;
 			this->groupBoxConnection->Text = L"Client";
@@ -459,10 +418,7 @@ namespace LilithPort {
 			// tabPage2
 			// 
 			this->tabPage2->Controls->Add(this->groupBoxStartMode);
-			this->tabPage2->Controls->Add(this->labelButtonUPnP);
-			this->tabPage2->Controls->Add(this->buttonClosePortUPnP);
 			this->tabPage2->Controls->Add(this->radioButtonServer);
-			this->tabPage2->Controls->Add(this->buttonOpenPortUPnP);
 			this->tabPage2->Controls->Add(this->groupBoxConnection);
 			this->tabPage2->Controls->Add(this->radioButtonHost);
 			this->tabPage2->Controls->Add(this->radioButtonClient);
@@ -497,7 +453,7 @@ namespace LilithPort {
 			this->groupBoxUser->Controls->Add(this->textBoxComment);
 			this->groupBoxUser->Location = System::Drawing::Point(6, 6);
 			this->groupBoxUser->Name = L"groupBoxUser";
-			this->groupBoxUser->Size = System::Drawing::Size(409, 128);
+			this->groupBoxUser->Size = System::Drawing::Size(409, 212);
 			this->groupBoxUser->TabIndex = 9;
 			this->groupBoxUser->TabStop = false;
 			this->groupBoxUser->Text = L"User Profile Settings";
@@ -545,9 +501,21 @@ namespace LilithPort {
 			this->tabPage3->Text = L"Welcome Message";
 			this->tabPage3->UseVisualStyleBackColor = true;
 			// 
+			// checkBoxLegacy
+			// 
+			this->checkBoxLegacy->AutoSize = true;
+			this->checkBoxLegacy->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->checkBoxLegacy->Location = System::Drawing::Point(6, 51);
+			this->checkBoxLegacy->Name = L"checkBoxLegacy";
+			this->checkBoxLegacy->Size = System::Drawing::Size(141, 18);
+			this->checkBoxLegacy->TabIndex = 6;
+			this->checkBoxLegacy->Text = L"Enable legacy netcode";
+			this->toolTipStartupForm->SetToolTip(this->checkBoxLegacy, L"Allows connection to servers running 1.0.9.x or earlier.");
+			this->checkBoxLegacy->UseVisualStyleBackColor = true;
+			this->checkBoxLegacy->CheckedChanged += gcnew System::EventHandler(this, &StartupForm::checkBoxLegacy_CheckedChanged);
+			// 
 			// StartupForm
 			// 
-			this->AcceptButton = this->buttonOK;
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Black;
@@ -566,7 +534,7 @@ namespace LilithPort {
 			this->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->ShowInTaskbar = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			this->Text = L"Welcome";
+			this->Text = L"LilithPort - Welcome";
 			this->TopMost = true;
 			this->Load += gcnew System::EventHandler(this, &StartupForm::StartupForm_Load);
 			this->Shown += gcnew System::EventHandler(this, &StartupForm::StartupForm_Shown);
@@ -689,9 +657,6 @@ namespace LilithPort {
 			groupBoxConnection->Enabled    = false;
 			groupBoxWelcome->Enabled       = true;
 			checkBoxUpnp->Enabled          = true;
-			labelButtonUPnP->Enabled       = true;
-			buttonOpenPortUPnP->Enabled    = true;
-			buttonClosePortUPnP->Enabled   = true;
 		}
 
 		System::Void radioButtonHost_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
@@ -703,9 +668,6 @@ namespace LilithPort {
 			groupBoxConnection->Enabled    = true;
 			groupBoxWelcome->Enabled       = false;
 			checkBoxUpnp->Enabled          = true;
-			labelButtonUPnP->Enabled       = true;
-			buttonOpenPortUPnP->Enabled    = true;
-			buttonClosePortUPnP->Enabled   = true;
 		}
 		System::Void radioButtonClient_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 			numericUpDownOpenPort->Enabled = false;
@@ -716,43 +678,7 @@ namespace LilithPort {
 			groupBoxConnection->Enabled    = true;
 			groupBoxWelcome->Enabled       = false;
 			checkBoxUpnp->Enabled          = false;
-			labelButtonUPnP->Enabled       = false;
-			buttonOpenPortUPnP->Enabled    = false;
-			buttonClosePortUPnP->Enabled   = false;
 		}
-		System::Void label_MouseEnter(System::Object^  sender, System::EventArgs^  e) {
-			// マウスオーバーでラベルに下線
-			/*Label^ obj = (Label^)sender;
-			obj->Font = gcnew System::Drawing::Font(this->Font, FontStyle::Underline);*/
-		}
-		System::Void label_MouseLeave(System::Object^  sender, System::EventArgs^  e) {
-			/*Label^ obj = (Label^)sender;
-			obj->Font = gcnew System::Drawing::Font(this->Font, FontStyle::Regular);*/
-		}
-		System::Void buttonOpenPortUPnP_Click(System::Object^  sender, System::EventArgs^  e) {
-			// Unused old UPnP enable button.
-			buttonOpenPortUPnP->Enabled = false;
-			buttonClosePortUPnP->Enabled = false;
-
-			MTOPTION.OPEN_PORT = (UINT)numericUpDownOpenPort->Value;
-			UPnP_PortOpenClose(true, false);
-
-			buttonOpenPortUPnP->Enabled = true;
-			buttonClosePortUPnP->Enabled = true;
-		}
-		System::Void buttonClosePortUPnP_Click(System::Object^  sender, System::EventArgs^  e) {
-			// Unused old UPnP disable button.
-			buttonOpenPortUPnP->Enabled = false;
-			buttonClosePortUPnP->Enabled = false;
-
-			MTOPTION.OPEN_PORT = (UINT)numericUpDownOpenPort->Value;
-			UPnP_PortOpenClose(false, false);
-
-			buttonOpenPortUPnP->Enabled = true;
-			buttonClosePortUPnP->Enabled = true;
-		}
-	private: System::Void textBoxComment_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-			 }
 		System::Void checkBoxUpnp_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 			//Checkbox for enabling/disabling UPnP.
 			if(checkBoxUpnp->Checked == true)
@@ -766,5 +692,12 @@ namespace LilithPort {
 				UPnP_PortOpenClose(false, false);
 			}
 		}
+		System::Void checkBoxLegacy_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+			if (this->checkBoxLegacy->Checked){
+				MTOPTION.LEGACY_SERVER = true;
+			}else{
+				MTOPTION.LEGACY_SERVER = false;
+			}
+		 }
 };
 }
