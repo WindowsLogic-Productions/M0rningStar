@@ -69,6 +69,7 @@ public ref struct MemberInfo
 	String^		LOOKING;
 	String^		AVOIDING;
 	String^		REGION;
+	String^		GG;
 	UINT16      ID;
 	UINT        TYPE;
 	UINT        STATE;
@@ -300,6 +301,8 @@ typedef struct _MT_SP_OPTION
 	TCHAR LOOKING[MAX_NAME];
 	TCHAR AVOIDING[MAX_NAME];
 	TCHAR REGION[MAX_NAME];
+	TCHAR GG[MAX_NAME];
+	bool  GG_ENABLE;
 	UINT  PORT;
 	UINT  OPEN_PORT;
 	UINT  AUTO_SAVE;

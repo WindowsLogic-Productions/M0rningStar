@@ -98,6 +98,10 @@ namespace LilithPort {
 	private: System::Windows::Forms::Label^  labelRegion;
 	private: System::Windows::Forms::ComboBox^  comboBoxRegion;
 	private: System::Windows::Forms::CheckBox^  checkBoxRegion;
+	private: System::Windows::Forms::TextBox^  textBoxGG;
+	private: System::Windows::Forms::GroupBox^  groupBoxGG;
+	private: System::Windows::Forms::CheckBox^  checkBoxGG;
+	private: System::Windows::Forms::Label^  labelGG;
 
 
 
@@ -142,22 +146,26 @@ namespace LilithPort {
 			this->textBoxWelcome = (gcnew System::Windows::Forms::RichTextBox());
 			this->toolTipStartupForm = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->buttonConnect = (gcnew System::Windows::Forms::Button());
-			this->labelComment = (gcnew System::Windows::Forms::Label());
-			this->labelName = (gcnew System::Windows::Forms::Label());
 			this->labelLooking = (gcnew System::Windows::Forms::Label());
 			this->labelAvoiding = (gcnew System::Windows::Forms::Label());
 			this->checkBoxRestConnect = (gcnew System::Windows::Forms::CheckBox());
 			this->labelRegion = (gcnew System::Windows::Forms::Label());
+			this->textBoxName = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxComment = (gcnew System::Windows::Forms::TextBox());
+			this->labelGG = (gcnew System::Windows::Forms::Label());
+			this->labelComment = (gcnew System::Windows::Forms::Label());
+			this->labelName = (gcnew System::Windows::Forms::Label());
 			this->startupTabs = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->groupBoxGG = (gcnew System::Windows::Forms::GroupBox());
+			this->checkBoxGG = (gcnew System::Windows::Forms::CheckBox());
+			this->textBoxGG = (gcnew System::Windows::Forms::TextBox());
 			this->groupBoxUser = (gcnew System::Windows::Forms::GroupBox());
 			this->checkBoxRegion = (gcnew System::Windows::Forms::CheckBox());
 			this->comboBoxRegion = (gcnew System::Windows::Forms::ComboBox());
 			this->textBoxAvoiding = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxLooking = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxName = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxComment = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->numericUpDownOpenPort))->BeginInit();
 			this->groupBoxStartMode->SuspendLayout();
@@ -166,6 +174,7 @@ namespace LilithPort {
 			this->startupTabs->SuspendLayout();
 			this->tabPage2->SuspendLayout();
 			this->tabPage1->SuspendLayout();
+			this->groupBoxGG->SuspendLayout();
 			this->groupBoxUser->SuspendLayout();
 			this->tabPage3->SuspendLayout();
 			this->SuspendLayout();
@@ -390,26 +399,6 @@ namespace LilithPort {
 			this->buttonConnect->UseVisualStyleBackColor = true;
 			this->buttonConnect->Click += gcnew System::EventHandler(this, &StartupForm::buttonOK_Click);
 			// 
-			// labelComment
-			// 
-			this->labelComment->AutoSize = true;
-			this->labelComment->Location = System::Drawing::Point(20, 52);
-			this->labelComment->Name = L"labelComment";
-			this->labelComment->Size = System::Drawing::Size(54, 13);
-			this->labelComment->TabIndex = 8;
-			this->labelComment->Text = L"Comment:";
-			this->toolTipStartupForm->SetToolTip(this->labelComment, L"You will automatically say this message when you join.");
-			// 
-			// labelName
-			// 
-			this->labelName->AutoSize = true;
-			this->labelName->Location = System::Drawing::Point(36, 25);
-			this->labelName->Name = L"labelName";
-			this->labelName->Size = System::Drawing::Size(38, 13);
-			this->labelName->TabIndex = 5;
-			this->labelName->Text = L"Name:";
-			this->toolTipStartupForm->SetToolTip(this->labelName, L"Your username. Don\'t use special characters.");
-			// 
 			// labelLooking
 			// 
 			this->labelLooking->AutoSize = true;
@@ -454,6 +443,52 @@ namespace LilithPort {
 			this->labelRegion->Text = L"Region:";
 			this->toolTipStartupForm->SetToolTip(this->labelRegion, L"You will automatically say this message when you join.");
 			// 
+			// textBoxName
+			// 
+			this->textBoxName->Location = System::Drawing::Point(80, 22);
+			this->textBoxName->Name = L"textBoxName";
+			this->textBoxName->Size = System::Drawing::Size(323, 20);
+			this->textBoxName->TabIndex = 0;
+			this->toolTipStartupForm->SetToolTip(this->textBoxName, L"Your username. You cannot use special characters.");
+			this->textBoxName->WordWrap = false;
+			// 
+			// textBoxComment
+			// 
+			this->textBoxComment->Location = System::Drawing::Point(80, 49);
+			this->textBoxComment->Name = L"textBoxComment";
+			this->textBoxComment->Size = System::Drawing::Size(323, 20);
+			this->textBoxComment->TabIndex = 1;
+			this->toolTipStartupForm->SetToolTip(this->textBoxComment, L"You will automatically say this message when you join.");
+			this->textBoxComment->WordWrap = false;
+			// 
+			// labelGG
+			// 
+			this->labelGG->AutoSize = true;
+			this->labelGG->Location = System::Drawing::Point(11, 28);
+			this->labelGG->Name = L"labelGG";
+			this->labelGG->Size = System::Drawing::Size(74, 13);
+			this->labelGG->TabIndex = 16;
+			this->labelGG->Text = L"End message:";
+			this->toolTipStartupForm->SetToolTip(this->labelGG, L"You will automatically say this message when you join.");
+			// 
+			// labelComment
+			// 
+			this->labelComment->AutoSize = true;
+			this->labelComment->Location = System::Drawing::Point(20, 52);
+			this->labelComment->Name = L"labelComment";
+			this->labelComment->Size = System::Drawing::Size(54, 13);
+			this->labelComment->TabIndex = 8;
+			this->labelComment->Text = L"Comment:";
+			// 
+			// labelName
+			// 
+			this->labelName->AutoSize = true;
+			this->labelName->Location = System::Drawing::Point(36, 25);
+			this->labelName->Name = L"labelName";
+			this->labelName->Size = System::Drawing::Size(38, 13);
+			this->labelName->TabIndex = 5;
+			this->labelName->Text = L"Name:";
+			// 
 			// startupTabs
 			// 
 			this->startupTabs->Controls->Add(this->tabPage2);
@@ -483,6 +518,7 @@ namespace LilithPort {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->groupBoxGG);
 			this->tabPage1->Controls->Add(this->groupBoxUser);
 			this->tabPage1->Location = System::Drawing::Point(4, 22);
 			this->tabPage1->Name = L"tabPage1";
@@ -491,6 +527,38 @@ namespace LilithPort {
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"User Profile";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// groupBoxGG
+			// 
+			this->groupBoxGG->Controls->Add(this->checkBoxGG);
+			this->groupBoxGG->Controls->Add(this->labelGG);
+			this->groupBoxGG->Controls->Add(this->textBoxGG);
+			this->groupBoxGG->Location = System::Drawing::Point(6, 173);
+			this->groupBoxGG->Name = L"groupBoxGG";
+			this->groupBoxGG->Size = System::Drawing::Size(409, 56);
+			this->groupBoxGG->TabIndex = 17;
+			this->groupBoxGG->TabStop = false;
+			this->groupBoxGG->Text = L"Fight End Message Settings";
+			// 
+			// checkBoxGG
+			// 
+			this->checkBoxGG->AutoSize = true;
+			this->checkBoxGG->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->checkBoxGG->Location = System::Drawing::Point(286, 27);
+			this->checkBoxGG->Name = L"checkBoxGG";
+			this->checkBoxGG->Size = System::Drawing::Size(131, 18);
+			this->checkBoxGG->TabIndex = 7;
+			this->checkBoxGG->Text = L"Enable end message";
+			this->checkBoxGG->UseVisualStyleBackColor = true;
+			this->checkBoxGG->CheckedChanged += gcnew System::EventHandler(this, &StartupForm::checkBoxGG_CheckedChanged);
+			// 
+			// textBoxGG
+			// 
+			this->textBoxGG->Enabled = false;
+			this->textBoxGG->Location = System::Drawing::Point(91, 25);
+			this->textBoxGG->Name = L"textBoxGG";
+			this->textBoxGG->Size = System::Drawing::Size(189, 20);
+			this->textBoxGG->TabIndex = 6;
 			// 
 			// groupBoxUser
 			// 
@@ -519,7 +587,7 @@ namespace LilithPort {
 			this->checkBoxRegion->Location = System::Drawing::Point(239, 130);
 			this->checkBoxRegion->Name = L"checkBoxRegion";
 			this->checkBoxRegion->Size = System::Drawing::Size(144, 18);
-			this->checkBoxRegion->TabIndex = 15;
+			this->checkBoxRegion->TabIndex = 5;
 			this->checkBoxRegion->Text = L"Display region on profile";
 			this->checkBoxRegion->UseVisualStyleBackColor = true;
 			this->checkBoxRegion->CheckedChanged += gcnew System::EventHandler(this, &StartupForm::checkBoxRegion_CheckedChanged);
@@ -534,7 +602,7 @@ namespace LilithPort {
 			this->comboBoxRegion->Location = System::Drawing::Point(80, 127);
 			this->comboBoxRegion->Name = L"comboBoxRegion";
 			this->comboBoxRegion->Size = System::Drawing::Size(153, 21);
-			this->comboBoxRegion->TabIndex = 14;
+			this->comboBoxRegion->TabIndex = 4;
 			// 
 			// textBoxAvoiding
 			// 
@@ -551,22 +619,6 @@ namespace LilithPort {
 			this->textBoxLooking->Size = System::Drawing::Size(323, 20);
 			this->textBoxLooking->TabIndex = 2;
 			this->textBoxLooking->WordWrap = false;
-			// 
-			// textBoxName
-			// 
-			this->textBoxName->Location = System::Drawing::Point(80, 22);
-			this->textBoxName->Name = L"textBoxName";
-			this->textBoxName->Size = System::Drawing::Size(323, 20);
-			this->textBoxName->TabIndex = 0;
-			this->textBoxName->WordWrap = false;
-			// 
-			// textBoxComment
-			// 
-			this->textBoxComment->Location = System::Drawing::Point(80, 49);
-			this->textBoxComment->Name = L"textBoxComment";
-			this->textBoxComment->Size = System::Drawing::Size(323, 20);
-			this->textBoxComment->TabIndex = 1;
-			this->textBoxComment->WordWrap = false;
 			// 
 			// tabPage3
 			// 
@@ -613,6 +665,8 @@ namespace LilithPort {
 			this->tabPage2->ResumeLayout(false);
 			this->tabPage2->PerformLayout();
 			this->tabPage1->ResumeLayout(false);
+			this->groupBoxGG->ResumeLayout(false);
+			this->groupBoxGG->PerformLayout();
 			this->groupBoxUser->ResumeLayout(false);
 			this->groupBoxUser->PerformLayout();
 			this->tabPage3->ResumeLayout(false);
@@ -642,6 +696,7 @@ namespace LilithPort {
 			case CT_SERVER:
 			default:
 				radioButtonServer->Checked = true;
+				checkBoxLegacy->Checked = false;
 
 				break;
 			case CT_HOST:
@@ -668,6 +723,13 @@ namespace LilithPort {
 			textBoxAvoiding->Text = gcnew String(MTOPTION.AVOIDING);
 			comboBoxRegion->Text = gcnew String(MTOPTION.REGION);
 			checkBoxRegion->Checked = MTOPTION.SHOW_REGION;
+			if (checkBoxLegacy->Checked == true){
+				comboBoxRegion->Enabled = false;
+			}else{
+				comboBoxRegion->Enabled = true;
+			}
+			textBoxGG->Text = gcnew String(MTOPTION.GG);
+			checkBoxGG->Checked = MTOPTION.GG_ENABLE;
 			// ƒ^ƒu‚ð‰üs‚É
 			ReplaceWelcomeTab(true);
 			textBoxWelcome->Text = gcnew String(MTOPTION.WELCOME);
@@ -723,6 +785,7 @@ namespace LilithPort {
 			groupBoxConnection->Enabled    = false;
 			groupBoxWelcome->Enabled       = true;
 			checkBoxUpnp->Enabled          = true;
+			checkBoxLegacy->Checked = false;
 		}
 
 		System::Void radioButtonHost_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
@@ -795,5 +858,14 @@ namespace LilithPort {
 				comboBoxRegion->Enabled = false;
 			}
 		 }
+		System::Void checkBoxGG_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+			if (checkBoxGG->Checked == true){
+				MTOPTION.GG_ENABLE = true;
+				textBoxGG->Enabled = true;
+			}else{
+				MTOPTION.GG_ENABLE = false;
+				textBoxGG->Enabled = false;
+			}
+		}
 };
 }
