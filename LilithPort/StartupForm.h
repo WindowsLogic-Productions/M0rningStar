@@ -236,7 +236,7 @@ namespace LilithPort {
 			this->textBoxIP->Location = System::Drawing::Point(81, 25);
 			this->textBoxIP->Name = L"textBoxIP";
 			this->textBoxIP->Size = System::Drawing::Size(256, 20);
-			this->textBoxIP->TabIndex = 7;
+			this->textBoxIP->TabIndex = 6;
 			this->textBoxIP->WordWrap = false;
 			// 
 			// labelOpenPort
@@ -266,7 +266,7 @@ namespace LilithPort {
 			this->buttonOK->Location = System::Drawing::Point(272, 279);
 			this->buttonOK->Name = L"buttonOK";
 			this->buttonOK->Size = System::Drawing::Size(80, 26);
-			this->buttonOK->TabIndex = 9;
+			this->buttonOK->TabIndex = 0;
 			this->buttonOK->Text = L"OK";
 			this->toolTipStartupForm->SetToolTip(this->buttonOK, L"Confirm the settings you\'ve chosen above.");
 			this->buttonOK->UseVisualStyleBackColor = true;
@@ -279,7 +279,7 @@ namespace LilithPort {
 			this->buttonCancel->Location = System::Drawing::Point(358, 279);
 			this->buttonCancel->Name = L"buttonCancel";
 			this->buttonCancel->Size = System::Drawing::Size(80, 26);
-			this->buttonCancel->TabIndex = 10;
+			this->buttonCancel->TabIndex = 1;
 			this->buttonCancel->Text = L"Cancel";
 			this->toolTipStartupForm->SetToolTip(this->buttonCancel, L"Switch to offline free play mode.");
 			this->buttonCancel->UseVisualStyleBackColor = true;
@@ -339,7 +339,7 @@ namespace LilithPort {
 			this->checkBoxLegacy->Location = System::Drawing::Point(6, 51);
 			this->checkBoxLegacy->Name = L"checkBoxLegacy";
 			this->checkBoxLegacy->Size = System::Drawing::Size(141, 18);
-			this->checkBoxLegacy->TabIndex = 6;
+			this->checkBoxLegacy->TabIndex = 7;
 			this->checkBoxLegacy->Text = L"Enable legacy netcode";
 			this->toolTipStartupForm->SetToolTip(this->checkBoxLegacy, L"Allows connection to servers running 1.0.9.x or earlier.");
 			this->checkBoxLegacy->UseVisualStyleBackColor = true;
@@ -426,7 +426,7 @@ namespace LilithPort {
 			this->checkBoxRestConnect->Location = System::Drawing::Point(68, 197);
 			this->checkBoxRestConnect->Name = L"checkBoxRestConnect";
 			this->checkBoxRestConnect->Size = System::Drawing::Size(253, 18);
-			this->checkBoxRestConnect->TabIndex = 12;
+			this->checkBoxRestConnect->TabIndex = 8;
 			this->checkBoxRestConnect->Text = L"On connection, automatically go into rest mode";
 			this->toolTipStartupForm->SetToolTip(this->checkBoxRestConnect, L"Automatically toggles you to rest mode when you initialise a server or join anoth" 
 				L"er server as a host or client.");
