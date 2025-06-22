@@ -693,17 +693,17 @@ namespace LilithPort {
 			textBoxComment->MaxLength         = MAX_NAME;
 
 			switch(MTOPTION.CONNECTION_TYPE){
-			case CT_SERVER:
-			default:
+			case 0:
+			//default:
 				radioButtonServer->Checked = true;
 				checkBoxLegacy->Checked = false;
 
 				break;
-			case CT_HOST:
+			case 1:
 				radioButtonHost->Checked = true;
 
 				break;
-			case CT_CLIENT:
+			case 3:
 				radioButtonClient->Checked = true;
 
 				numericUpDownOpenPort->Enabled = false;
