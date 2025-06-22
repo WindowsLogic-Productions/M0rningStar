@@ -68,6 +68,7 @@ public ref struct MemberInfo
 	String^     COMMENT;
 	String^		LOOKING;
 	String^		AVOIDING;
+	String^		REGION;
 	UINT16      ID;
 	UINT        TYPE;
 	UINT        STATE;
@@ -298,6 +299,7 @@ typedef struct _MT_SP_OPTION
 	TCHAR COMMENT[MAX_NAME];
 	TCHAR LOOKING[MAX_NAME];
 	TCHAR AVOIDING[MAX_NAME];
+	TCHAR REGION[MAX_NAME];
 	UINT  PORT;
 	UINT  OPEN_PORT;
 	UINT  AUTO_SAVE;
@@ -340,6 +342,7 @@ typedef struct _MT_SP_OPTION
 	TCHAR PROFILE_LIST[MAX_PROFILE];
 	UINT  PROFILE_INDEX;
 	bool LEGACY_SERVER;
+	bool SHOW_REGION;
 } MT_SP_OPTION;
 
 typedef struct _MT_SP_WINDOW_STATE

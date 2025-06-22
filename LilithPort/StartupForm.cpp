@@ -90,6 +90,10 @@ bool StartupForm::CheckValidate() {
 	_tcscpy_s(MTOPTION.AVOIDING, static_cast<PTCHAR>(mp.ToPointer()));
 	Runtime::InteropServices::Marshal::FreeHGlobal(mp);
 
+	mp = Runtime::InteropServices::Marshal::StringToHGlobalAuto(comboBoxRegion->Text);
+	_tcscpy_s(MTOPTION.REGION, static_cast<PTCHAR>(mp.ToPointer()));
+	Runtime::InteropServices::Marshal::FreeHGlobal(mp);
+
 	mp = Runtime::InteropServices::Marshal::StringToHGlobalAuto(textBoxWelcome->Text);
 	_tcscpy_s(MTOPTION.WELCOME, static_cast<PTCHAR>(mp.ToPointer()));
 	Runtime::InteropServices::Marshal::FreeHGlobal(mp);

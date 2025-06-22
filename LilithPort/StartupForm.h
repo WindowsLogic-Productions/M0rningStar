@@ -84,15 +84,23 @@ namespace LilithPort {
 	private: System::Windows::Forms::TabPage^  tabPage3;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::GroupBox^  groupBoxUser;
-	private: System::Windows::Forms::Label^  label3;
-	private: System::Windows::Forms::TextBox^  textBoxAvoiding;
+	private: System::Windows::Forms::Label^  labelAvoiding;
 
-	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::TextBox^  textBoxAvoiding;
+	private: System::Windows::Forms::Label^  labelLooking;
+
+
 	private: System::Windows::Forms::TextBox^  textBoxLooking;
 
 	private: System::Windows::Forms::CheckBox^  checkBoxUpnp;
 	private: System::Windows::Forms::CheckBox^  checkBoxLegacy;
 	private: System::Windows::Forms::CheckBox^  checkBoxRestConnect;
+	private: System::Windows::Forms::Label^  labelRegion;
+	private: System::Windows::Forms::ComboBox^  comboBoxRegion;
+	private: System::Windows::Forms::CheckBox^  checkBoxRegion;
+
+
+
 
 
 
@@ -136,13 +144,16 @@ namespace LilithPort {
 			this->buttonConnect = (gcnew System::Windows::Forms::Button());
 			this->labelComment = (gcnew System::Windows::Forms::Label());
 			this->labelName = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->labelLooking = (gcnew System::Windows::Forms::Label());
+			this->labelAvoiding = (gcnew System::Windows::Forms::Label());
 			this->checkBoxRestConnect = (gcnew System::Windows::Forms::CheckBox());
+			this->labelRegion = (gcnew System::Windows::Forms::Label());
 			this->startupTabs = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->groupBoxUser = (gcnew System::Windows::Forms::GroupBox());
+			this->checkBoxRegion = (gcnew System::Windows::Forms::CheckBox());
+			this->comboBoxRegion = (gcnew System::Windows::Forms::ComboBox());
 			this->textBoxAvoiding = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxLooking = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxName = (gcnew System::Windows::Forms::TextBox());
@@ -399,25 +410,25 @@ namespace LilithPort {
 			this->labelName->Text = L"Name:";
 			this->toolTipStartupForm->SetToolTip(this->labelName, L"Your username. Don\'t use special characters.");
 			// 
-			// label2
+			// labelLooking
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(11, 78);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(63, 13);
-			this->label2->TabIndex = 10;
-			this->label2->Text = L"Looking for:";
-			this->toolTipStartupForm->SetToolTip(this->label2, L"You will automatically say this message when you join.");
+			this->labelLooking->AutoSize = true;
+			this->labelLooking->Location = System::Drawing::Point(11, 78);
+			this->labelLooking->Name = L"labelLooking";
+			this->labelLooking->Size = System::Drawing::Size(63, 13);
+			this->labelLooking->TabIndex = 10;
+			this->labelLooking->Text = L"Looking for:";
+			this->toolTipStartupForm->SetToolTip(this->labelLooking, L"You will automatically say this message when you join.");
 			// 
-			// label3
+			// labelAvoiding
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(23, 104);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(51, 13);
-			this->label3->TabIndex = 12;
-			this->label3->Text = L"Avoiding:";
-			this->toolTipStartupForm->SetToolTip(this->label3, L"You will automatically say this message when you join.");
+			this->labelAvoiding->AutoSize = true;
+			this->labelAvoiding->Location = System::Drawing::Point(23, 104);
+			this->labelAvoiding->Name = L"labelAvoiding";
+			this->labelAvoiding->Size = System::Drawing::Size(51, 13);
+			this->labelAvoiding->TabIndex = 12;
+			this->labelAvoiding->Text = L"Avoiding:";
+			this->toolTipStartupForm->SetToolTip(this->labelAvoiding, L"You will automatically say this message when you join.");
 			// 
 			// checkBoxRestConnect
 			// 
@@ -432,6 +443,16 @@ namespace LilithPort {
 				L"er server as a host or client.");
 			this->checkBoxRestConnect->UseVisualStyleBackColor = true;
 			this->checkBoxRestConnect->CheckedChanged += gcnew System::EventHandler(this, &StartupForm::checkBoxRestConnect_CheckedChanged);
+			// 
+			// labelRegion
+			// 
+			this->labelRegion->AutoSize = true;
+			this->labelRegion->Location = System::Drawing::Point(30, 130);
+			this->labelRegion->Name = L"labelRegion";
+			this->labelRegion->Size = System::Drawing::Size(44, 13);
+			this->labelRegion->TabIndex = 13;
+			this->labelRegion->Text = L"Region:";
+			this->toolTipStartupForm->SetToolTip(this->labelRegion, L"You will automatically say this message when you join.");
 			// 
 			// startupTabs
 			// 
@@ -473,9 +494,12 @@ namespace LilithPort {
 			// 
 			// groupBoxUser
 			// 
-			this->groupBoxUser->Controls->Add(this->label3);
+			this->groupBoxUser->Controls->Add(this->checkBoxRegion);
+			this->groupBoxUser->Controls->Add(this->comboBoxRegion);
+			this->groupBoxUser->Controls->Add(this->labelRegion);
+			this->groupBoxUser->Controls->Add(this->labelAvoiding);
 			this->groupBoxUser->Controls->Add(this->textBoxAvoiding);
-			this->groupBoxUser->Controls->Add(this->label2);
+			this->groupBoxUser->Controls->Add(this->labelLooking);
 			this->groupBoxUser->Controls->Add(this->textBoxLooking);
 			this->groupBoxUser->Controls->Add(this->labelName);
 			this->groupBoxUser->Controls->Add(this->labelComment);
@@ -483,10 +507,34 @@ namespace LilithPort {
 			this->groupBoxUser->Controls->Add(this->textBoxComment);
 			this->groupBoxUser->Location = System::Drawing::Point(6, 6);
 			this->groupBoxUser->Name = L"groupBoxUser";
-			this->groupBoxUser->Size = System::Drawing::Size(409, 212);
+			this->groupBoxUser->Size = System::Drawing::Size(409, 161);
 			this->groupBoxUser->TabIndex = 9;
 			this->groupBoxUser->TabStop = false;
 			this->groupBoxUser->Text = L"User Profile Settings";
+			// 
+			// checkBoxRegion
+			// 
+			this->checkBoxRegion->AutoSize = true;
+			this->checkBoxRegion->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->checkBoxRegion->Location = System::Drawing::Point(239, 130);
+			this->checkBoxRegion->Name = L"checkBoxRegion";
+			this->checkBoxRegion->Size = System::Drawing::Size(144, 18);
+			this->checkBoxRegion->TabIndex = 15;
+			this->checkBoxRegion->Text = L"Display region on profile";
+			this->checkBoxRegion->UseVisualStyleBackColor = true;
+			this->checkBoxRegion->CheckedChanged += gcnew System::EventHandler(this, &StartupForm::checkBoxRegion_CheckedChanged);
+			// 
+			// comboBoxRegion
+			// 
+			this->comboBoxRegion->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->comboBoxRegion->Enabled = false;
+			this->comboBoxRegion->FormattingEnabled = true;
+			this->comboBoxRegion->Items->AddRange(gcnew cli::array< System::Object^  >(10) {L"North America", L"Europe", L"Russia", L"Asia", 
+				L"South America", L"Africa", L"Middle East", L"Australia", L"New Zealand", L"Antarctica"});
+			this->comboBoxRegion->Location = System::Drawing::Point(80, 127);
+			this->comboBoxRegion->Name = L"comboBoxRegion";
+			this->comboBoxRegion->Size = System::Drawing::Size(153, 21);
+			this->comboBoxRegion->TabIndex = 14;
 			// 
 			// textBoxAvoiding
 			// 
@@ -618,6 +666,8 @@ namespace LilithPort {
 			textBoxComment->Text = gcnew String(MTOPTION.COMMENT);
 			textBoxLooking->Text = gcnew String(MTOPTION.LOOKING);
 			textBoxAvoiding->Text = gcnew String(MTOPTION.AVOIDING);
+			comboBoxRegion->Text = gcnew String(MTOPTION.REGION);
+			checkBoxRegion->Checked = MTOPTION.SHOW_REGION;
 			// ƒ^ƒu‚ð‰üs‚É
 			ReplaceWelcomeTab(true);
 			textBoxWelcome->Text = gcnew String(MTOPTION.WELCOME);
@@ -637,7 +687,7 @@ namespace LilithPort {
 			for each (Char character in charactersToFind) {
 				String^ charAsString = gcnew String(&character, 0, 1);
 				if (text->Contains(charAsString)) {
-					MessageBox::Show("Your username cannot contain special characters < > : | ? *, !, @.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+					MessageBox::Show("Your username cannot contain special characters <, >, :, |, ?, *, !, @.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 					return;
 				}
 			}
@@ -663,6 +713,7 @@ namespace LilithPort {
 				MTOPTION.CONNECTION_TYPE = CT_FREE;
 			}
 		}
+		// Radio buttons for selecting a mode on startup. 
 		System::Void radioButtonServer_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 			numericUpDownOpenPort->Enabled = true;
 			labelOpenPort->Enabled         = true;
@@ -693,15 +744,9 @@ namespace LilithPort {
 			groupBoxConnection->Enabled    = true;
 			groupBoxWelcome->Enabled       = false;
 			checkBoxUpnp->Enabled          = false;
-
-			/*if (MTOPTION.LEGACY_SERVER {
-				this->checkBoxLegacy->Checked = true;
-			}else{
-				this->checkBoxLegacy->Checked = false;
-			}*/
 		}
+		//Checkbox for enabling/disabling UPnP.
 		System::Void checkBoxUpnp_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
-			//Checkbox for enabling/disabling UPnP.
 			if(checkBoxUpnp->Checked == true)
 			{
 				MTOPTION.OPEN_PORT = (UINT)numericUpDownOpenPort->Value;
@@ -713,13 +758,25 @@ namespace LilithPort {
 				UPnP_PortOpenClose(false, false);
 			}
 		}
+		// Checkbox for enabling/disabling legacy netcode.
 		System::Void checkBoxLegacy_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 			if (checkBoxLegacy->Checked == true){
 				MTOPTION.LEGACY_SERVER = true;
-
+				textBoxLooking->Enabled = false;
+				textBoxAvoiding->Enabled = false;
+				comboBoxRegion->Enabled = false;
+				checkBoxRegion->Enabled = false;
 
 			}else{
 				MTOPTION.LEGACY_SERVER = false;
+				textBoxLooking->Enabled = true;
+				textBoxAvoiding->Enabled = true;
+				if (checkBoxRegion->Checked == true){
+					comboBoxRegion->Enabled = true;
+				}else{
+					comboBoxRegion->Enabled = false;
+				}
+				checkBoxRegion->Enabled = true;
 			}
 		 }
 		System::Void checkBoxRestConnect_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
@@ -729,5 +786,14 @@ namespace LilithPort {
 				MTOPTION.REST_CONNECT = false;
 			}
 		}
+		System::Void checkBoxRegion_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+			if (checkBoxRegion->Checked == true){
+				MTOPTION.SHOW_REGION = true;
+				comboBoxRegion->Enabled = true;
+			}else{
+				MTOPTION.SHOW_REGION = false;
+				comboBoxRegion->Enabled = false;
+			}
+		 }
 };
 }
