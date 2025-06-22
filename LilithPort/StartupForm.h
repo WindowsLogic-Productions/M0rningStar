@@ -206,7 +206,7 @@ namespace LilithPort {
 			this->textBoxIP->Location = System::Drawing::Point(81, 25);
 			this->textBoxIP->Name = L"textBoxIP";
 			this->textBoxIP->Size = System::Drawing::Size(256, 20);
-			this->textBoxIP->TabIndex = 7;
+			this->textBoxIP->TabIndex = 6;
 			this->textBoxIP->WordWrap = false;
 			// 
 			// labelOpenPort
@@ -236,7 +236,7 @@ namespace LilithPort {
 			this->buttonOK->Location = System::Drawing::Point(272, 279);
 			this->buttonOK->Name = L"buttonOK";
 			this->buttonOK->Size = System::Drawing::Size(80, 26);
-			this->buttonOK->TabIndex = 0;
+			this->buttonOK->TabIndex = 7;
 			this->buttonOK->Text = L"OK";
 			this->toolTipStartupForm->SetToolTip(this->buttonOK, L"Confirm the settings you\'ve chosen above.");
 			this->buttonOK->UseVisualStyleBackColor = true;
@@ -249,7 +249,7 @@ namespace LilithPort {
 			this->buttonCancel->Location = System::Drawing::Point(358, 279);
 			this->buttonCancel->Name = L"buttonCancel";
 			this->buttonCancel->Size = System::Drawing::Size(80, 26);
-			this->buttonCancel->TabIndex = 1;
+			this->buttonCancel->TabIndex = 8;
 			this->buttonCancel->Text = L"Cancel";
 			this->toolTipStartupForm->SetToolTip(this->buttonCancel, L"Switch to offline free play mode.");
 			this->buttonCancel->UseVisualStyleBackColor = true;
@@ -332,7 +332,6 @@ namespace LilithPort {
 			this->textBoxWelcome->TabIndex = 0;
 			this->textBoxWelcome->Text = L"";
 			this->toolTipStartupForm->SetToolTip(this->textBoxWelcome, L"When running a server, this message will appear to everyone who joins.");
-			this->textBoxWelcome->WordWrap = false;
 			// 
 			// toolTipStartupForm
 			// 
@@ -454,7 +453,6 @@ namespace LilithPort {
 			// 
 			// StartupForm
 			// 
-			this->AcceptButton = this->buttonOK;
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Black;
