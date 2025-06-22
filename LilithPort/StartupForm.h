@@ -698,6 +698,8 @@ namespace LilithPort {
 		System::Void checkBoxLegacy_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 			if (checkBoxLegacy->Checked == true){
 				MTOPTION.LEGACY_SERVER = true;
+
+
 			}else{
 				MTOPTION.LEGACY_SERVER = false;
 			}
