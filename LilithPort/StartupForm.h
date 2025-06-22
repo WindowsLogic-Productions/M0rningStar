@@ -92,6 +92,7 @@ namespace LilithPort {
 
 	private: System::Windows::Forms::CheckBox^  checkBoxUpnp;
 	private: System::Windows::Forms::CheckBox^  checkBoxLegacy;
+	private: System::Windows::Forms::CheckBox^  checkBoxRestConnect;
 
 
 
@@ -127,6 +128,7 @@ namespace LilithPort {
 			this->checkBoxUpnp = (gcnew System::Windows::Forms::CheckBox());
 			this->textBoxServerName = (gcnew System::Windows::Forms::TextBox());
 			this->groupBoxConnection = (gcnew System::Windows::Forms::GroupBox());
+			this->checkBoxLegacy = (gcnew System::Windows::Forms::CheckBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->groupBoxWelcome = (gcnew System::Windows::Forms::GroupBox());
 			this->textBoxWelcome = (gcnew System::Windows::Forms::RichTextBox());
@@ -136,6 +138,7 @@ namespace LilithPort {
 			this->labelName = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->checkBoxRestConnect = (gcnew System::Windows::Forms::CheckBox());
 			this->startupTabs = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
@@ -145,7 +148,6 @@ namespace LilithPort {
 			this->textBoxName = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxComment = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
-			this->checkBoxLegacy = (gcnew System::Windows::Forms::CheckBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->numericUpDownOpenPort))->BeginInit();
 			this->groupBoxStartMode->SuspendLayout();
 			this->groupBoxConnection->SuspendLayout();
@@ -310,6 +312,19 @@ namespace LilithPort {
 			this->groupBoxConnection->Text = L"Client";
 			this->toolTipStartupForm->SetToolTip(this->groupBoxConnection, resources->GetString(L"groupBoxConnection.ToolTip"));
 			// 
+			// checkBoxLegacy
+			// 
+			this->checkBoxLegacy->AutoSize = true;
+			this->checkBoxLegacy->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->checkBoxLegacy->Location = System::Drawing::Point(6, 51);
+			this->checkBoxLegacy->Name = L"checkBoxLegacy";
+			this->checkBoxLegacy->Size = System::Drawing::Size(141, 18);
+			this->checkBoxLegacy->TabIndex = 6;
+			this->checkBoxLegacy->Text = L"Enable legacy netcode";
+			this->toolTipStartupForm->SetToolTip(this->checkBoxLegacy, L"Allows connection to servers running 1.0.9.x or earlier.");
+			this->checkBoxLegacy->UseVisualStyleBackColor = true;
+			this->checkBoxLegacy->CheckedChanged += gcnew System::EventHandler(this, &StartupForm::checkBoxLegacy_CheckedChanged);
+			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
@@ -404,6 +419,20 @@ namespace LilithPort {
 			this->label3->Text = L"Avoiding:";
 			this->toolTipStartupForm->SetToolTip(this->label3, L"You will automatically say this message when you join.");
 			// 
+			// checkBoxRestConnect
+			// 
+			this->checkBoxRestConnect->AutoSize = true;
+			this->checkBoxRestConnect->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->checkBoxRestConnect->Location = System::Drawing::Point(68, 197);
+			this->checkBoxRestConnect->Name = L"checkBoxRestConnect";
+			this->checkBoxRestConnect->Size = System::Drawing::Size(253, 18);
+			this->checkBoxRestConnect->TabIndex = 12;
+			this->checkBoxRestConnect->Text = L"On connection, automatically go into rest mode";
+			this->toolTipStartupForm->SetToolTip(this->checkBoxRestConnect, L"Automatically toggles you to rest mode when you initialise a server or join anoth" 
+				L"er server as a host or client.");
+			this->checkBoxRestConnect->UseVisualStyleBackColor = true;
+			this->checkBoxRestConnect->CheckedChanged += gcnew System::EventHandler(this, &StartupForm::checkBoxRestConnect_CheckedChanged);
+			// 
 			// startupTabs
 			// 
 			this->startupTabs->Controls->Add(this->tabPage2);
@@ -417,6 +446,7 @@ namespace LilithPort {
 			// 
 			// tabPage2
 			// 
+			this->tabPage2->Controls->Add(this->checkBoxRestConnect);
 			this->tabPage2->Controls->Add(this->groupBoxStartMode);
 			this->tabPage2->Controls->Add(this->radioButtonServer);
 			this->tabPage2->Controls->Add(this->groupBoxConnection);
@@ -501,19 +531,6 @@ namespace LilithPort {
 			this->tabPage3->Text = L"Welcome Message";
 			this->tabPage3->UseVisualStyleBackColor = true;
 			// 
-			// checkBoxLegacy
-			// 
-			this->checkBoxLegacy->AutoSize = true;
-			this->checkBoxLegacy->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->checkBoxLegacy->Location = System::Drawing::Point(6, 51);
-			this->checkBoxLegacy->Name = L"checkBoxLegacy";
-			this->checkBoxLegacy->Size = System::Drawing::Size(141, 18);
-			this->checkBoxLegacy->TabIndex = 6;
-			this->checkBoxLegacy->Text = L"Enable legacy netcode";
-			this->toolTipStartupForm->SetToolTip(this->checkBoxLegacy, L"Allows connection to servers running 1.0.9.x or earlier.");
-			this->checkBoxLegacy->UseVisualStyleBackColor = true;
-			this->checkBoxLegacy->CheckedChanged += gcnew System::EventHandler(this, &StartupForm::checkBoxLegacy_CheckedChanged);
-			// 
 			// StartupForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -562,7 +579,7 @@ namespace LilithPort {
 
 	private:
 
-		// コントロールボックスからの閉じる認識用
+		// Loads startup settings.
 		static bool ConnectionStart = false;
 
 		System::Void StartupForm_Load(System::Object^  sender, System::EventArgs^  e) {
@@ -596,6 +613,7 @@ namespace LilithPort {
 			numericUpDownOpenPort->Value = MTOPTION.OPEN_PORT;
 			textBoxName->Text = gcnew String(MTOPTION.NAME);
 			checkBoxLegacy->Checked = MTOPTION.LEGACY_SERVER;
+			checkBoxRestConnect->Checked = MTOPTION.REST_CONNECT;
 
 			textBoxComment->Text = gcnew String(MTOPTION.COMMENT);
 			textBoxLooking->Text = gcnew String(MTOPTION.LOOKING);
@@ -704,5 +722,12 @@ namespace LilithPort {
 				MTOPTION.LEGACY_SERVER = false;
 			}
 		 }
+		System::Void checkBoxRestConnect_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+			if (checkBoxRestConnect->Checked == true){
+				MTOPTION.REST_CONNECT = true;
+			}else{
+				MTOPTION.REST_CONNECT = false;
+			}
+		}
 };
 }
