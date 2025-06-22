@@ -7,9 +7,9 @@ This program was *not* made with Enterbrain's permission. It was ultimately made
 
 ### LilithPort 1.0.9.x Long Term Servicing
 
-As we will be releasing version 1.1.0.0 soon, this version will be incompatible with existing LilithPort servers due to netcode changes. As a result we will be delegating LilithPort 1.0.9.x to an LTS branch where it will continue to get minor quality of life updates and bug fixes.
+The upcoming LilithPort 1.1.x.x series will be mostly incompatible with 1.0.9.x and below, but will include a legacy netcode switch for clients only. As a result we will be delegating LilithPort 1.0.9.x to an LTS branch where it will continue to get minor quality of life updates and bug fixes until further notice.
 
-[Use LilithPort 1.1.x.x for bleeding edge feature updates.]()
+[Use LilithPort 1.1.x.x for bleeding edge feature updates.](https://github.com/WindowsLogic-Productions/LilithPort/releases)
 
 ## Games
 Any game that uses 2D Fighter Maker (95/2nd.) will work. LilithPort 1.0.9.x LTS is also backwards compatible with servers that use MTSP.
