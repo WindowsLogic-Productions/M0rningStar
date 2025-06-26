@@ -4,6 +4,7 @@
 #pragma once
 #pragma warning(disable: 4100)
 
+// TODO: Put important headers for your program here.
 // TODO: プログラムに必要な追加ヘッダーをここで参照してください。
 #include <windows.h>
 #include <stdio.h>
@@ -21,6 +22,7 @@
 #pragma comment(lib,"ole32.lib")
 #pragma comment(lib,"oleaut32.lib")
 
+// For getting IP
 // IP取得用
 #include <winsock.h>
 #include <oleauto.h>
@@ -60,6 +62,7 @@ UINT CipherRand(UINT32 seed = 0);
 UINT XorShift(UINT32 seed = 0);
 UINT RandomStage(UINT32 seed = 0);
 
+// Member information
 // メンバー情報
 public ref struct MemberInfo
 {
@@ -77,6 +80,7 @@ public ref struct MemberInfo
 	DWORD       RESPONSE;
 };
 
+// Backup
 // バックアップ
 public ref struct MemberInfoBackUp
 {
@@ -84,11 +88,13 @@ public ref struct MemberInfoBackUp
 	UINT16      ID;
 };
 
+// Profile list
 // プロファイルリスト
 public ref class Profile
 {
 	public:
 		static Generic::List<String^>^ ProfileList = gcnew Generic::List<String^>;
+		// For validation
 		// バリデーション用
 		static array<String^>^ SystemSection = gcnew array<String^>{"System", "State", "Color"};
 };
@@ -215,10 +221,13 @@ const UINT VOLUME_SET_2_95 = 0x0040203F;
 const BYTE VOLUME_SET_2_95_CODE[] = {0x50,0x8B,0x08,0xCC,0x52,0x50,0xFF,0x51,0x3C,0xE9,0x7B,0xFF,0xFF,0xFF,0x50,0x8B,
                                      0x08,0xCC,0x52,0x50,0xFF,0x51,0x3C,0xE9,0x7A,0xFF,0xFF,0xFF};
 
+// Version information
+// Compatible with LilthPort 1.03+, not earlier versions
 // バージョン情報
 // LilithPort 1.03以上互換, それ以前はなし
 const UINT LP_VERSION = 110;
 
+// Setting definitions
 // 設定項目
 const UINT MAX_NAME   = 32;
 const UINT MAX_ARRAY  = 64;
@@ -232,6 +241,7 @@ const UINT MAX_PROFILE = 2048;
 const BYTE TYMT_VERSION = 6;
 const UINT TIME_OUT = 3000;
 
+// Number of people for team play
 // チームプレイ人数
 const UINT MAX_TEAM_ROUND = 4;
 
@@ -433,13 +443,13 @@ typedef enum {
 	PH_PING,
 	PH_PONG,
 	PH_REQ_CONNECTION,   // 1:protocol 1:name_l n:name 1:comment_l n:comment
-	PH_REQ_CONNECTION_H, // HOSTな接続要求
+	PH_REQ_CONNECTION_H, // HOSTな接続要求 // HOST connection request
 	PH_RES_CONNECTION,   // 1:server_name_l n:server_name 2:ID 1:name_l n:name 1:comment_l n:comment 1:state
 	PH_MESSAGE,          // 2:ID 1:msg_l n:msg
 	PH_NOTICE,           // 1:len n:notice
-	PH_REQ_LIST,         // 2:ID 0で全員分
-	PH_RES_LIST,         // 2:ID 1:name_l n:name 1:comment_l n:comment 1:state 4:IP 2:Port + 暗号
-	PH_NEW_MEMBER,       // 上と同じ
+	PH_REQ_LIST,         // 2:ID 0で全員分 // 2: ID 0 for everyone
+	PH_RES_LIST,         // 2:ID 1:name_l n:name 1:comment_l n:comment 1:state 4:IP 2:Port + 暗号 (Cryptography)
+	PH_NEW_MEMBER,       // 上と同じ // Same as above
 	PH_QUIT,             // 2:ID
 	PH_LOST,             // 2:ID
 	PH_CHANGE_STATE,     // 2:ID 1:STATE
@@ -447,21 +457,21 @@ typedef enum {
 	PH_RES_STATE,        // 2:ID 1:STATE
 	PH_CHANGE_COMMENT,   // 2:ID 1:comment_l n:comment
 	PH_DICE,             // 1:value
-	PH_REQ_VS,           // 2:ID 4:実行ファイルのハッシュ
+	PH_REQ_VS,           // 2:ID 4:実行ファイルのハッシュ // Hash of executable file
 	PH_RES_VS,           // 1:state
-	PH_REQ_VS_PING,      // 1:ID 5個バラでsend
-	PH_RES_VS_PONG,      // 1秒間に4個以上受信で対戦開始
-	PH_REQ_VS_SETTING,   // 1:delay localとhostで大きな値にあわせる
+	PH_REQ_VS_PING,      // 1:ID 5個バラでsend // Send 5 messages (I think?)
+	PH_RES_VS_PONG,      // 1秒間に4個以上受信で対戦開始 // Match begins when 4 or more messages are received in a second
+	PH_REQ_VS_SETTING,   // 1:delay localとhostで大きな値にあわせる // Adjust to larger value for local and host
 	PH_RES_VS_SETTING,   // 1:delay 4:seed 1:max_stage 1:stage 1:round 1:timer
-	PH_VS_DATA,          // 4:frame n:data 4*delay個分送信
-	PH_REQ_VS_DATA,      // 4:frame パケット来てないので緊急要請
+	PH_VS_DATA,          // 4:frame n:data 4*delay個分送信 // Send 4 * delay fragments
+	PH_REQ_VS_DATA,      // 4:frame パケット来てないので緊急要請 // Urgent request as we haven't received any packets
 	PH_RES_VS_DATA,      // 4:frame 2:input
 	PH_VS_END,
 	PH_REQ_WATCH,        // 2:ID
-	PH_RES_WATCH,        // 1:state 2:P1ID 2:P2ID 4:seed 1:max_stage 1:stage 1:round 1:timer  state = 0:観戦開始 1～:観戦不可
-	PH_WATCH_DATA,       // 4:frame 40:10フレーム分のデータ
-	PH_WATCH_END,        // 2:ID 自分のと同じIDなら観戦終了、他のIDならリストから削除
-	PH_SECRET,           // 1:type n:typeごとにいろいろ
+	PH_RES_WATCH,        // 1:state 2:P1ID 2:P2ID 4:seed 1:max_stage 1:stage 1:round 1:timer  state = 0:観戦開始 1～:観戦不可 // 0: Start spectation, 1+: Can't watch
+	PH_WATCH_DATA,       // 4:frame 40:10フレーム分のデータ // 10 frames worth of data
+	PH_WATCH_END,        // 2:ID 自分のと同じIDなら観戦終了、他のIDならリストから削除 // Stop spectation if the ID is same as self; other IDs are removed from the list
+	PH_SECRET,           // 1:type n:typeごとにいろいろ // Varies for each type of input
 } MT_SP_PACKET_HEADER;
 
 typedef enum {
