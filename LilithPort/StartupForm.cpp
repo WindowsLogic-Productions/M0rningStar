@@ -4,6 +4,7 @@
 using namespace LilithPort;
 
 bool StartupForm::CheckValidate() {
+	// Check input
 	// 入力チェック
 	IntPtr mp;
 	TCHAR p1[MAX_ARRAY];
@@ -11,6 +12,7 @@ bool StartupForm::CheckValidate() {
 	if(radioButtonServer->Checked){
 		MTOPTION.CONNECTION_TYPE = CT_SERVER;
 
+		// Check server name
 		// サーバ名チェック
 		if(textBoxServerName->Text->Length == 0){
 			MessageBox::Show("Please enter the server name.\n\nTo start in Server mode, you must enter a server name.", "Server Mode Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
@@ -35,6 +37,7 @@ bool StartupForm::CheckValidate() {
 		MTOPTION.CONNECTION_TYPE = CT_FREE;
 	}
 	
+	// Server name
 	// サーバ名
 	if(MTOPTION.CONNECTION_TYPE == CT_SERVER){
 		mp = Runtime::InteropServices::Marshal::StringToHGlobalAuto(textBoxServerName->Text);
@@ -42,6 +45,7 @@ bool StartupForm::CheckValidate() {
 		Runtime::InteropServices::Marshal::FreeHGlobal(mp);
 	}
 
+	// Check address input
 	// アドレス入力チェック
 	if(MTOPTION.CONNECTION_TYPE == CT_HOST || MTOPTION.CONNECTION_TYPE == CT_CLIENT) {
 		if(textBoxIP->Text->Length == 0){
@@ -56,6 +60,7 @@ bool StartupForm::CheckValidate() {
 			return false;
 		}
 
+		// Resolve address
 		// 接続アドレス
 		mp = Runtime::InteropServices::Marshal::StringToHGlobalAuto(textBoxIP->Text);
 		_tcscpy_s(MTOPTION.CONNECTION_IP, static_cast<PTCHAR>(mp.ToPointer()));
@@ -63,6 +68,7 @@ bool StartupForm::CheckValidate() {
 
 	}
 
+	// Check name
 	// 名前チェック
 	if(textBoxName->Text->Length == 0){
 		textBoxName->Text = gcnew String(MTOPTION.NAME);
