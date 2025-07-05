@@ -730,6 +730,7 @@ namespace LilithPort {
 			}
 			textBoxGG->Text = gcnew String(MTOPTION.GG);
 			checkBoxGG->Checked = MTOPTION.GG_ENABLE;
+			// Tab character to newline
 			// ƒ^ƒu‚ð‰üs‚É
 			ReplaceWelcomeTab(true);
 			textBoxWelcome->Text = gcnew String(MTOPTION.WELCOME);
