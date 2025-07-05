@@ -469,7 +469,6 @@ namespace LilithPort {
 			this->labelGG->Size = System::Drawing::Size(74, 13);
 			this->labelGG->TabIndex = 16;
 			this->labelGG->Text = L"End message:";
-			this->toolTipStartupForm->SetToolTip(this->labelGG, L"You will automatically say this message when you join.");
 			// 
 			// labelComment
 			// 
@@ -559,6 +558,7 @@ namespace LilithPort {
 			this->textBoxGG->Name = L"textBoxGG";
 			this->textBoxGG->Size = System::Drawing::Size(189, 20);
 			this->textBoxGG->TabIndex = 6;
+			this->toolTipStartupForm->SetToolTip(this->textBoxGG, L"You will automatically say this message when you end a netplay session.");
 			// 
 			// groupBoxUser
 			// 
