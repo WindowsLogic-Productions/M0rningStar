@@ -16,7 +16,7 @@ using namespace System::Security::Permissions;
 [assembly:AssemblyConfigurationAttribute("")];
 [assembly:AssemblyCompanyAttribute("")];
 [assembly:AssemblyProductAttribute("LilithPort")];
-[assembly:AssemblyCopyrightAttribute("Copyright ｩ 2025 WindowsLogic Productions & BattleCapacity")];
+[assembly:AssemblyCopyrightAttribute("Copyright ｩ 2025 WindowsLogic Productions")];
 [assembly:AssemblyTrademarkAttribute("")];
 [assembly:AssemblyCultureAttribute("")];
 
@@ -31,7 +31,7 @@ using namespace System::Security::Permissions;
 // すべての値を指定するか、下のように '*' を使ってリビジョンおよびビルド番号を
 // 既定値にすることができます:
 
-[assembly:AssemblyVersionAttribute("1.0.9.2")];
+[assembly:AssemblyVersionAttribute("1.0.9.3")];
 
 [assembly:ComVisible(false)];
 
