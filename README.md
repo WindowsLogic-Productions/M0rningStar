@@ -3,7 +3,7 @@ LilithPort is a UDP multiplayer/netplay program for 2D Fighter Maker games. It i
 
 This program was *not* made with Enterbrain's permission. It was ultimately made by reverse engineering the 2D Fighter Maker code. More so, the translation/continuation of LilithPort was not made with the original LilithPort developer's permission. If he ever decides to pick this back up or make changes to the code, we will comply.
 
-> LilithPort requires .NET Framework 3.5. **You also need the Visual C++ 2008 redistributable. (https://aka.ms/vs/17/release/vc_redist.x86.exe)**
+> LilithPort requires .NET Framework 3.5. **You also need the Visual C++ 2008 redistributable (x86): (https://cdn.windowslogic.co.uk/Support/Visual%20C%20Redistributable%202008%20(x86).exe)**
 
 ### LilithPort 1.0.9.x Long Term Servicing
 
