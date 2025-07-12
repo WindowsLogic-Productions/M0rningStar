@@ -347,6 +347,7 @@ typedef struct _MT_SP_OPTION
 	bool LEGACY_SERVER;
 	bool SHOW_REGION;
 	bool DARK_MODE;
+	bool SYS_TRAY;
 } MT_SP_OPTION;
 
 typedef struct _MT_SP_WINDOW_STATE
