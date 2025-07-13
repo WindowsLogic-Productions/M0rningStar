@@ -146,6 +146,8 @@ You need to have installed the following to build the source code:
 
 If you have any issues with the software, or find bugs, please report them on the [issues](https://github.com/WindowsLogic-Productions/LilithPort/issues) page.
 
+Or join the [2D Fighter Maker 95/2nd. Discord server](https://discord.gg/5W73Qe9ucp) for direct support from the developer of this fork.
+
 ## Releases & License
 
 You can find all releases of this software on the [releases](https://github.com/WindowsLogic-Productions/LilithPort/releases) page.
