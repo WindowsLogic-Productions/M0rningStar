@@ -11,6 +11,8 @@ The LilithPort 1.1.x.x series and later will be mostly incompatible with 1.0.9.x
 
 [Use LilithPort 1.1.x.x for bleeding edge feature updates.](https://github.com/WindowsLogic-Productions/LilithPort/releases)
 
+You can also join the 2D Fighter Maker 95/2nd. Discord server to receive direct support from the developer of this fork: https://discord.gg/5W73Qe9ucp
+
 ## Games
 Any game that uses 2D Fighter Maker (95/2nd.) will work. LilithPort is also backwards compatible^ with servers that use MTSP.
  - [Pokémon Type: Wild](http://oneweakness.com/pokemon-type-wild.html)
