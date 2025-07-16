@@ -1,0 +1,61 @@
+-------------------------------------------------------------------------------
+21 June 2025 00:27:03 [ThreadException]
+
+System.ArgumentException: Source array was not long enough. Check srcIndex and length, and the array's lower bounds.
+   at System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length, Boolean reliable)
+   at System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length)
+   at PacketDivider.Divide(Int32 length) in j:\projects\lilithport\lilithport\stdafx.h:line 537
+   at LilithPort.MainForm.Begin() in j:\projects\lilithport\lilithport\mainform.cpp:line 298
+   at LilithPort.MainForm.MainForm_Shown(Object sender, EventArgs e) in j:\projects\lilithport\lilithport\mainform.h:line 2569
+   at System.Windows.Forms.Form.OnShown(EventArgs e)
+   at System.Windows.Forms.Form.CallShownEvent()
+   at System.Windows.Forms.Control.InvokeMarshaledCallbackDo(ThreadMethodEntry tme)
+   at System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   at System.Threading.ExecutionContext.runTryCode(Object userData)
+   at System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   at System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+
+
+-------------------------------------------------------------------------------
+21 June 2025 00:31:06 [ThreadException]
+
+System.ArgumentException: Source array was not long enough. Check srcIndex and length, and the array's lower bounds.
+   at System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length, Boolean reliable)
+   at System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length)
+   at PacketDivider.Divide(Int32 length) in j:\projects\lilithport\lilithport\stdafx.h:line 537
+   at LilithPort.MainForm.Begin() in j:\projects\lilithport\lilithport\mainform.cpp:line 298
+   at LilithPort.MainForm.MainForm_Shown(Object sender, EventArgs e) in j:\projects\lilithport\lilithport\mainform.h:line 2569
+   at System.Windows.Forms.Form.OnShown(EventArgs e)
+   at System.Windows.Forms.Form.CallShownEvent()
+   at System.Windows.Forms.Control.InvokeMarshaledCallbackDo(ThreadMethodEntry tme)
+   at System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   at System.Threading.ExecutionContext.runTryCode(Object userData)
+   at System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   at System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+
+
+-------------------------------------------------------------------------------
+21 June 2025 00:45:59 [ThreadException]
+
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at PacketDivider.Divide() in j:\projects\lilithport\lilithport\stdafx.h:line 531
+   at LilithPort.MainForm.Begin() in j:\projects\lilithport\lilithport\mainform.cpp:line 306
+   at LilithPort.MainForm.MainForm_Shown(Object sender, EventArgs e) in j:\projects\lilithport\lilithport\mainform.h:line 2569
+   at System.Windows.Forms.Form.OnShown(EventArgs e)
+   at System.Windows.Forms.Form.CallShownEvent()
+   at System.Windows.Forms.Control.InvokeMarshaledCallbackDo(ThreadMethodEntry tme)
+   at System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   at System.Threading.ExecutionContext.runTryCode(Object userData)
+   at System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   at System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+
+

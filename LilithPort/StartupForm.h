@@ -236,7 +236,7 @@ namespace LilithPort {
 			this->buttonOK->Location = System::Drawing::Point(272, 279);
 			this->buttonOK->Name = L"buttonOK";
 			this->buttonOK->Size = System::Drawing::Size(80, 26);
-			this->buttonOK->TabIndex = 7;
+			this->buttonOK->TabIndex = 0;
 			this->buttonOK->Text = L"OK";
 			this->toolTipStartupForm->SetToolTip(this->buttonOK, L"Confirm the settings you\'ve chosen above.");
 			this->buttonOK->UseVisualStyleBackColor = true;
@@ -249,7 +249,7 @@ namespace LilithPort {
 			this->buttonCancel->Location = System::Drawing::Point(358, 279);
 			this->buttonCancel->Name = L"buttonCancel";
 			this->buttonCancel->Size = System::Drawing::Size(80, 26);
-			this->buttonCancel->TabIndex = 8;
+			this->buttonCancel->TabIndex = 1;
 			this->buttonCancel->Text = L"Cancel";
 			this->toolTipStartupForm->SetToolTip(this->buttonCancel, L"Switch to offline free play mode.");
 			this->buttonCancel->UseVisualStyleBackColor = true;
@@ -473,9 +473,9 @@ namespace LilithPort {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"LilithPort LTS - Welcome";
 			this->TopMost = true;
+			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &StartupForm::StartupForm_FormClosed);
 			this->Load += gcnew System::EventHandler(this, &StartupForm::StartupForm_Load);
 			this->Shown += gcnew System::EventHandler(this, &StartupForm::StartupForm_Shown);
-			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &StartupForm::StartupForm_FormClosed);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->numericUpDownOpenPort))->EndInit();
 			this->groupBoxStartMode->ResumeLayout(false);
 			this->groupBoxStartMode->PerformLayout();
