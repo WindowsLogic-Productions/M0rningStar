@@ -723,13 +723,11 @@ namespace LilithPort {
 			textBoxAvoiding->Text = gcnew String(MTOPTION.AVOIDING);
 			comboBoxRegion->Text = gcnew String(MTOPTION.REGION);
 			checkBoxRegion->Checked = MTOPTION.SHOW_REGION;
-			if (checkBoxLegacy->Checked == true){
-				comboBoxRegion->Enabled = false;
-			}else{
-				comboBoxRegion->Enabled = true;
-			}
 			textBoxGG->Text = gcnew String(MTOPTION.GG);
 			checkBoxGG->Checked = MTOPTION.GG_ENABLE;
+			
+
+			
 			// ƒ^ƒu‚ð‰üs‚É
 			ReplaceWelcomeTab(true);
 			textBoxWelcome->Text = gcnew String(MTOPTION.WELCOME);
@@ -739,7 +737,7 @@ namespace LilithPort {
 		// After which it then either connects you as the server or as a host/client to another server.
 		System::Void buttonOK_Click(System::Object^  sender, System::EventArgs^  e) {
 			String^ text = textBoxName->Text;
-			array<Char>^ charactersToFind = { '<', '>', ':', '/', '|', '?', '*', '!', '@' };
+			array<Char>^ charactersToFind = { '<', '>', ':', '/', '|', '?', '*', '!', '@', '\\' };
 
 			if (String::IsNullOrEmpty(textBoxName->Text)){
 				MessageBox::Show("Your username cannot be blank.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
