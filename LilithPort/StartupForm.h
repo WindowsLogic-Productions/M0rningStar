@@ -651,7 +651,7 @@ namespace LilithPort {
 			this->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->ShowInTaskbar = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			this->Text = L"LilithPort - Welcome";
+			this->Text = L"MorningStar - Welcome";
 			this->TopMost = true;
 			this->Load += gcnew System::EventHandler(this, &StartupForm::StartupForm_Load);
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &StartupForm::StartupForm_FormClosed);

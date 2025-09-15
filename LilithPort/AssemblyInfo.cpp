@@ -11,12 +11,12 @@ using namespace System::Security::Permissions;
 // アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
 //
-[assembly:AssemblyTitleAttribute("LilithPort")];
+[assembly:AssemblyTitleAttribute("MorningStar")];
 [assembly:AssemblyDescriptionAttribute("FM95/FM2K netplay client.")];
 [assembly:AssemblyConfigurationAttribute("")];
 [assembly:AssemblyCompanyAttribute("")];
-[assembly:AssemblyProductAttribute("LilithPort")];
-[assembly:AssemblyCopyrightAttribute("Copyright ｩ 2025 WindowsLogic Productions & BattleCapacity")];
+[assembly:AssemblyProductAttribute("MorningStar")];
+[assembly:AssemblyCopyrightAttribute("Copyright ｩ 2025 WindowsLogic Productions.")];
 [assembly:AssemblyTrademarkAttribute("")];
 [assembly:AssemblyCultureAttribute("")];
 
