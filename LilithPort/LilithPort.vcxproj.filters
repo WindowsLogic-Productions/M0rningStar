@@ -61,4 +61,15 @@
       <Filter>Resources</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MainForm.resX">
+      <Filter>Resources</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionForm.resx">
+      <Filter>Resources</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartupForm.resx">
+      <Filter>Resources</Filter>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>
