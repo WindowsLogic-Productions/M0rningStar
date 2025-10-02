@@ -150,17 +150,17 @@ namespace LilithPort {
 			this->labelAvoiding = (gcnew System::Windows::Forms::Label());
 			this->checkBoxRestConnect = (gcnew System::Windows::Forms::CheckBox());
 			this->labelRegion = (gcnew System::Windows::Forms::Label());
-			this->textBoxName = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxComment = (gcnew System::Windows::Forms::TextBox());
 			this->labelGG = (gcnew System::Windows::Forms::Label());
 			this->labelComment = (gcnew System::Windows::Forms::Label());
 			this->labelName = (gcnew System::Windows::Forms::Label());
+			this->textBoxName = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxComment = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxGG = (gcnew System::Windows::Forms::TextBox());
 			this->startupTabs = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->groupBoxGG = (gcnew System::Windows::Forms::GroupBox());
 			this->checkBoxGG = (gcnew System::Windows::Forms::CheckBox());
-			this->textBoxGG = (gcnew System::Windows::Forms::TextBox());
 			this->groupBoxUser = (gcnew System::Windows::Forms::GroupBox());
 			this->checkBoxRegion = (gcnew System::Windows::Forms::CheckBox());
 			this->comboBoxRegion = (gcnew System::Windows::Forms::ComboBox());
@@ -226,10 +226,11 @@ namespace LilithPort {
 			this->labelServerName->AutoSize = true;
 			this->labelServerName->Location = System::Drawing::Point(9, 27);
 			this->labelServerName->Name = L"labelServerName";
-			this->labelServerName->Size = System::Drawing::Size(70, 13);
+			this->labelServerName->Size = System::Drawing::Size(54, 13);
 			this->labelServerName->TabIndex = 0;
-			this->labelServerName->Text = L"Server name:";
-			this->toolTipStartupForm->SetToolTip(this->labelServerName, L"The name your server will have.\nThis is not the address.");
+			this->labelServerName->Text = L"Server IP:";
+			this->toolTipStartupForm->SetToolTip(this->labelServerName, L"Set the IP address your server will use.\r\nDo not include the port number in this " 
+				L"field.");
 			// 
 			// textBoxIP
 			// 
@@ -247,7 +248,8 @@ namespace LilithPort {
 			this->labelOpenPort->Size = System::Drawing::Size(62, 13);
 			this->labelOpenPort->TabIndex = 0;
 			this->labelOpenPort->Text = L"Server port:";
-			this->toolTipStartupForm->SetToolTip(this->labelOpenPort, resources->GetString(L"labelOpenPort.ToolTip"));
+			this->toolTipStartupForm->SetToolTip(this->labelOpenPort, L"Set the server port from 1024 - 65535. Default port is 7500.\r\nWhen a server port " 
+				L"is set, users will need to enter \"<url/obfuscated ip>:<port>\".");
 			// 
 			// numericUpDownOpenPort
 			// 
@@ -313,9 +315,9 @@ namespace LilithPort {
 			// 
 			// textBoxServerName
 			// 
-			this->textBoxServerName->Location = System::Drawing::Point(85, 24);
+			this->textBoxServerName->Location = System::Drawing::Point(77, 23);
 			this->textBoxServerName->Name = L"textBoxServerName";
-			this->textBoxServerName->Size = System::Drawing::Size(252, 20);
+			this->textBoxServerName->Size = System::Drawing::Size(260, 20);
 			this->textBoxServerName->TabIndex = 3;
 			this->textBoxServerName->WordWrap = false;
 			// 
@@ -407,7 +409,7 @@ namespace LilithPort {
 			this->labelLooking->Size = System::Drawing::Size(63, 13);
 			this->labelLooking->TabIndex = 10;
 			this->labelLooking->Text = L"Looking for:";
-			this->toolTipStartupForm->SetToolTip(this->labelLooking, L"You will automatically say this message when you join.");
+			this->toolTipStartupForm->SetToolTip(this->labelLooking, L"Specify what you\'re looking for in players.");
 			// 
 			// labelAvoiding
 			// 
@@ -417,7 +419,7 @@ namespace LilithPort {
 			this->labelAvoiding->Size = System::Drawing::Size(51, 13);
 			this->labelAvoiding->TabIndex = 12;
 			this->labelAvoiding->Text = L"Avoiding:";
-			this->toolTipStartupForm->SetToolTip(this->labelAvoiding, L"You will automatically say this message when you join.");
+			this->toolTipStartupForm->SetToolTip(this->labelAvoiding, L"Specify what you\'re avoiding in players.");
 			// 
 			// checkBoxRestConnect
 			// 
@@ -441,25 +443,7 @@ namespace LilithPort {
 			this->labelRegion->Size = System::Drawing::Size(44, 13);
 			this->labelRegion->TabIndex = 13;
 			this->labelRegion->Text = L"Region:";
-			this->toolTipStartupForm->SetToolTip(this->labelRegion, L"You will automatically say this message when you join.");
-			// 
-			// textBoxName
-			// 
-			this->textBoxName->Location = System::Drawing::Point(80, 22);
-			this->textBoxName->Name = L"textBoxName";
-			this->textBoxName->Size = System::Drawing::Size(323, 20);
-			this->textBoxName->TabIndex = 0;
-			this->toolTipStartupForm->SetToolTip(this->textBoxName, L"Your username. You cannot use special characters.");
-			this->textBoxName->WordWrap = false;
-			// 
-			// textBoxComment
-			// 
-			this->textBoxComment->Location = System::Drawing::Point(80, 49);
-			this->textBoxComment->Name = L"textBoxComment";
-			this->textBoxComment->Size = System::Drawing::Size(323, 20);
-			this->textBoxComment->TabIndex = 1;
-			this->toolTipStartupForm->SetToolTip(this->textBoxComment, L"You will automatically say this message when you join.");
-			this->textBoxComment->WordWrap = false;
+			this->toolTipStartupForm->SetToolTip(this->labelRegion, L"Specify a region to show on your profile.");
 			// 
 			// labelGG
 			// 
@@ -469,6 +453,7 @@ namespace LilithPort {
 			this->labelGG->Size = System::Drawing::Size(74, 13);
 			this->labelGG->TabIndex = 16;
 			this->labelGG->Text = L"End message:";
+			this->toolTipStartupForm->SetToolTip(this->labelGG, L"Specify a message to type in chat after a fight.");
 			// 
 			// labelComment
 			// 
@@ -478,6 +463,7 @@ namespace LilithPort {
 			this->labelComment->Size = System::Drawing::Size(54, 13);
 			this->labelComment->TabIndex = 8;
 			this->labelComment->Text = L"Comment:";
+			this->toolTipStartupForm->SetToolTip(this->labelComment, L"You will automatically say this message when you join.");
 			// 
 			// labelName
 			// 
@@ -487,6 +473,31 @@ namespace LilithPort {
 			this->labelName->Size = System::Drawing::Size(38, 13);
 			this->labelName->TabIndex = 5;
 			this->labelName->Text = L"Name:";
+			this->toolTipStartupForm->SetToolTip(this->labelName, L"Your username. You cannot use special characters.");
+			// 
+			// textBoxName
+			// 
+			this->textBoxName->Location = System::Drawing::Point(80, 22);
+			this->textBoxName->Name = L"textBoxName";
+			this->textBoxName->Size = System::Drawing::Size(323, 20);
+			this->textBoxName->TabIndex = 0;
+			this->textBoxName->WordWrap = false;
+			// 
+			// textBoxComment
+			// 
+			this->textBoxComment->Location = System::Drawing::Point(80, 49);
+			this->textBoxComment->Name = L"textBoxComment";
+			this->textBoxComment->Size = System::Drawing::Size(323, 20);
+			this->textBoxComment->TabIndex = 1;
+			this->textBoxComment->WordWrap = false;
+			// 
+			// textBoxGG
+			// 
+			this->textBoxGG->Enabled = false;
+			this->textBoxGG->Location = System::Drawing::Point(91, 25);
+			this->textBoxGG->Name = L"textBoxGG";
+			this->textBoxGG->Size = System::Drawing::Size(189, 20);
+			this->textBoxGG->TabIndex = 6;
 			// 
 			// startupTabs
 			// 
@@ -550,15 +561,6 @@ namespace LilithPort {
 			this->checkBoxGG->Text = L"Enable end message";
 			this->checkBoxGG->UseVisualStyleBackColor = true;
 			this->checkBoxGG->CheckedChanged += gcnew System::EventHandler(this, &StartupForm::checkBoxGG_CheckedChanged);
-			// 
-			// textBoxGG
-			// 
-			this->textBoxGG->Enabled = false;
-			this->textBoxGG->Location = System::Drawing::Point(91, 25);
-			this->textBoxGG->Name = L"textBoxGG";
-			this->textBoxGG->Size = System::Drawing::Size(189, 20);
-			this->textBoxGG->TabIndex = 6;
-			this->toolTipStartupForm->SetToolTip(this->textBoxGG, L"You will automatically say this message when you end a netplay session.");
 			// 
 			// groupBoxUser
 			// 
@@ -653,8 +655,8 @@ namespace LilithPort {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"MorningStar - Welcome";
 			this->TopMost = true;
-			this->Load += gcnew System::EventHandler(this, &StartupForm::StartupForm_Load);
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &StartupForm::StartupForm_FormClosed);
+			this->Load += gcnew System::EventHandler(this, &StartupForm::StartupForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->numericUpDownOpenPort))->EndInit();
 			this->groupBoxStartMode->ResumeLayout(false);
 			this->groupBoxStartMode->PerformLayout();
@@ -723,11 +725,7 @@ namespace LilithPort {
 			textBoxAvoiding->Text = gcnew String(MTOPTION.AVOIDING);
 			comboBoxRegion->Text = gcnew String(MTOPTION.REGION);
 			checkBoxRegion->Checked = MTOPTION.SHOW_REGION;
-			if (checkBoxLegacy->Checked == true){
-				comboBoxRegion->Enabled = false;
-			}else{
-				comboBoxRegion->Enabled = true;
-			}
+
 			textBoxGG->Text = gcnew String(MTOPTION.GG);
 			checkBoxGG->Checked = MTOPTION.GG_ENABLE;
 			// ƒ^ƒu‚ð‰üs‚É
@@ -739,7 +737,7 @@ namespace LilithPort {
 		// After which it then either connects you as the server or as a host/client to another server.
 		System::Void buttonOK_Click(System::Object^  sender, System::EventArgs^  e) {
 			String^ text = textBoxName->Text;
-			array<Char>^ charactersToFind = { '<', '>', ':', '/', '|', '?', '*', '!', '@' };
+			array<Char>^ charactersToFind = { '<', '>', ':', '/', '|', '?', '*', '!', '@', '\\' };
 
 			if (String::IsNullOrEmpty(textBoxName->Text)){
 				MessageBox::Show("Your username cannot be blank.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
@@ -749,7 +747,7 @@ namespace LilithPort {
 			for each (Char character in charactersToFind) {
 				String^ charAsString = gcnew String(&character, 0, 1);
 				if (text->Contains(charAsString)) {
-					MessageBox::Show("Your username cannot contain special characters <, >, :, |, ?, *, !, @.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+					MessageBox::Show("Your username cannot contain special characters <, >, :, |, ?, *, !, @, \\.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 					return;
 				}
 			}
