@@ -24,7 +24,7 @@ When you start MorningStar, a Welcome menu appears. There are 4 main modes of op
 On the destination name, you can also enter the port separated by a colon (:) such as `MyServer:7500`.
 
 ### Port forwarding via UPnP
-Since MorningStar 1.08, you can use UPnP to directly communicate to your router to open a port without any admin access.
+You can use UPnP to directly communicate to your router to open a port without any admin access. This is ideal for non-tech savvy users as you do not need to mess with router settings.
 
 How to use:
 
@@ -130,7 +130,7 @@ A dedicated server is coming in the very distant future. In the meantime, you ca
 ## How to contribute
 You need to have installed the following to build the source code:
 
-- Visual C++ 2008 Express Edition
+- Microsoft Visual Studio 2010.
 
 ## Issues & Support
 
@@ -144,4 +144,4 @@ You can find all releases of this software on the [releases](https://github.com/
 
 This software is licensed under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
-Original source code is Copyright © Joe, all changes in this repo are Copyright © WindowsLogic Productions & BattleCapacity.
+Original source code is Copyright © Joe, all changes in this repo are Copyright © WindowsLogic Productions.
