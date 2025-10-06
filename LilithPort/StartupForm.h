@@ -696,7 +696,6 @@ namespace LilithPort {
 
 			switch(MTOPTION.CONNECTION_TYPE){
 			case 0:
-			//default:
 				radioButtonServer->Checked = true;
 				checkBoxLegacy->Checked = false;
 
@@ -706,6 +705,11 @@ namespace LilithPort {
 
 				break;
 			case 3:
+				radioButtonClient->Checked = true;
+
+				numericUpDownOpenPort->Enabled = false;
+				break;
+			default:
 				radioButtonClient->Checked = true;
 
 				numericUpDownOpenPort->Enabled = false;
