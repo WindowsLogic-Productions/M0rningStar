@@ -12,7 +12,7 @@ using namespace System::Text;
 
 
 namespace LilithPort {
-
+#pragma region Namespace
 	/// <summary>
 	/// StartupForm の概要
 	///
@@ -53,28 +53,14 @@ namespace LilithPort {
 	private: System::Windows::Forms::NumericUpDown^  numericUpDownOpenPort;
 	private: System::Windows::Forms::Button^  buttonOK;
 	private: System::Windows::Forms::Button^  buttonCancel;
-
-
-
-
-
-
-
 	private: System::Windows::Forms::GroupBox^  groupBoxStartMode;
 	private: System::Windows::Forms::TextBox^  textBoxServerName;
 	private: System::Windows::Forms::GroupBox^  groupBoxConnection;
-
-
-
 	private: System::Windows::Forms::GroupBox^  groupBoxWelcome;
 	private: System::Windows::Forms::RichTextBox^  textBoxWelcome;
 	private: System::Windows::Forms::ToolTip^  toolTipStartupForm;
 	private: System::Windows::Forms::Button^  buttonConnect;
-
-
-
 	private: System::Windows::Forms::TabControl^  startupTabs;
-
 	private: System::Windows::Forms::TabPage^  tabPage1;
 	private: System::Windows::Forms::TabPage^  tabPage2;
 	private: System::Windows::Forms::Label^  labelComment;
@@ -85,13 +71,9 @@ namespace LilithPort {
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::GroupBox^  groupBoxUser;
 	private: System::Windows::Forms::Label^  labelAvoiding;
-
 	private: System::Windows::Forms::TextBox^  textBoxAvoiding;
 	private: System::Windows::Forms::Label^  labelLooking;
-
-
 	private: System::Windows::Forms::TextBox^  textBoxLooking;
-
 	private: System::Windows::Forms::CheckBox^  checkBoxUpnp;
 	private: System::Windows::Forms::CheckBox^  checkBoxLegacy;
 	private: System::Windows::Forms::CheckBox^  checkBoxRestConnect;
@@ -117,7 +99,7 @@ namespace LilithPort {
 		/// <summary>
 		/// 必要なデザイナ変数です。
 		/// </summary>
-
+#pragma endregion
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// デザイナ サポートに必要なメソッドです。このメソッドの内容を
@@ -676,6 +658,7 @@ namespace LilithPort {
 
 		}
 #pragma endregion
+#pragma region Variables
 	protected:
 
 		// StartupForm.cpp
@@ -685,7 +668,8 @@ namespace LilithPort {
 
 		// Loads startup settings.
 		static bool ConnectionStart = false;
-
+#pragma endregion
+#pragma region Load Settings
 		System::Void StartupForm_Load(System::Object^  sender, System::EventArgs^  e) {
 			ConnectionStart = false;
 
@@ -736,47 +720,8 @@ namespace LilithPort {
 			ReplaceWelcomeTab(true);
 			textBoxWelcome->Text = gcnew String(MTOPTION.WELCOME);
 		}
-		// Checks if name textbox is null or has invalid characters.
-		// Then checks if the server name is null or invalid.
-		// After which it then either connects you as the server or as a host/client to another server.
-		System::Void buttonOK_Click(System::Object^  sender, System::EventArgs^  e) {
-			String^ text = textBoxName->Text;
-			array<Char>^ charactersToFind = { '<', '>', ':', '/', '|', '?', '*', '!', '@', '\\' };
-
-			if (String::IsNullOrEmpty(textBoxName->Text)){
-				MessageBox::Show("Your username cannot be blank.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
-				return;
-			}
-			
-			for each (Char character in charactersToFind) {
-				String^ charAsString = gcnew String(&character, 0, 1);
-				if (text->Contains(charAsString)) {
-					MessageBox::Show("Your username cannot contain special characters <, >, :, |, ?, *, !, @, \\.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
-					return;
-				}
-			}
-
-			if(!CheckValidate()){
-				return;
-			}
-			ConnectionStart = true;
-			
-			
-
-			this->Close();
-		}
-		// Closes the 'Welcome' dialogue and sends the user to Free Play mode, skipping any type of connection. Effectively "offline" mode.
-		System::Void buttonCancel_Click(System::Object^  sender, System::EventArgs^  e) {
-			MTOPTION.CONNECTION_TYPE = CT_FREE;
-			ConnectionStart = false;
-
-			this->Close();
-		}
-		System::Void StartupForm_FormClosed(System::Object^  sender, System::Windows::Forms::FormClosedEventArgs^  e) {
-			if(!ConnectionStart){
-				MTOPTION.CONNECTION_TYPE = CT_FREE;
-			}
-		}
+#pragma endregion
+#pragma region Functions
 		// Radio buttons for selecting a mode on startup. 
 		System::Void radioButtonServer_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 			numericUpDownOpenPort->Enabled = true;
@@ -789,7 +734,6 @@ namespace LilithPort {
 			checkBoxUpnp->Enabled          = true;
 			checkBoxLegacy->Checked = false;
 		}
-
 		System::Void radioButtonHost_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 			numericUpDownOpenPort->Enabled = true;
 			labelOpenPort->Enabled         = true;
@@ -869,5 +813,49 @@ namespace LilithPort {
 				textBoxGG->Enabled = false;
 			}
 		}
+		System::Void StartupForm_FormClosed(System::Object^  sender, System::Windows::Forms::FormClosedEventArgs^  e) {
+			if(!ConnectionStart){
+				MTOPTION.CONNECTION_TYPE = CT_FREE;
+			}
+		}
+#pragma endregion
+#pragma region Buttons
+		// Checks if name textbox is null or has invalid characters.
+		// Then checks if the server name is null or invalid.
+		// After which it then either connects you as the server or as a host/client to another server.
+		System::Void buttonOK_Click(System::Object^  sender, System::EventArgs^  e) {
+			String^ text = textBoxName->Text;
+			array<Char>^ charactersToFind = { '<', '>', ':', '/', '|', '?', '*', '!', '@', '\\' };
+
+			if (String::IsNullOrEmpty(textBoxName->Text)){
+				MessageBox::Show("Your username cannot be blank.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+				return;
+			}
+			
+			for each (Char character in charactersToFind) {
+				String^ charAsString = gcnew String(&character, 0, 1);
+				if (text->Contains(charAsString)) {
+					MessageBox::Show("Your username cannot contain special characters <, >, :, |, ?, *, !, @, \\.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+					return;
+				}
+			}
+
+			if(!CheckValidate()){
+				return;
+			}
+			ConnectionStart = true;
+			
+			
+
+			this->Close();
+		}
+		// Closes the 'Welcome' dialogue and sends the user to Free Play mode, skipping any type of connection. Effectively "offline" mode.
+		System::Void buttonCancel_Click(System::Object^  sender, System::EventArgs^  e) {
+			MTOPTION.CONNECTION_TYPE = CT_FREE;
+			ConnectionStart = false;
+
+			this->Close();
+		}
+#pragma endregion
 };
 }
