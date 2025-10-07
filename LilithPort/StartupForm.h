@@ -14,13 +14,13 @@ using namespace System::Text;
 namespace LilithPort {
 
 	/// <summary>
-	/// StartupForm �̊T�v
+	/// StartupForm の概要
 	///
-	/// �x��: ���̃N���X�̖��O��ύX����ꍇ�A���̃N���X���ˑ����邷�ׂĂ� .resx �t�@�C���Ɋ֘A�t����ꂽ
-	///          �}�l�[�W ���\�[�X �R���p�C�� �c�[���ɑ΂��� 'Resource File Name' �v���p�e�B��
-	///          �ύX����K�v������܂��B���̕ύX���s��Ȃ��ƁA
-	///          �f�U�C�i�ƁA���̃t�H�[���Ɋ֘A�t����ꂽ���[�J���C�Y�ς݃��\�[�X�Ƃ��A
-	///          ���������݂ɗ��p�ł��Ȃ��Ȃ�܂��B
+	/// 警告: このクラスの名前を変更する場合、このクラスが依存するすべての .resx ファイルに関連付けられた
+	///          マネージ リソース コンパイラ ツールに対して 'Resource File Name' プロパティを
+	///          変更する必要があります。この変更を行わないと、
+	///          デザイナと、このフォームに関連付けられたローカライズ済みリソースとが、
+	///          正しく相互に利用できなくなります。
 	/// </summary>
 	public ref class StartupForm : public System::Windows::Forms::Form
 	{
@@ -29,13 +29,13 @@ namespace LilithPort {
 		{
 			InitializeComponent();
 			//
-			//TODO: �����ɃR���X�g���N�^ �R�[�h��ǉ����܂�
+			//TODO: ここにコンストラクタ コードを追加します
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// �g�p���̃��\�[�X�����ׂăN���[���A�b�v���܂��B
+		/// 使用中のリソースをすべてクリーンアップします。
 		/// </summary>
 		~StartupForm()
 		{
@@ -115,13 +115,13 @@ namespace LilithPort {
 	private: System::ComponentModel::IContainer^  components;
 	private:
 		/// <summary>
-		/// �K�v�ȃf�U�C�i�ϐ��ł��B
+		/// 必要なデザイナ変数です。
 		/// </summary>
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// �f�U�C�i �T�|�[�g�ɕK�v�ȃ��\�b�h�ł��B���̃��\�b�h�̓��e��
-		/// �R�[�h �G�f�B�^�ŕύX���Ȃ��ł��������B
+		/// デザイナ サポートに必要なメソッドです。このメソッドの内容を
+		/// コード エディタで変更しないでください。
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -732,7 +732,7 @@ namespace LilithPort {
 
 			textBoxGG->Text = gcnew String(MTOPTION.GG);
 			checkBoxGG->Checked = MTOPTION.GG_ENABLE;
-			// �^�u�����s��
+			// タブを改行に
 			ReplaceWelcomeTab(true);
 			textBoxWelcome->Text = gcnew String(MTOPTION.WELCOME);
 		}
