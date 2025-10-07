@@ -1153,6 +1153,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 				this->reconnectToolStripMenuItem, this->toggleRestModeToolStripMenuItem, this->toggleSeekModeToolStripMenuItem, this->toolStripSeparator17, 
 				this->settingsToolStripMenuItem, this->toolStripSeparator18, this->exitToolStripMenuItem});
 			this->contextMenuStripSysTray->Name = L"contextMenuStripSysTray";
+			this->contextMenuStripSysTray->RenderMode = System::Windows::Forms::ToolStripRenderMode::System;
 			this->contextMenuStripSysTray->Size = System::Drawing::Size(192, 204);
 			// 
 			// restoreToolStripMenuItem
@@ -1872,26 +1873,27 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 				Monitor::Exit(MemberList);
 			}
 
-			// ‰¹º—Dæ“x: ƒjƒbƒNƒl[ƒ€ > ƒL[ƒ[ƒh > ”­Œ¾
-			// ƒjƒbƒNƒl[ƒ€‰¹ºÄ¶
+			// Notify user on nickname mention.
 			String ^tmpMsg = Encoding::Unicode->GetString(msg, 4, msg[3]);
 			bool inname = 0;
 			if(tmpMsg->Contains(gcnew String(MTOPTION.NAME))) {
 				// –¼‘O‚ªŒÄ‚Î‚ê‚½‚çƒEƒBƒ“ƒhƒE“_–Å
-				if(MTOPTION.NAME_FLASH) {
+				/*if(MTOPTION.NAME_FLASH) {
 					WindowFlash();
-				}
+				}*/
 				if(MTOPTION.NAME_SOUND_ENABLE){
 					inname = 1;
 					try{
-						Media::SoundPlayer^ wav = gcnew Media::SoundPlayer(gcnew String(MTOPTION.NAME_SOUND));
-						wav->Play();
+						/*Media::SoundPlayer^ wav = gcnew Media::SoundPlayer(gcnew String(MTOPTION.NAME_SOUND));
+						wav->Play();*/
+						WindowFlash();
+						notifyIconSysTray->ShowBalloonTip(1, "MorningStar - Notification", "Your nickname (" + gcnew String(MTOPTION.NAME) + ") was mentioned.", ToolTipIcon::Info);
 					}
 					catch(Exception^){
 					}
 				}
 			}
-			// ƒL[ƒ[ƒh”½‰ž
+			// Notify user on keyword mention.
 			bool inkeyword = 0;
 			if(MTOPTION.KEYWORD_SOUND_ENABLE && !inname){
 				// •ªŠ„ƒoƒbƒtƒ@
@@ -1903,8 +1905,9 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 					if(tmpMsg->Contains(gcnew String(tok))) {
 						inkeyword = 1;
 						try{
-							Media::SoundPlayer^ wav = gcnew Media::SoundPlayer(gcnew String(MTOPTION.KEYWORD_SOUND));
-							wav->Play();
+							/*Media::SoundPlayer^ wav = gcnew Media::SoundPlayer(gcnew String(MTOPTION.KEYWORD_SOUND));
+							wav->Play();*/
+							notifyIconSysTray->ShowBalloonTip(1, "MorningStar - Notification", "Keyword (" + gcnew String(tok) + ") was mentioned.", ToolTipIcon::Info);
 						}
 						catch(Exception^){
 						}
@@ -1913,16 +1916,17 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 					tok = wcstok_s(NULL, _T(","), &next);
 				}
 			}
-			// ”­Œ¾‚ÅƒEƒBƒ“ƒhƒE“_–Å
+			// Play sound on chat message.
 			if(MemberList[0]->ID != id && !inname) {
-				if(MTOPTION.TALK_FLASH) {
+				/*if(MTOPTION.TALK_FLASH) {
 					WindowFlash();
-				}
+				}*/
 				// ”­Œ¾‚Å‰¹‚ðÄ¶
 				if(MTOPTION.TALK_SOUND_ENABLE && !inkeyword){
 					try{
 						Media::SoundPlayer^ wav = gcnew Media::SoundPlayer(gcnew String(MTOPTION.TALK_SOUND));
 						wav->Play();
+						WindowFlash();
 					}
 					catch(Exception^){
 					}
@@ -1976,8 +1980,9 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			if(MTOPTION.CONNECTION_TYPE != CT_SERVER){
 				if(MTOPTION.NOTICE_SOUND_ENABLE){
 					try{
-						Media::SoundPlayer^ wav = gcnew Media::SoundPlayer(gcnew String(MTOPTION.NOTICE_SOUND));
-						wav->Play();
+						/*Media::SoundPlayer^ wav = gcnew Media::SoundPlayer(gcnew String(MTOPTION.NOTICE_SOUND));
+						wav->Play();*/
+						notifyIconSysTray->ShowBalloonTip(1, "MorningStar - Notification", gcnew String(msg), ToolTipIcon::Info);
 					}
 					catch(Exception^){
 					}
@@ -2016,7 +2021,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 				return;
 			}
 
-			// ‰¹‚Å‚¨’m‚ç‚¹
+			// Play a chosen sound on member join.
 			if(MTOPTION.ENTER_SOUND_ENABLE){
 				try{
 					Media::SoundPlayer^ wav = gcnew Media::SoundPlayer(gcnew String(MTOPTION.ENTER_SOUND));
@@ -3100,6 +3105,9 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 #pragma region Commands
 
 #pragma endregion
+#pragma region Options
+
+#pragma endregion
 #pragma endregion
 		// Opens the MorningStar Settings form.
 		System::Void toolStripMenuItemSetting_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -3115,7 +3123,8 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 		}
 		// Get the version string of MorningStar.
 		System::Void toolStripMenuItemVersion_Click(System::Object^  sender, System::EventArgs^  e) {
-			WriteMessage("MorningStar 1.1.0.4 by WindowsLogic Productions.\n\n", SystemMessageColor);
+			WriteMessage("MorningStar 1.1.0.4 by WindowsLogic Productions.\n", SystemMessageColor);
+			WriteMessage("Donate towards development: https://paypal.me/windowslogic \n\n", SystemMessageColor);
 		}
 
 		// Adds the current server to your bookmarks with a maximum of 10.
