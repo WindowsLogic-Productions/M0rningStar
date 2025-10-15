@@ -704,6 +704,8 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			// 
 			// toolStripMenuItemWordWrap
 			// 
+			this->toolStripMenuItemWordWrap->Checked = true;
+			this->toolStripMenuItemWordWrap->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->toolStripMenuItemWordWrap->Name = L"toolStripMenuItemWordWrap";
 			this->toolStripMenuItemWordWrap->ShortcutKeys = static_cast<System::Windows::Forms::Keys>(((System::Windows::Forms::Keys::Alt | System::Windows::Forms::Keys::Shift) 
 				| System::Windows::Forms::Keys::W));
@@ -1423,7 +1425,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			try{
 				FileVersionInfo^ info = FileVersionInfo::GetVersionInfo(gcnew String(MTOPTION.GAME_EXE));
 
-				if(info->FileDescription != "２Ｄ格闘ツクール2nd." && info->FileDescription == "２Ｄ格闘ツクール９５" && info->FileDescription == "Fighting is Magic: Aurora" && info->LegalCopyright != "(C)2001 ENTERBRAIN,INC / OUTBACK"){
+				if(info->FileDescription != "２Ｄ格闘ツクール2nd." && info->FileDescription == "２Ｄ格闘ツクール９５" && info->FileDescription == "Fighting is Magic: Aurora"){
 					throw gcnew Exception;
 				}
 				else{
