@@ -1,4 +1,4 @@
-// LilithPort.cpp : メイン プロジェクト ファイルです。
+// MorningStar.cpp : メイン プロジェクト ファイルです。
 
 #include "stdafx.h"
 #include "MainForm.h"
