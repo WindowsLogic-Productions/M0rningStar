@@ -161,7 +161,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  GameStartNoReplayToolStripM
 private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator12;
 private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemKick;
 private: System::Windows::Forms::StatusStrip^  statusStrip1;
-private: System::Windows::Forms::ToolStripStatusLabel^  toolStripStatusLabel;
+
 
 private: System::Windows::Forms::ToolStripDropDownButton^  toolStripDropDownButtonProfile;
 private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemSeek;
@@ -204,6 +204,14 @@ private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator18;
 private: System::Windows::Forms::ToolStripMenuItem^  exitToolStripMenuItem;
 private: System::Windows::Forms::ToolStripMenuItem^  reconnectToolStripMenuItem;
 private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordServerToolStripMenuItem;
+private: System::Windows::Forms::Button^  buttonRefresh;
+private: System::Windows::Forms::Button^  buttonReconnect;
+private: System::Windows::Forms::Button^  buttonRest;
+
+private: System::Windows::Forms::Button^  buttonPlay;
+private: System::Windows::Forms::Button^  buttonSeek;
+private: System::Windows::Forms::Button^  buttonClear;
+private: System::Windows::Forms::CheckBox^  checkAutoScroll;
 
 
 
@@ -316,10 +324,15 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			this->contxtMenuItemSaveLog = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->toolTipMember = (gcnew System::Windows::Forms::ToolTip(this->components));
+			this->buttonReconnect = (gcnew System::Windows::Forms::Button());
+			this->buttonRest = (gcnew System::Windows::Forms::Button());
+			this->buttonPlay = (gcnew System::Windows::Forms::Button());
+			this->buttonSeek = (gcnew System::Windows::Forms::Button());
+			this->buttonClear = (gcnew System::Windows::Forms::Button());
+			this->buttonRefresh = (gcnew System::Windows::Forms::Button());
 			this->statusStrip1 = (gcnew System::Windows::Forms::StatusStrip());
 			this->toolStripStatusLabel1 = (gcnew System::Windows::Forms::ToolStripStatusLabel());
 			this->toolStripDropDownButtonProfile = (gcnew System::Windows::Forms::ToolStripDropDownButton());
-			this->toolStripStatusLabel = (gcnew System::Windows::Forms::ToolStripStatusLabel());
 			this->notifyIconSysTray = (gcnew System::Windows::Forms::NotifyIcon(this->components));
 			this->contextMenuStripSysTray = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->restoreToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -334,6 +347,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			this->settingsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->toolStripSeparator18 = (gcnew System::Windows::Forms::ToolStripSeparator());
 			this->exitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->checkAutoScroll = (gcnew System::Windows::Forms::CheckBox());
 			ReloadListToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->splitContainer1))->BeginInit();
@@ -353,6 +367,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			ReloadListToolStripMenuItem->ShortcutKeys = System::Windows::Forms::Keys::F5;
 			ReloadListToolStripMenuItem->Size = System::Drawing::Size(237, 22);
 			ReloadListToolStripMenuItem->Text = L"Refresh &list";
+			ReloadListToolStripMenuItem->Visible = false;
 			ReloadListToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ReloadListToolStripMenuItem_Click);
 			// 
 			// menuStrip1
@@ -362,7 +377,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->RenderMode = System::Windows::Forms::ToolStripRenderMode::System;
-			this->menuStrip1->Size = System::Drawing::Size(624, 24);
+			this->menuStrip1->Size = System::Drawing::Size(784, 24);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -420,6 +435,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			this->GameStartToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::G));
 			this->GameStartToolStripMenuItem->Size = System::Drawing::Size(237, 22);
 			this->GameStartToolStripMenuItem->Text = L"Start &game";
+			this->GameStartToolStripMenuItem->Visible = false;
 			this->GameStartToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::GameStartToolStripMenuItem_Click);
 			// 
 			// GameStartNoReplayToolStripMenuItem
@@ -441,6 +457,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			this->RestartToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::R));
 			this->RestartToolStripMenuItem->Size = System::Drawing::Size(237, 22);
 			this->RestartToolStripMenuItem->Text = L"&Reconnect";
+			this->RestartToolStripMenuItem->Visible = false;
 			this->RestartToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::RestartToolStripMenuItem_Click);
 			// 
 			// LeaveToolStripMenuItem
@@ -449,6 +466,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			this->LeaveToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::L));
 			this->LeaveToolStripMenuItem->Size = System::Drawing::Size(237, 22);
 			this->LeaveToolStripMenuItem->Text = L"&Leave";
+			this->LeaveToolStripMenuItem->Visible = false;
 			this->LeaveToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::LeaveToolStripMenuItem_Click);
 			// 
 			// RestToolStripMenuItem
@@ -457,6 +475,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			this->RestToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Alt | System::Windows::Forms::Keys::R));
 			this->RestToolStripMenuItem->Size = System::Drawing::Size(237, 22);
 			this->RestToolStripMenuItem->Text = L"Toggle rest &mode";
+			this->RestToolStripMenuItem->Visible = false;
 			this->RestToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::RestToolStripMenuItem_Click);
 			// 
 			// SeekToolStripMenuItem
@@ -466,12 +485,14 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 				| System::Windows::Forms::Keys::S));
 			this->SeekToolStripMenuItem->Size = System::Drawing::Size(237, 22);
 			this->SeekToolStripMenuItem->Text = L"Toggle &seek mode";
+			this->SeekToolStripMenuItem->Visible = false;
 			this->SeekToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::SeekToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator10
 			// 
 			this->toolStripSeparator10->Name = L"toolStripSeparator10";
 			this->toolStripSeparator10->Size = System::Drawing::Size(234, 6);
+			this->toolStripSeparator10->Visible = false;
 			// 
 			// ClearToolStripMenuItem
 			// 
@@ -721,6 +742,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			this->LogLockToolStripMenuItem->ShortcutKeys = System::Windows::Forms::Keys::F4;
 			this->LogLockToolStripMenuItem->Size = System::Drawing::Size(247, 22);
 			this->LogLockToolStripMenuItem->Text = L"Auto &scroll chat";
+			this->LogLockToolStripMenuItem->Visible = false;
 			this->LogLockToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::LogLockToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator7
@@ -927,8 +949,8 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			// 
 			this->splitContainer1->Panel2->Controls->Add(this->textBoxInput);
 			this->splitContainer1->Panel2->Controls->Add(this->richTextBoxLog);
-			this->splitContainer1->Size = System::Drawing::Size(624, 392);
-			this->splitContainer1->SplitterDistance = 137;
+			this->splitContainer1->Size = System::Drawing::Size(784, 362);
+			this->splitContainer1->SplitterDistance = 172;
 			this->splitContainer1->TabIndex = 2;
 			this->splitContainer1->TabStop = false;
 			// 
@@ -942,7 +964,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			this->listBoxMember->ItemHeight = 12;
 			this->listBoxMember->Location = System::Drawing::Point(0, 0);
 			this->listBoxMember->Name = L"listBoxMember";
-			this->listBoxMember->Size = System::Drawing::Size(135, 390);
+			this->listBoxMember->Size = System::Drawing::Size(170, 360);
 			this->listBoxMember->TabIndex = 2;
 			this->listBoxMember->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::listBoxMember_MouseClick);
 			this->listBoxMember->DrawItem += gcnew System::Windows::Forms::DrawItemEventHandler(this, &MainForm::listBoxMember_DrawItem);
@@ -1011,10 +1033,10 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			this->textBoxInput->BackColor = System::Drawing::SystemColors::Window;
 			this->textBoxInput->ContextMenuStrip = this->contextMenuStripTextbox;
 			this->textBoxInput->Dock = System::Windows::Forms::DockStyle::Bottom;
-			this->textBoxInput->Location = System::Drawing::Point(0, 370);
+			this->textBoxInput->Location = System::Drawing::Point(0, 340);
 			this->textBoxInput->MaxLength = 127;
 			this->textBoxInput->Name = L"textBoxInput";
-			this->textBoxInput->Size = System::Drawing::Size(481, 20);
+			this->textBoxInput->Size = System::Drawing::Size(606, 20);
 			this->textBoxInput->TabIndex = 0;
 			this->textBoxInput->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MainForm::textBoxInput_KeyDown);
 			// 
@@ -1063,7 +1085,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			this->richTextBoxLog->Location = System::Drawing::Point(0, 0);
 			this->richTextBoxLog->Name = L"richTextBoxLog";
 			this->richTextBoxLog->ReadOnly = true;
-			this->richTextBoxLog->Size = System::Drawing::Size(481, 369);
+			this->richTextBoxLog->Size = System::Drawing::Size(606, 339);
 			this->richTextBoxLog->TabIndex = 0;
 			this->richTextBoxLog->TabStop = false;
 			this->richTextBoxLog->Text = L"";
@@ -1104,19 +1126,93 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			this->openFileDialog1->Filter = L"MT Replay file (*.mtr)|*.mtr";
 			this->openFileDialog1->Title = L"MorningStar—p‚ÌƒŠƒvƒŒƒCƒtƒ@ƒCƒ‹";
 			// 
+			// buttonReconnect
+			// 
+			this->buttonReconnect->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+			this->buttonReconnect->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"buttonReconnect.Image")));
+			this->buttonReconnect->Location = System::Drawing::Point(177, 392);
+			this->buttonReconnect->Name = L"buttonReconnect";
+			this->buttonReconnect->Size = System::Drawing::Size(48, 25);
+			this->buttonReconnect->TabIndex = 5;
+			this->toolTipMember->SetToolTip(this->buttonReconnect, L"Reconnect or go to free play.");
+			this->buttonReconnect->UseVisualStyleBackColor = true;
+			this->buttonReconnect->Click += gcnew System::EventHandler(this, &MainForm::buttonReconnect_Click);
+			// 
+			// buttonRest
+			// 
+			this->buttonRest->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+			this->buttonRest->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"buttonRest.Image")));
+			this->buttonRest->Location = System::Drawing::Point(231, 392);
+			this->buttonRest->Name = L"buttonRest";
+			this->buttonRest->Size = System::Drawing::Size(48, 25);
+			this->buttonRest->TabIndex = 6;
+			this->toolTipMember->SetToolTip(this->buttonRest, L"Toggle rest mode.");
+			this->buttonRest->UseVisualStyleBackColor = true;
+			this->buttonRest->Click += gcnew System::EventHandler(this, &MainForm::button2_Click);
+			// 
+			// buttonPlay
+			// 
+			this->buttonPlay->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+			this->buttonPlay->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"buttonPlay.Image")));
+			this->buttonPlay->Location = System::Drawing::Point(285, 392);
+			this->buttonPlay->Name = L"buttonPlay";
+			this->buttonPlay->Size = System::Drawing::Size(48, 25);
+			this->buttonPlay->TabIndex = 7;
+			this->toolTipMember->SetToolTip(this->buttonPlay, L"Start single player mode.");
+			this->buttonPlay->UseVisualStyleBackColor = true;
+			this->buttonPlay->Click += gcnew System::EventHandler(this, &MainForm::buttonPlay_Click);
+			// 
+			// buttonSeek
+			// 
+			this->buttonSeek->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+			this->buttonSeek->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"buttonSeek.Image")));
+			this->buttonSeek->Location = System::Drawing::Point(339, 392);
+			this->buttonSeek->Name = L"buttonSeek";
+			this->buttonSeek->Size = System::Drawing::Size(48, 25);
+			this->buttonSeek->TabIndex = 8;
+			this->toolTipMember->SetToolTip(this->buttonSeek, L"Toggle seek mode.");
+			this->buttonSeek->UseVisualStyleBackColor = true;
+			this->buttonSeek->Click += gcnew System::EventHandler(this, &MainForm::buttonSeek_Click);
+			// 
+			// buttonClear
+			// 
+			this->buttonClear->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+			this->buttonClear->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"buttonClear.Image")));
+			this->buttonClear->Location = System::Drawing::Point(393, 392);
+			this->buttonClear->Name = L"buttonClear";
+			this->buttonClear->Size = System::Drawing::Size(48, 25);
+			this->buttonClear->TabIndex = 9;
+			this->toolTipMember->SetToolTip(this->buttonClear, L"Clear chat.");
+			this->buttonClear->UseVisualStyleBackColor = true;
+			this->buttonClear->Click += gcnew System::EventHandler(this, &MainForm::buttonClear_Click);
+			// 
+			// buttonRefresh
+			// 
+			this->buttonRefresh->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+			this->buttonRefresh->Location = System::Drawing::Point(20, 393);
+			this->buttonRefresh->Name = L"buttonRefresh";
+			this->buttonRefresh->Size = System::Drawing::Size(138, 23);
+			this->buttonRefresh->TabIndex = 4;
+			this->buttonRefresh->Text = L"Refresh List";
+			this->toolTipMember->SetToolTip(this->buttonRefresh, L"Update the member list if it\'s desynced from the server.");
+			this->buttonRefresh->UseVisualStyleBackColor = true;
+			this->buttonRefresh->Click += gcnew System::EventHandler(this, &MainForm::buttonRefresh_Click);
+			// 
 			// statusStrip1
 			// 
-			this->statusStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {this->toolStripStatusLabel1, 
-				this->toolStripDropDownButtonProfile, this->toolStripStatusLabel});
+			this->statusStrip1->BackColor = System::Drawing::Color::Transparent;
+			this->statusStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {this->toolStripStatusLabel1, 
+				this->toolStripDropDownButtonProfile});
 			this->statusStrip1->Location = System::Drawing::Point(0, 419);
 			this->statusStrip1->Name = L"statusStrip1";
 			this->statusStrip1->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->statusStrip1->Size = System::Drawing::Size(624, 22);
+			this->statusStrip1->Size = System::Drawing::Size(784, 22);
 			this->statusStrip1->TabIndex = 3;
 			this->statusStrip1->Text = L"statusStrip1";
 			// 
 			// toolStripStatusLabel1
 			// 
+			this->toolStripStatusLabel1->ForeColor = System::Drawing::Color::Black;
 			this->toolStripStatusLabel1->Name = L"toolStripStatusLabel1";
 			this->toolStripStatusLabel1->Size = System::Drawing::Size(91, 17);
 			this->toolStripStatusLabel1->Text = L"Selected profile:";
@@ -1129,16 +1225,6 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			this->toolStripDropDownButtonProfile->Name = L"toolStripDropDownButtonProfile";
 			this->toolStripDropDownButtonProfile->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->toolStripDropDownButtonProfile->Size = System::Drawing::Size(13, 20);
-			// 
-			// toolStripStatusLabel
-			// 
-			this->toolStripStatusLabel->BorderSides = System::Windows::Forms::ToolStripStatusLabelBorderSides::Left;
-			this->toolStripStatusLabel->BorderStyle = System::Windows::Forms::Border3DStyle::Raised;
-			this->toolStripStatusLabel->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
-			this->toolStripStatusLabel->Margin = System::Windows::Forms::Padding(5, 3, 0, 2);
-			this->toolStripStatusLabel->Name = L"toolStripStatusLabel";
-			this->toolStripStatusLabel->Padding = System::Windows::Forms::Padding(5, 0, 0, 0);
-			this->toolStripStatusLabel->Size = System::Drawing::Size(9, 17);
 			// 
 			// notifyIconSysTray
 			// 
@@ -1234,18 +1320,39 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			this->exitToolStripMenuItem->Text = L"Exit";
 			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::exitToolStripMenuItem_Click);
 			// 
+			// checkAutoScroll
+			// 
+			this->checkAutoScroll->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			this->checkAutoScroll->AutoSize = true;
+			this->checkAutoScroll->Location = System::Drawing::Point(662, 397);
+			this->checkAutoScroll->Name = L"checkAutoScroll";
+			this->checkAutoScroll->Size = System::Drawing::Size(110, 17);
+			this->checkAutoScroll->TabIndex = 10;
+			this->checkAutoScroll->Text = L"Enable auto-scroll";
+			this->checkAutoScroll->UseVisualStyleBackColor = true;
+			this->checkAutoScroll->CheckedChanged += gcnew System::EventHandler(this, &MainForm::checkAutoScroll_CheckedChanged);
+			// 
 			// MainForm
 			// 
 			this->AllowDrop = true;
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(624, 441);
+			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->ClientSize = System::Drawing::Size(784, 441);
+			this->Controls->Add(this->checkAutoScroll);
+			this->Controls->Add(this->buttonClear);
+			this->Controls->Add(this->buttonSeek);
+			this->Controls->Add(this->buttonPlay);
+			this->Controls->Add(this->buttonRest);
+			this->Controls->Add(this->buttonReconnect);
+			this->Controls->Add(this->buttonRefresh);
 			this->Controls->Add(this->menuStrip1);
 			this->Controls->Add(this->statusStrip1);
 			this->Controls->Add(this->splitContainer1);
+			this->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^  >(resources->GetObject(L"$this.Icon")));
 			this->MainMenuStrip = this->menuStrip1;
-			this->MinimumSize = System::Drawing::Size(640, 480);
+			this->MinimumSize = System::Drawing::Size(800, 480);
 			this->Name = L"MainForm";
 			this->Text = L"MorningStar";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MainForm::MainForm_FormClosing);
@@ -2139,6 +2246,19 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 		void WriteWhatsNew(){
 			WriteMessage(
 				L"\n"
+				L"~.Version 2.0.0.0.~\n"
+				L"\n"
+				L"- Fixed a bug where reconnecting would cause startup form to not choose any default connection option.\n"
+				L"- Added mute checkboxes to volume settings.\n"
+				L"- Added native real-time notifications.\n"
+				L"- Moved options from 'Settings > Other' to 'Settings > General'.\n"
+				L"- Added MorningStar logo to system tray icon.\n"
+				L"- Redesigned main interface and removed clutter from menus.\n"
+				L"\n"
+				L"~.Version 1.1.0.5.~\n"
+				L"\n"
+				L"- Fixed a bug where Aurora versions would not start properly.\n"
+				L"\n"
 				L"~.Version 1.1.0.4.~\n"
 				L"\n"
 				L"- Fixed a bug where chat window would not resize to window size.\n"
@@ -2526,7 +2646,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 			WriteMessage("The member list has been updated.\n", SystemMessageColor);
 		}
 		void WriteStatus(String^ msg){
-			toolStripStatusLabel->Text = msg;
+			//toolStripStatusLabel->Text = msg;
 		}
 	public:
 
@@ -3105,16 +3225,16 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 		}
 #pragma endregion
 #pragma region Commands
-
+		// Opens the MorningStar Settings form.
+		System::Void toolStripMenuItemSetting_Click(System::Object^  sender, System::EventArgs^  e) {
+			LoadSettings();
+		}
 #pragma endregion
 #pragma region Options
 
 #pragma endregion
 #pragma endregion
-		// Opens the MorningStar Settings form.
-		System::Void toolStripMenuItemSetting_Click(System::Object^  sender, System::EventArgs^  e) {
-			LoadSettings();
-		}
+		
 		// Get a comprehensive command and shortcut list.
 		System::Void toolStripMenuItemViewCommand_Click(System::Object^  sender, System::EventArgs^  e) {
 			WriteCommandList();
@@ -3125,7 +3245,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 		}
 		// Get the version string of MorningStar.
 		System::Void toolStripMenuItemVersion_Click(System::Object^  sender, System::EventArgs^  e) {
-			WriteMessage("MorningStar 1.1.0.4 by WindowsLogic Productions.\n", SystemMessageColor);
+			WriteMessage("MorningStar 2.0.0.0 by WindowsLogic Productions.\n", SystemMessageColor);
 			WriteMessage("Donate towards development: https://paypal.me/windowslogic \n\n", SystemMessageColor);
 		}
 
@@ -3797,6 +3917,30 @@ private: System::Windows::Forms::ToolStripMenuItem^  dFighterMaker952ndDiscordSe
 		System::Void exitToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 			 this->Close();
 		 }
-#pragma endregion 
+#pragma endregion
+#pragma region Action Bar
+		System::Void buttonRefresh_Click(System::Object^  sender, System::EventArgs^  e) {
+			ReloadList();
+		 }
+		System::Void buttonReconnect_Click(System::Object^  sender, System::EventArgs^  e) {
+			Reconnect();
+		 }
+		System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+			ToggleRest();
+		 }
+		System::Void buttonPlay_Click(System::Object^  sender, System::EventArgs^  e) {
+			StartGame(RT_FREE);
+		 }
+		System::Void buttonSeek_Click(System::Object^  sender, System::EventArgs^  e) {
+			ChangeSeek();
+		 }
+		System::Void buttonClear_Click(System::Object^  sender, System::EventArgs^  e) {
+			ClearLog();
+		 }
+		System::Void checkAutoScroll_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+			checkAutoScroll->Checked ^= 1;
+			MTOPTION.LOG_LOCK = LogLockToolStripMenuItem->Checked;
+		 }
+#pragma endregion
 };
 }
